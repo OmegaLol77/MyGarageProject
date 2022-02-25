@@ -2,7 +2,9 @@ package Garage.MyGarage.beans;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
 @Entity
+@Table(name = "Admin")
 public class Admin extends Person {
 
 	@GeneratedValue
@@ -16,14 +18,13 @@ public class Admin extends Person {
 	}
 
 	/**
-	 * @param id
 	 * @param phoneNum
 	 * @param firstName
 	 * @param lastName
 	 * @param email
 	 */
-	public Admin(int id, int phoneNum, String firstName, String lastName, String email) {
-		super(id, phoneNum, firstName, lastName, email);
+	public Admin( int phoneNum, String firstName, String lastName, String email) {
+		super( phoneNum, firstName, lastName, email);
 		// TODO Auto-generated constructor stub
 	}
 

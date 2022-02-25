@@ -3,8 +3,14 @@ package Garage.MyGarage.beans;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.Table;
+import javax.persistence.InheritanceType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) 
+
+@Table(name = "Person")
 public class Person {
 	
 	/*Create person Bean*/
@@ -28,7 +34,7 @@ public class Person {
 	 * @param lastName
 	 * @param email
 	 */
-	public Person(int id, int phoneNum, String firstName, String lastName, String email) {
+	public Person( int phoneNum, String firstName, String lastName, String email) {
 		super();
 		setPhoneNum(phoneNum);
 		setFirstName(firstName);

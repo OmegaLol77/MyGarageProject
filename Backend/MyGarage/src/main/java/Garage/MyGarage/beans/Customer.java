@@ -2,7 +2,9 @@ package Garage.MyGarage.beans;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
 @Entity
+@Table(name = "Customer")
 public class Customer extends Person {
 	@GeneratedValue
 	private int id;
@@ -23,8 +25,8 @@ public class Customer extends Person {
 	 * @param lastName
 	 * @param email
 	 */
-	public Customer(int id, int phoneNum, String firstName, String lastName, String email) {
-		super(id, phoneNum, firstName, lastName, email);
+	public Customer( int phoneNum, String firstName, String lastName, String email) {
+		super( phoneNum, firstName, lastName, email);
 		// TODO Auto-generated constructor stub
 	}
 
