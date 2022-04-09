@@ -2,19 +2,22 @@ import React, { useEffect, useState } from 'react'
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./index.css";
+import CustomerService from "./CustomerService";
+import { useHistory} from "react-router-dom";
+
 
 export default function Login() {  
     const [Email,setEmail] = useState("");
     const [Password,setPassword] = useState("");
-
-
+    
+    let history =useHistory();
 
     const ver=e=>{
         e.preventDefault();
-        console.log(Email);
-        console.log(Password);
-    //    check if the user and password are right in the DB if yes continue to home
-    };
+        var x=true
+        CustomerService.CheckCustomer(Email,Password).then( props => {props==true ? history.push("/"): this.alert("You are not a customer please Sign-up")}).catch();
+
+        }
 
     return(
         <form className="Login">
@@ -34,7 +37,7 @@ export default function Login() {
         </a>
         <br></br>
         <br></br>
-        doesn't have an account <a href="./AddCar" style={{color:"blue"}} >Signup</a>
+        doesn't have an account <a href="./SignUp" style={{color:"blue"}} >Signup</a>
         <br></br>
         <button type="submit" onClick={ver} >Submit</button>
 

@@ -1,11 +1,13 @@
 package Garage.MyGarage.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
 import javax.persistence.InheritanceType;
+import javax.persistence.Lob;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) 
@@ -16,11 +18,14 @@ public class Person {
 	/*Create person Bean*/
 	@GeneratedValue
 	private int id;
-	@Id
 	private int PhoneNum; 
 	private String FirstName;
 	private String LastName;
+	@Id
+	@Column(name = "Email", length = 200)
 	private String Email;
+	
+
 	/**
 	 * 
 	 */

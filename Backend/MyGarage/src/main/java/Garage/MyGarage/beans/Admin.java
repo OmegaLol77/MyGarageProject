@@ -9,6 +9,15 @@ public class Admin extends Person {
 
 	@GeneratedValue
 	private int id;
+	private String password;
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	/**
 	 * 
 	 */

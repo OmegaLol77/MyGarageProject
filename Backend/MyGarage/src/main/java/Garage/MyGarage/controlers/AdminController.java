@@ -28,14 +28,14 @@ public class AdminController {
 		return AdminBL.getAllAdmins();
 	}
 	
-	@GetMapping("/{phoneNum}/findAdminByphoneNum")
-	public Admin findAdminByphoneNum(@PathVariable("findByphoneNum") Integer phoneNum) {
-		return AdminBL.getAdminByphoneNum(phoneNum);
+	@GetMapping("/{Email}/findAdminByEmail")
+	public Admin findAdminByEmail(@PathVariable("findAdminByEmail") String Email) {
+		return AdminBL.findAdminByEmail(Email);
 	}
 	
 	@PostMapping("addAdmin")
 	public boolean addCustomer(@RequestBody Admin admin) {
-		if(AdminBL.getAdminByphoneNum(admin.getPhoneNum()).equals(null)){
+		if(AdminBL.findAdminByEmail(admin.getEmail()).equals(null)){
 			AdminBL.addAdmin(admin);
 			return true;
 		}
@@ -43,10 +43,10 @@ public class AdminController {
 			return false;
 		}
 	}
-	@DeleteMapping("/{phoneNum}/delteAdmin")
-	public boolean delteAdmin(@PathVariable("phoneNum")int phoneNum) {
-		if(!AdminBL.getAdminByphoneNum(phoneNum).equals(null)) {
-			AdminBL.deleteAdmin(phoneNum);
+	@DeleteMapping("/{Email}/delteAdmin")
+	public boolean delteAdmin(@PathVariable("Email")String Email) {
+		if(!AdminBL.findAdminByEmail(Email).equals(null)) {
+			AdminBL.deleteAdmin(Email);
 			return true;
 		}
 		else {
@@ -55,10 +55,10 @@ public class AdminController {
 		
 	}
 	
-	@PostMapping("/{phoneNum}/updateAdmin")
-	public boolean updateAdmin(@PathVariable("phoneNum") int phoneNum,@RequestBody Admin admin) {
+	@PostMapping("/{Email}/updateAdmin")
+	public boolean updateAdmin(@PathVariable("phoneNum") String Email,@RequestBody Admin admin) {
 		
-		if(!AdminBL.getAdminByphoneNum(phoneNum).equals(null)) {
+		if(!AdminBL.findAdminByEmail(Email).equals(null)) {
 			AdminBL.updateAdmin(admin);
 			return true;
 		}

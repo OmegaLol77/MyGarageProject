@@ -22,10 +22,10 @@ public class CustomerBL {
 		return custRepo.findAll();
 	}
 	
-	public Customer getCustomerByphoneNum(int phoneNum) {
+	public Customer getCustomerByEmail(String Email) {
 		
 		try {
-			return custRepo.findById(phoneNum).get();
+			return custRepo.findById(Email).get();
 		} catch (Exception e) {
 			return null;
 		}
@@ -44,9 +44,9 @@ public class CustomerBL {
 	}
 	
 
-	public boolean deleteCustomer(int PhoneNum) {
+	public boolean deleteCustomer(String Email) {
 		try {
-			custRepo.deleteById(PhoneNum);
+			custRepo.deleteById(Email);
 			return true;
 		}catch(Exception e) {
 			e.printStackTrace();

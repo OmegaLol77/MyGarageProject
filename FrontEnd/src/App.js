@@ -6,6 +6,8 @@ import CarList from './CarList';
 import CarProccess from './CarProccess';
 import AddCar from './AddCar';
 import Login from './Login';
+import SignUp from './SignUp';
+
 
 function App() {
 
@@ -39,6 +41,11 @@ function App() {
             <Route path="/Login">
               <div className="card">
                 <Login />
+              </div>
+            </Route>
+            <Route path="/SignUp">
+              <div className="card">
+                <SignUp />
               </div>
             </Route>
           </Switch>

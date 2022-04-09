@@ -29,14 +29,14 @@ public class CustomerController {
 		return customerBL.getAllCustomers();
 	}
 	
-	@GetMapping("/{phoneNum}/findCustomerByphoneNum")
-	public Customer findCustomerByphoneNum(@PathVariable("findByphoneNum") Integer phoneNum) {
-		return customerBL.getCustomerByphoneNum(phoneNum);
+	@GetMapping("/{Email}/findCustomerByEmail")
+	public Customer findCustomerByphoneNum(@PathVariable("Email") String Email) {
+		return customerBL.getCustomerByEmail(Email);
 	}
 	
 	@PostMapping("addCustomer")
 	public boolean addCustomer(@RequestBody Customer customer) {
-		if(customerBL.getCustomerByphoneNum(customer.getPhoneNum()).equals(null)){
+		if(customerBL.getCustomerByEmail(customer.getEmail()).equals(null)){
 			
 			customerBL.addCustomer(customer);
 			return true;
@@ -45,10 +45,10 @@ public class CustomerController {
 			return false;
 		}
 	}
-	@DeleteMapping("/{phoneNum}/delteCustomer")
-	public boolean delteCustomer(@PathVariable("phoneNum")int phoneNum) {
-		if(!customerBL.getCustomerByphoneNum(phoneNum).equals(null)) {
-			customerBL.deleteCustomer(phoneNum);
+	@DeleteMapping("/{Email}/delteCustomer")
+	public boolean delteCustomer(@PathVariable("Email")String Email) {
+		if(!customerBL.getCustomerByEmail(Email).equals(null)) {
+			customerBL.deleteCustomer(Email);
 			return true;
 		}
 		else {
@@ -57,10 +57,10 @@ public class CustomerController {
 		
 	}
 	
-	@PostMapping("/{phoneNum}/updateCustomer")
-	public boolean updateCustomer(@PathVariable("phoneNum") int phoneNum,@RequestBody Customer customer) {
+	@PostMapping("/{Email}/updateCustomer")
+	public boolean updateCustomer(@PathVariable("Email") String Email,@RequestBody Customer customer) {
 		
-		if(!customerBL.getCustomerByphoneNum(phoneNum).equals(null)) {
+		if(!customerBL.getCustomerByEmail(Email).equals(null)) {
 			customerBL.updatecustomer(customer);
 			return true;
 		}
