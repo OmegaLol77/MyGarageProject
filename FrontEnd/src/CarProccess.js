@@ -1,7 +1,10 @@
-import React from 'react'
+
+import CarproccessComp from "./CarproccessComp"
 
 export default function CarProccess() {
   return (
-    <div>CarProccess</div>
+    <div >
+      <CarproccessComp />
+    </div>
   )
 }

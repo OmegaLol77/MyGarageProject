@@ -5,17 +5,25 @@ import Popup from './PopUp';
 
 
 
-export default function AddCar(id) {
+export default function CarUpdate() {
   const [ownername,setownername] = useState("");
   const [ownerid,setownerid] = useState(0);
   const [carnumber,setcarnumber] = useState(0);
   const [date,setdate] = useState("");
   const [carproccess,setcarproccess] = useState("");
   const [isOpen, setIsOpen] = useState(false);
- 
+
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
+
+//   handleCallback = (childData) =>{
+//       this.setownername(childData.ownername);
+//       this.setownerid(childData.ownerid);
+//       this.setcarnumber(childData.carnumber);
+//       this.setdate(childData.date);
+//       this.setcarproccess(childData.carproccess);
+//   }
   // const [car,setCar]=useState({});
   // useEffect(()=>{
   //   axios.get('http://localhost:8080/Car'+`/${id}/findById`)
@@ -40,7 +48,7 @@ export default function AddCar(id) {
   };
   return (
     <div className='center'>
-      <h2>AddCar</h2>
+      <h2>Car Update</h2>
       <div className='inputcontent'>
         <p>Owner Name:</p>
         <input type="text" id='ownername' placeholder='example: Jack Mathew' value={ownername} onChange={ (e) => setownername(e.target.value)}></input>

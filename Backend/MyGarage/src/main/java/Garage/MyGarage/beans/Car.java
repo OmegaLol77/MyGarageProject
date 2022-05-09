@@ -14,18 +14,20 @@ public class Car {
 	private String ownername;
 	private int carnumber;
 	private int ownerid;
+	private String carproccess;
 	private String date;
 	
 	public Car() {
 		super();
 	}
 	
-	public Car(String ownername, int ownerid, int carnumber, String date) {
+	public Car(String ownername, int ownerid, int carnumber, String date, String carproccess) {
 		super();
 		setOwnername(ownername);
 		setCarnumber(carnumber);
 		setDate(date);
 		setOwnerid(ownerid);
+		setCarproccess(carproccess);
 	}
 	
 	public String getOwnername() {
@@ -55,7 +57,12 @@ public class Car {
 	public int getId() {
 		return id;
 	}
-	
+	public void setCarproccess(String carproccess) {
+		this.carproccess = carproccess;
+	}
+	public String getCarproccess() {
+		return carproccess;
+	}
 	
 	
 }

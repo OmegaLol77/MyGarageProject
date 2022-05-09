@@ -34,9 +34,15 @@ public class CarController {
 		return carBL.getById(id);
 	}
 	
+//	@GetMapping("getAllCarsproccess")
+//	public List<Car> getAllCarsproccess(){
+//		return carBL.getAllCars();
+//	}
+	
 	@PostMapping("addCar")
 	public boolean addCar(@RequestBody Car car) {
 		if(car.getCarnumber()>0 && car.getOwnerid()>0 && car.getDate().equals("")==false && car.getOwnername().equals("")==false) {
+			
 			return carBL.addCar(car);
 		}
 		return false;

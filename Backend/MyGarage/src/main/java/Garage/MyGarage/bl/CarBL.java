@@ -1,10 +1,12 @@
 package Garage.MyGarage.bl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import Garage.MyGarage.beans.Car;
 import Garage.MyGarage.repositories.CarRepository;
@@ -23,12 +25,23 @@ public class CarBL {
 		return carRepo.findAll();
 	}
 	
+//	@GetMapping("getAllCarsnotapproved")
+//	public List<Car> getAllCarsproccess(){
+//		return carRepo.findBycarproccess();
+//	}
+	
 	public Car getById(int id) {
 		return carRepo.findById(id).get();
 	}
 	
 	public boolean addCar(Car car) {
 		try {
+			List<Car> list = carRepo.findAll();
+			for(int i=0;i<list.size();i++) {
+				if(car.getCarnumber()==list.get(i).getCarnumber()) {
+					return false;
+				}
+			}
 			carRepo.save(car);
 			return true;
 		}catch(Exception e) {

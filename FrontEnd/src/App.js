@@ -7,6 +7,7 @@ import CarProccess from './CarProccess';
 import AddCar from './AddCar';
 import Login from './Login';
 import SignUp from './SignUp';
+import CarUpdate from './CarUpdate';
 
 
 function App() {
@@ -31,11 +32,18 @@ function App() {
               </div>
             </Route>
             <Route path="/carproccess">
-              <CarProccess />
+              <div className="card">
+                <CarProccess />
+              </div>
             </Route>
             <Route path="/addcar">
               <div className="card">
                 <AddCar />
+              </div>
+            </Route>
+            <Route path="/carupdate">
+              <div className="card">
+                <CarUpdate />
               </div>
             </Route>
             <Route path="/Login">
