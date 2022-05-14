@@ -3,21 +3,21 @@ package Garage.MyGarage.beans;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
 import javax.persistence.InheritanceType;
 import javax.persistence.Lob;
+import javax.persistence.MappedSuperclass;
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) 
+@MappedSuperclass
 
 @Table(name = "Person")
 public class Person {
 	
 	/*Create person Bean*/
-	@GeneratedValue
-	private int id;
+	
 	private int PhoneNum; 
 	private String FirstName;
 	private String LastName;
@@ -39,7 +39,7 @@ public class Person {
 	 * @param lastName
 	 * @param email
 	 */
-	public Person( int phoneNum, String firstName, String lastName, String email) {
+	public Person(  String firstName, String lastName, String email,int phoneNum) {
 		super();
 		setPhoneNum(phoneNum);
 		setFirstName(firstName);
@@ -49,6 +49,31 @@ public class Person {
 	
 	
 
+	
+	public int getPhoneNum() {
+		return PhoneNum;
+	}
+	public void setPhoneNum(int phoneNum) {
+		PhoneNum = phoneNum;
+	}
+	public String getFirstName() {
+		return FirstName;
+	}
+	public void setFirstName(String firstName) {
+		FirstName = firstName;
+	}
+	public String getLastName() {
+		return LastName;
+	}
+	public void setLastName(String lastName) {
+		LastName = lastName;
+	}
+	public String getEmail() {
+		return Email;
+	}
+	public void setEmail(String email) {
+		Email = email;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,7 +82,6 @@ public class Person {
 		result = prime * result + ((FirstName == null) ? 0 : FirstName.hashCode());
 		result = prime * result + ((LastName == null) ? 0 : LastName.hashCode());
 		result = prime * result + PhoneNum;
-		result = prime * result + id;
 		return result;
 	}
 	@Override
@@ -86,42 +110,15 @@ public class Person {
 			return false;
 		if (PhoneNum != other.PhoneNum)
 			return false;
-		if (id != other.id)
-			return false;
 		return true;
-	}
-	public int getPhoneNum() {
-		return PhoneNum;
-	}
-	public void setPhoneNum(int phoneNum) {
-		PhoneNum = phoneNum;
-	}
-	public String getFirstName() {
-		return FirstName;
-	}
-	public void setFirstName(String firstName) {
-		FirstName = firstName;
-	}
-	public String getLastName() {
-		return LastName;
-	}
-	public void setLastName(String lastName) {
-		LastName = lastName;
-	}
-	public String getEmail() {
-		return Email;
-	}
-	public void setEmail(String email) {
-		Email = email;
-	}
-	public int getId() {
-		return id;
 	}
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", PhoneNum=" + PhoneNum + ", FirstName=" + FirstName + ", LastName=" + LastName
-				+ ", Email=" + Email + "]";
+		return "Person [PhoneNum=" + PhoneNum + ", FirstName=" + FirstName + ", LastName=" + LastName + ", Email="
+				+ Email + "]";
 	}
+	
+	
 	
 	
 	

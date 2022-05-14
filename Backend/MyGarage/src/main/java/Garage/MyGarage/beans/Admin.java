@@ -7,8 +7,7 @@ import javax.persistence.Table;
 @Table(name = "Admin")
 public class Admin extends Person {
 
-	@GeneratedValue
-	private int id;
+	
 	private String password;
 	public String getPassword() {
 		return password;
@@ -32,16 +31,17 @@ public class Admin extends Person {
 	 * @param lastName
 	 * @param email
 	 */
-	public Admin( int phoneNum, String firstName, String lastName, String email) {
-		super( phoneNum, firstName, lastName, email);
+	public Admin(  String firstName, String lastName, String email,String password,int phoneNum) {
+		super(  firstName, lastName, email,phoneNum);
 		// TODO Auto-generated constructor stub
+		setPassword(password);
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + id;
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
 
@@ -54,17 +54,22 @@ public class Admin extends Person {
 		if (getClass() != obj.getClass())
 			return false;
 		Admin other = (Admin) obj;
-		if (id != other.id)
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Admin [id=" + id + ", getPhoneNum()=" + getPhoneNum() + ", getFirstName()=" + getFirstName()
-				+ ", getLastName()=" + getLastName() + ", getEmail()=" + getEmail() + ", getId()=" + getId()
-				+ ", toString()=" + super.toString() + ", getClass()=" + getClass() + "]";
+		return "Admin [password=" + password + ", getPhoneNum()=" + getPhoneNum() + ", getFirstName()=" + getFirstName()
+				+ ", getLastName()=" + getLastName() + ", getEmail()=" + getEmail() + ", toString()=" + super.toString()
+				+ ", getClass()=" + getClass() + "]";
 	}
+
+	
 	
 
 }

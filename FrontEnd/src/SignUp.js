@@ -11,6 +11,15 @@ export default function SignUp() {
     const [Password,setPassword] = useState("");
     const [PasswordConf,setPasswordConf] = useState("");
 
+    const newCustomer=e=>{
+        e.preventDefault();
+        if(Password===PasswordConf){
+            console.log("trying to enter cust");
+        CustomerService.AddCoustmer(FirstName,LastName,Email,Password);
+        console.log("end of trying to enter cust");
+    }
+    }
+
     
     return(
         <form className="SignUp">
@@ -56,7 +65,7 @@ export default function SignUp() {
         <br></br>
 
       
-        <button type="submit" >Submit</button>
+        <button type="submit" onClick={newCustomer} >Submit</button>
 
         </form>
 

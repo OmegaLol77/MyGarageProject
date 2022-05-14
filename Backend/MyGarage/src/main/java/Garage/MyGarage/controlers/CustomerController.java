@@ -3,6 +3,7 @@ package Garage.MyGarage.controlers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,15 +36,12 @@ public class CustomerController {
 	}
 	
 	@PostMapping("addCustomer")
-	public boolean addCustomer(@RequestBody Customer customer) {
-		if(customerBL.getCustomerByEmail(customer.getEmail()).equals(null)){
-			
+	public boolean addCustomer(@RequestBody Customer customer) {	
+		System.out.println(customer.toString());
 			customerBL.addCustomer(customer);
 			return true;
-		}
-		else {
-			return false;
-		}
+		
+	
 	}
 	@DeleteMapping("/{Email}/delteCustomer")
 	public boolean delteCustomer(@PathVariable("Email")String Email) {

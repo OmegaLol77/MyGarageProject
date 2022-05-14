@@ -1,13 +1,9 @@
 import axios from 'axios';
 import React from "react";
+const ADDCUSTOMER_REST_API_URL='http://localhost:8080/Customer/addCustomer';
 
-class CustomerService extends React.Component{
-        constructor(props){
-        super(props)
-        this.state = {
-            customer:[]
-        }
-    }
+class CustomerService{
+        
     //contiune the validation of the user name and the passWord :)
     CheckCustomer( Email,Password ){
          const data=[];
@@ -28,8 +24,21 @@ class CustomerService extends React.Component{
 
 
 
-        AddCoustmer(){
+        AddCoustmer(FirstName,LastName,Email,Password){
+            console.log(FirstName,LastName,Email,Password)
+            this.state = { 
+                FirstName:FirstName,
+                LastName:LastName,
+                Email:Email,
+                password:Password,
+                carNum:55,
+                PhoneNum:6
+                
+            }
             
-        }
+            axios.post(ADDCUSTOMER_REST_API_URL,this.state).then((response)=>{
+                console.log(response);
+            },(error)=>{console.log(error)});
+              }
 }
 export default new CustomerService();

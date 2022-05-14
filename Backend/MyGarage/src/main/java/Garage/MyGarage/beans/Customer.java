@@ -6,8 +6,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Customer")
 public class Customer extends Person {
-	@GeneratedValue
-	private int id;
+	
 	private int carNum;
 	private String password;
 	public String getPassword() {
@@ -33,8 +32,9 @@ public class Customer extends Person {
 	 * @param lastName
 	 * @param email
 	 */
-	public Customer( int phoneNum, String firstName, String lastName, String email) {
-		super( phoneNum, firstName, lastName, email);
+	public Customer( String firstName, String lastName, String email,String password,int phoneNum) {
+		super(  firstName, lastName, email,phoneNum);
+		setPassword(password);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -46,20 +46,15 @@ public class Customer extends Person {
 		this.carNum = carNum;
 	}
 
-	public int getId() {
-		return id;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + carNum;
-		result = prime * result + id;
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
 
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -71,18 +66,25 @@ public class Customer extends Person {
 		Customer other = (Customer) obj;
 		if (carNum != other.carNum)
 			return false;
-		if (id != other.id)
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", carNum=" + carNum + ", getPhoneNum()=" + getPhoneNum() + ", getFirstName()="
-				+ getFirstName() + ", getLastName()=" + getLastName() + ", getEmail()=" + getEmail() + ", toString()="
-				+ super.toString() + ", getClass()=" + getClass() + "]";
+		return "Customer [carNum=" + carNum + ", password=" + password + ", getPhoneNum()=" + getPhoneNum()
+				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getEmail()="
+				+ getEmail() + ", toString()=" + super.toString() + ", getClass()=" + getClass() + "]";
 	}
+
+
 	
+
+
 
 	
 }

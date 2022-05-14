@@ -33,14 +33,17 @@ public class CustomerBL {
 	}
 	
 	public boolean addCustomer(Customer customer) {
-		
-		try {
-			custRepo.save(customer);
-			return true;
-		}catch(Exception e) {
-			e.printStackTrace();
-			return false;
-		}
+		System.out.println("email"+customer.getEmail());
+		System.out.println("firstName"+customer.getFirstName());
+		System.out.println("lastName"+customer.getLastName());
+		System.out.println("pass"+customer.getPassword());
+		/*
+		 * try {
+		 * 
+		 * custRepo.save(customer); return true; }catch(Exception e) {
+		 * e.printStackTrace(); return false; }
+		 */
+		return true;
 	}
 	
 
