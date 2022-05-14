@@ -24,21 +24,27 @@ class CustomerService{
 
 
 
-        AddCoustmer(FirstName,LastName,Email,Password){
-            console.log(FirstName,LastName,Email,Password)
+        AddCoustmer(FirstName,LastName,Email,Password,phoneNum){
+            console.log(FirstName,LastName,Email,Password,phoneNum)
             this.state = { 
-                FirstName:FirstName,
-                LastName:LastName,
-                Email:Email,
+                firstName:FirstName,
+                lastName:LastName,
+                email:Email,
                 password:Password,
-                carNum:55,
-                PhoneNum:6
+                carNum:0,
+                phoneNum:phoneNum
                 
             }
             
             axios.post(ADDCUSTOMER_REST_API_URL,this.state).then((response)=>{
-                console.log(response);
-            },(error)=>{console.log(error)});
+                console.log(response.data);
+               alert(response.data);
+            //    if(response.data == 'false'){
+            //     alert("the email is already signed up");
+            //    }
+            },(error)=>{
+                alert(error);
+                console.log(error)});
               }
 }
 export default new CustomerService();

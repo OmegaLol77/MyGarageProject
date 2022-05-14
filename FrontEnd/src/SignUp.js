@@ -8,15 +8,17 @@ export default function SignUp() {
     const[FirstName,setFirstName]= useState("");
     const [LastName,setLastName]= useState("");
     const [Email,setEmail] = useState("");
+    const [PhoneNum,setPhoneNum] = useState("");
     const [Password,setPassword] = useState("");
     const [PasswordConf,setPasswordConf] = useState("");
 
     const newCustomer=e=>{
         e.preventDefault();
         if(Password===PasswordConf){
-            console.log("trying to enter cust");
-        CustomerService.AddCoustmer(FirstName,LastName,Email,Password);
-        console.log("end of trying to enter cust");
+       CustomerService.AddCoustmer(FirstName,LastName,Email,Password,PhoneNum) ;
+    }
+    else{
+        alert("two passwords is not the same");
     }
     }
 
@@ -27,21 +29,29 @@ export default function SignUp() {
         <a>
             First Name:
             <br></br> 
-            <input type="text" placeholder="First Name" value={FirstName} onChange={ (e) =>setFirstName(e.target.value)}>
+            <input type="text"  id="FirstName" placeholder="First Name" value={FirstName} onChange={ (e) =>setFirstName(e.target.value)}>
             </input>
         </a>
         <br></br><br></br>
         <a>
             Last Name:
             <br></br> 
-            <input type="text" placeholder="First Name" value={LastName} onChange={ (e) =>setLastName(e.target.value)}>
+            <input type="text"id="LastName"  placeholder="lastName Name" value={LastName} onChange={ (e) =>setLastName(e.target.value)}>
             </input>
         </a>
         <br></br><br></br>
         
         <a>Email:
         <br></br>
-            <input type="text" id="Email" placeholder="Your Email" value={Email} onChange={ (e) => setEmail(e.target.value)} >
+            <input type="text" id="Email"  placeholder="Your Email" value={Email} onChange={ (e) => setEmail(e.target.value)} >
+            
+            </input>
+        </a>
+        <br></br><br></br>
+        
+        <a>Phone Number:
+        <br></br>
+            <input type="number" id="PhoneNum"  placeholder="Phone Number" value={PhoneNum} onChange={ (e) => setPhoneNum(e.target.value)} >
             
             </input>
         </a>

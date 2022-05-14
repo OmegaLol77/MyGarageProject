@@ -15,7 +15,7 @@ export default function Login() {
     const ver=e=>{
         e.preventDefault();
         var x=true
-        CustomerService.CheckCustomer(Email,Password).then( props => {props==true ? history.push("/"): this.alert("You are not a customer please Sign-up")}).catch();
+        CustomerService.CheckCustomer(Email,Password).then( props => {props==true ? history.push("/"): alert("You are not a customer please Sign-up")}).catch();
 
         }
 

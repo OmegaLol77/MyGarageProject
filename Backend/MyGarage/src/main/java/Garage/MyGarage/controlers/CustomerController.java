@@ -37,9 +37,16 @@ public class CustomerController {
 	
 	@PostMapping("addCustomer")
 	public boolean addCustomer(@RequestBody Customer customer) {	
-		System.out.println(customer.toString());
+		if(customerBL.getCustomerByEmail(customer.getEmail())==null){
 			customerBL.addCustomer(customer);
+			System.out.println("it got inserted ");
 			return true;
+		}
+		else {
+			System.out.println("it's already in the Db");
+			return false;
+		}
+			
 		
 	
 	}
