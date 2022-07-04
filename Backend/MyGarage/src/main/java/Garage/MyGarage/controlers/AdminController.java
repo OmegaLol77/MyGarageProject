@@ -43,7 +43,7 @@ public class AdminController {
 			return false;
 		}
 	}
-	@DeleteMapping("/{Email}/delteAdmin")
+	@DeleteMapping("/{Email}/deleteAdmin")
 	public boolean delteAdmin(@PathVariable("Email")String Email) {
 		if(!AdminBL.findAdminByEmail(Email).equals(null)) {
 			AdminBL.deleteAdmin(Email);

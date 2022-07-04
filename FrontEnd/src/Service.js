@@ -3,8 +3,8 @@ import axios from 'axios';
 const GETCARS_REST_API_URL = 'http://localhost:8080/Car/getAllCars';
 const ADDCARS_REST_API_URL = 'http://localhost:8080/Car/addCar';
 const REMOVECARS_REST_API_URL = 'http://localhost:8080/Car';
-
-
+const REMOVEADMIN_REST_API_URL = 'http://localhost:8080/Admin';
+const REMOVECUSTOMER_REST_API_URL = 'http://localhost:8080/Customer';
 
 class Service{
 
@@ -29,6 +29,23 @@ class Service{
 
     DeleteCar(id){
         axios.delete(REMOVECARS_REST_API_URL+`/${id}/deleteCar`)
+        .then((response)=>
+            {
+                console.log(response);
+            },(error)=>
+            console.log(error));
+    }
+
+    DeleteAdmin(id){
+        axios.delete(REMOVECARS_REST_API_URL+`/${id}/deleteAdmin`)
+        .then((response)=>
+            {
+                console.log(response);
+            },(error)=>
+            console.log(error));
+    }
+    DeleteCustomer(id){
+        axios.delete(REMOVECARS_REST_API_URL+`/${id}/deleteCustomer`)
         .then((response)=>
             {
                 console.log(response);

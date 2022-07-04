@@ -8,6 +8,7 @@ import AddCar from './AddCar';
 import Login from './Login';
 import SignUp from './SignUp';
 import CarUpdate from './CarUpdate';
+import DeleteUser from './DeleteUser';
 
 
 function App() {
@@ -34,6 +35,11 @@ function App() {
             <Route path="/carproccess">
               <div className="card">
                 <CarProccess />
+              </div>
+            </Route>
+            <Route path="/DeleteUser">
+              <div className="card">
+                <DeleteUser />
               </div>
             </Route>
             <Route path="/addcar">
