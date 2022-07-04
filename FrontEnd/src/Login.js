@@ -9,15 +9,26 @@ import { useHistory} from "react-router-dom";
 export default function Login() {  
     const [Email,setEmail] = useState("");
     const [Password,setPassword] = useState("");
-    
+    const [WorkerOrAdmin,setWorkerOrAdmin] = useState(false);
     let history =useHistory();
+
+
+const handleChange=()=>{
+
+    setWorkerOrAdmin(current =>!current);
+}
+
+
 
     const ver=e=>{
         e.preventDefault();
         var x=true
+       
         CustomerService.CheckCustomer(Email,Password).then( props => {props==true ? history.push("/"): alert("You are not a customer please Sign-up")}).catch();
 
         }
+
+
 
     return(
         <form className="Login">
@@ -37,9 +48,14 @@ export default function Login() {
         </a>
         <br></br>
         <br></br>
+      <label>  Worker/Admin <input type="checkbox" value={WorkerOrAdmin}  name=""  onChange={ handleChange}  /></label>
+        <br></br>
+        
         doesn't have an account <a href="./SignUp" style={{color:"blue"}} >Signup</a>
         <br></br>
         <button type="submit" onClick={ver} >Submit</button>
+
+
 
         </form>
 

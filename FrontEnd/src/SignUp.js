@@ -16,9 +16,17 @@ export default function SignUp() {
         e.preventDefault();
         if(Password===PasswordConf){
        CustomerService.AddCoustmer(FirstName,LastName,Email,Password,PhoneNum) ;
+       
+    }
+    else if(CustomerService.CheckCustomer(Email)==false){
+        alert("Email already exists!")
+    }
+  
+    if(Password!=PasswordConf){
+        alert("two passwords is not the same");
     }
     else{
-        alert("two passwords is not the same");
+        alert("Email Already in the DB")
     }
     }
 
