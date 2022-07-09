@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React from "react";
 const ADMIN_REST_API_URL='http://localhost:8080/';
+const REMOVEADMIN_REST_API_URL = 'http://localhost:8080/Admin/';
+
 
 class AdminService{
         
@@ -18,8 +20,15 @@ class AdminService{
                 z[0]=response;
               return  z[0];
             })
-            
-        
+        }
+
+        DeleteAdmin(Email){
+            axios.delete(REMOVEADMIN_REST_API_URL+`${Email}/deleteAdmin`)
+            .then((response)=>
+                {
+                    console.log(response);
+                },(error)=>
+                console.log(error));
         }
     }
     export default new AdminService();

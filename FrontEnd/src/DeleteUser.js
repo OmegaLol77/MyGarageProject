@@ -1,56 +1,63 @@
 import Service from "./Service";
+import CustomerService from "./CustomerService";
+import AdminService from "./AdminService";
 import React, { useEffect, useState } from 'react'
-import CustomerService from "./CustomerService"
+import Popup from './PopUp';
 
 
 export default function DeleteUser(){
     const [userid,setuserid] = useState("");
     const [usertype,setusertype] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
 
-
-
+    const togglePopup = () => {
+      setIsOpen(!isOpen);
+    }
+    function refreshPage() {
+      window.location.reload(false);
+    }
 
     const handleOnClick = e => {
         e.preventDefault();
-        alert("In delete method and user type is "+ usertype+"Fuck u jeris");
+        console.log(usertype)
         if(usertype === 'Admin'){
-            console.log(Service.DeleteAdmin(userid));
-            CustomerService.DeleteCustomer(userid);
+            console.log(AdminService.DeleteAdmin(userid));
         }
         if(usertype === 'Worker'){
             console.log(Service.AddCar(userid));
         }
         if(usertype === 'Customer'){
-          CustomerService.DeleteCustomer(userid);
+            console.log(CustomerService.DeleteCustomer(userid));
         }
-        // if(Service.AddCar(ownername,ownerid,date,carnumber)){
+        // if(usertype === 'Option'){
         //   console.log(isOpen);
         //   refreshPage();
         // }else{
         //   togglePopup();
         // }
-      }
+      };
 
     return(
         <div className='center'>
-        <h2>Car Update</h2>
+        <h2>Delete User</h2>
         <div className='inputcontent'>
           <p>User Email:</p>
           <input type="text" id='Userid'  placeholder='Jack.96@gmail.com' value={userid} onChange={(e) => setuserid(e.target.value)}></input>
         </div>
         <div className='inputcontent'>
-        <p>Car Proccess:</p>
+        <p>User Type :</p>
         <select type="SelectList" id='carproccess'  value={usertype} onChange={(e) => setusertype(e.target.value)}>
+          <option value="Option">Please select the type</option>
           <option value="Admin">Admin</option>
           <option value="Worker">Worker</option>
           <option value="Customer">Customer</option>
         </select>
       </div>
-        <button className="submit" onClick={handleOnClick}>Delete</button>
+        <button className='button' onClick={handleOnClick}>Delete</button>
         {/* {isOpen && <Popup
           content={<>
             <b>Error Message</b>
-            <p>One of the Text Areas is EMPTY or the car you are trying to save is already in the DataBase</p>
+            <p>One of the Text Areas is EMPTY</p>
           </>}
           handleClose={togglePopup}/>} */}
       </div>

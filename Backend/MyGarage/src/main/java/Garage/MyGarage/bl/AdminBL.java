@@ -21,7 +21,11 @@ public class AdminBL {
 	}
 	
 	public Admin findAdminByEmail(String Email) {
-		return adminRepo.findById(Email).get();
+		try {
+			return adminRepo.findById(Email).get();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 	
 	public boolean addAdmin(Admin admin) {
