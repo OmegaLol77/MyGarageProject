@@ -46,5 +46,17 @@ class CustomerService{
                 alert(error);
                 console.log(error)});
               }
+
+
+
+              DeleteCustomer(Email){
+                axios.delete('http://localhost:8080/Customer/'+`${Email}`+'/deleteCustomer').then((response)=>
+                {
+                    console.log(response.data);
+                },(error)=>
+                console.log(error));
+
+                }
+              
 }
 export default new CustomerService();

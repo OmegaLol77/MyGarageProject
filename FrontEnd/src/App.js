@@ -9,6 +9,8 @@ import Login from './Login';
 import SignUp from './SignUp';
 import CarUpdate from './CarUpdate';
 import DeleteUser from './DeleteUser';
+import AdminLogin from './AdminLogin';
+
 
 
 function App() {
@@ -55,6 +57,11 @@ function App() {
             <Route path="/Login">
               <div className="card">
                 <Login />
+              </div>
+            </Route>
+            <Route path="/AdminLogin">
+              <div className="card">
+                <AdminLogin />
               </div>
             </Route>
             <Route path="/SignUp">

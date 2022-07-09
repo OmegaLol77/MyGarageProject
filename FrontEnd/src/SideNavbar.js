@@ -12,6 +12,8 @@ export default function SideNavbar() {
                 <Link to="/carlist">Car List</Link>
                 <Link to="/carproccess">Car Proccess</Link>
                 <Link to="/Login">Login</Link>
+                <Link to="/AdminLogin">AdminLogin</Link>
+
                 <Link to="/DeleteUser">DeleteUser</Link>
             </div>
         </div>

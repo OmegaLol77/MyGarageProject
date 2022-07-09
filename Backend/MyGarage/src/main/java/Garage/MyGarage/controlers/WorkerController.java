@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Garage.MyGarage.beans.Admin;
 import Garage.MyGarage.beans.Worker;
 import Garage.MyGarage.bl.WorkerBL;
 
@@ -20,31 +19,23 @@ import Garage.MyGarage.bl.WorkerBL;
 @RequestMapping("Worker")
 @CrossOrigin
 public class WorkerController {
-@Autowired WorkerBL workerBL;
+@Autowired
+WorkerBL workerBL;
 
 @GetMapping("getAllWorkers")
 public List<Worker> getAllWorkers(){
 	return workerBL.getAllWorkers();
 }
-public boolean addWorker(Worker worker) {
-	
-	try {
-		workerBL.addWorker(worker);
-		return true;
-	}
-	catch (Exception e) {
-	e.printStackTrace();
-	return false;
-	}
-}
+
 
 @GetMapping("/{Email}/findWorkerByEmail")
-public Worker findAdminByEmail(@PathVariable("findWorkerByEmail") String Email) {
+public Worker findWorkerByEmail(@PathVariable("Email") String Email) {
+	System.out.println(Email);
 	return workerBL.findWorkerByEmail(Email);
 }
 
 @PostMapping("addWorker")
-public boolean addCustomer(@RequestBody Worker worker) {
+public boolean addWorker(@RequestBody Worker worker) {
 	if(workerBL.findWorkerByEmail(worker.getEmail()).equals(null)){
 		workerBL.addWorker(worker);
 		return true;
@@ -53,8 +44,8 @@ public boolean addCustomer(@RequestBody Worker worker) {
 		return false;
 	}
 }
-@DeleteMapping("/{Email}/delteWorker")
-public boolean delteAdmin(@PathVariable("Email")String Email) {
+@DeleteMapping("/{Email}/deleteWorker")
+public boolean deleteWorker(@PathVariable("Email")String Email) {
 	if(!workerBL.findWorkerByEmail(Email).equals(null)) {
 		workerBL.deleteWorker(Email);
 		return true;

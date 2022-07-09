@@ -50,8 +50,8 @@ public class CustomerController {
 		
 	
 	}
-	@DeleteMapping("/{Email}/delteCustomer")
-	public boolean delteCustomer(@PathVariable("Email")String Email) {
+	@DeleteMapping("/{Email}/deleteCustomer")
+	public boolean deleteCustomer(@PathVariable("Email")String Email) {
 		if(!customerBL.getCustomerByEmail(Email).equals(null)) {
 			customerBL.deleteCustomer(Email);
 			return true;

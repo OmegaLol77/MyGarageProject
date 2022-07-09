@@ -29,7 +29,7 @@ public class AdminController {
 	}
 	
 	@GetMapping("/{Email}/findAdminByEmail")
-	public Admin findAdminByEmail(@PathVariable("findAdminByEmail") String Email) {
+	public Admin findAdminByEmail(@PathVariable("Email") String Email) {
 		return AdminBL.findAdminByEmail(Email);
 	}
 	

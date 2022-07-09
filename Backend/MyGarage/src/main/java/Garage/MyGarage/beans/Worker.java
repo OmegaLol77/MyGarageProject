@@ -3,7 +3,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 @Entity
-@Table(name = "Worker")
+@Table(name = "worker")
 public class Worker extends Person {
 	private int WorkerID;
 	private String password;
