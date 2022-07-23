@@ -21,7 +21,7 @@ public class ReportController {
 	
 	@GetMapping("addReport")
 	public boolean addReport(@RequestBody Report report) {
-		if(reportBl.getReport(report.getCar().getCarnumber()).equals(null)){
+		if(reportBl.getReport(report.getCarNum()).equals(null)){
 			reportBl.addReport(report);
 			return true;
 		}
@@ -35,7 +35,7 @@ public class ReportController {
 	}
 	@GetMapping("updateReport")
 	public boolean updateReport(@RequestBody Report report) {
-		if(!reportBl.getReport(report.getCar().getCarnumber()).equals(null)) {
+		if(!reportBl.getReport(report.getCarNum()).equals(null)) {
 			reportBl.updateReport(report);
 		return true;
 		}

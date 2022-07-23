@@ -28,7 +28,7 @@ public Report getReport(int carNum) {
 	}
 		public boolean addReport(Report report) {
 			
-				if(getReport(report.getCar().getCarnumber())==null) {
+				if(getReport(report.getCarNum())==null) {
 					try {
 					reportRepo.save(report);
 					return true;
@@ -46,7 +46,7 @@ public Report getReport(int carNum) {
 			}
 		
 	public boolean updateReport(Report report) {
-		if(getReport(report.getCar().getCarnumber())!=null) {
+		if(getReport(report.getCarNum())!=null) {
 			
 			try {
 				reportRepo.save(report);	

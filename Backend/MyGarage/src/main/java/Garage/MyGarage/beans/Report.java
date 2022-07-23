@@ -2,31 +2,54 @@ package Garage.MyGarage.beans;
 
 import java.sql.Date;
 
+import javax.annotation.Generated;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name ="Report")
 public class Report {
-
+	 @Id @GeneratedValue(strategy=GenerationType.AUTO) int id;
 	private String Descripton;
-	private Car car;
+	private int carNum;
 	private Date date;
 	
 	public Report() {
 		super();
 	}
 
+
+	
 	/**
+	 * @param id
 	 * @param descripton
-	 * @param car
+	 * @param carNum
 	 * @param date
 	 */
-	public Report(String descripton, Car car, Date date) {
+	public Report(int id, String descripton, int carNum, Date date) {
 		super();
+		this.id = id;
 		Descripton = descripton;
-		this.car = car;
+		this.carNum = carNum;
 		this.date = date;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getDescripton() {
@@ -37,13 +60,18 @@ public class Report {
 		Descripton = descripton;
 	}
 
-	public Car getCar() {
-		return car;
+	
+	public int getCarNum() {
+		return carNum;
 	}
 
-	public void setCar(Car car) {
-		this.car = car;
+
+
+	public void setCarNum(int carNum) {
+		this.carNum = carNum;
 	}
+
+
 
 	public Date getDate() {
 		return date;
@@ -58,8 +86,9 @@ public class Report {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Descripton == null) ? 0 : Descripton.hashCode());
-		result = prime * result + ((car == null) ? 0 : car.hashCode());
+		result = prime * result + carNum;
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + id;
 		return result;
 	}
 
@@ -77,22 +106,21 @@ public class Report {
 				return false;
 		} else if (!Descripton.equals(other.Descripton))
 			return false;
-		if (car == null) {
-			if (other.car != null)
-				return false;
-		} else if (!car.equals(other.car))
+		if (carNum != other.carNum)
 			return false;
 		if (date == null) {
 			if (other.date != null)
 				return false;
 		} else if (!date.equals(other.date))
 			return false;
+		if (id != other.id)
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Report [Descripton=" + Descripton + ", car=" + car + ", date=" + date + "]";
+		return "Report [id=" + id + ", Descripton=" + Descripton + ", carNum=" + carNum + ", date=" + date + "]";
 	}
 	
 	
