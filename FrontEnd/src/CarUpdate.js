@@ -7,8 +7,9 @@ import Popup from './PopUp';
 
 export default function CarUpdate(id) {
 
-  // var url = window.location.href
-  // var id = url.searchParams.get("id");
+  // var url = window.location.href;
+  // var id = url.searchParams.get('id');
+  // console.log(id);
   
 
   const [ownername,setownername] = useState("");
