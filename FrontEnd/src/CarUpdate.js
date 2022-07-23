@@ -1,29 +1,26 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Service from './Service';
 import Popup from './PopUp';
 
 
 
-export default function CarUpdate() {
+export default function CarUpdate(id) {
+
+  // var url = window.location.href
+  // var id = url.searchParams.get("id");
+  
+
   const [ownername,setownername] = useState("");
   const [ownerid,setownerid] = useState(0);
   const [carnumber,setcarnumber] = useState(0);
   const [date,setdate] = useState("");
   const [carproccess,setcarproccess] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-
+ 
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
-
-  // handleCallback = (childData) =>{
-  //     this.setownername(childData.ownername);
-  //     this.setownerid(childData.ownerid);
-  //     this.setcarnumber(childData.carnumber);
-  //     this.setdate(childData.date);
-  //     this.setcarproccess(childData.carproccess);
-  // }
   // const [car,setCar]=useState({});
   // useEffect(()=>{
   //   axios.get('http://localhost:8080/Car'+`/${id}/findById`)
@@ -50,6 +47,10 @@ export default function CarUpdate() {
     <div className='center'>
       <h2>Car Update</h2>
       <div className='inputcontent'>
+        <p>Owner Name:</p>
+        <input type="text" id='ownername' placeholder='example: Jack Mathew' value={ownername} onChange={ (e) => setownername(e.target.value)}></input>
+      </div>
+      <div className='inputcontent'>
         <p>Owner ID:</p>
         <input type="number" id='ownerid' value={ownerid} onChange={(e) => setownerid(e.target.value)}></input>
       </div>
@@ -58,13 +59,12 @@ export default function CarUpdate() {
         <input type="number" id='carnumber' value={carnumber} onChange={(e) => setcarnumber(e.target.value)}></input>
       </div>
       <div className='inputcontent'>
+        <p>Date:</p>
+        <input type="text" id='date' placeholder='example: 15/03/2020' value={date} onChange={(e) => setdate(e.target.value)}></input>
+      </div>
+      <div className='inputcontent'>
         <p>Car Proccess:</p>
-        <select type="SelectList" id='carproccess' placeholder='Being Checked' value={carproccess} onChange={(e) => setcarproccess(e.target.value)}>
-          <option value="option 1">Car Being</option>
-          <option value="option 2">Car is Checked</option>
-          <option value="option 3">Car Being Repaired</option>
-          <option value="option 4">Car Repairing Done</option>
-        </select>
+        <input type="text" id='carproccess' placeholder='Being Checked' value={carproccess} onChange={(e) => setcarproccess(e.target.value)}></input>
       </div>
       <button className='button' onClick={handleOnClick}>Save</button>
       {isOpen && <Popup

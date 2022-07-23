@@ -7,10 +7,11 @@ import CarProccess from './CarProccess';
 import AddCar from './AddCar';
 import Login from './Login';
 import SignUp from './SignUp';
-import CarUpdate from './CarUpdate';
+import CarProccessUpdate from './CarProccessUpdate';
 import DeleteUser from './DeleteUser';
 import AdminLogin from './AdminLogin';
 import WorkerCarReport from './WorkerCarReport';
+import CarUpdate from './CarUpdate';
 
 
 
@@ -50,9 +51,9 @@ function App() {
                 <AddCar />
               </div>
             </Route>
-            <Route path="/carupdate">
+            <Route path="/carproccessupdate">
               <div className="card">
-                <CarUpdate />
+                <CarProccessUpdate />
               </div>
             </Route>
             <Route path="/Login">
@@ -68,6 +69,11 @@ function App() {
             <Route path="/SignUp">
               <div className="card">
                 <SignUp />
+              </div>
+            </Route>
+            <Route path="/carupdate">
+              <div className="card">
+                <CarUpdate />
               </div>
             </Route>
             <Route path="/WriteCarReport">

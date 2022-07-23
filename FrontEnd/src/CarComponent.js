@@ -26,7 +26,7 @@ class CarComponent extends React.Component {
         this.refreshPage();
     }
     direct = (id,path) =>{
-        window.location.replace(path+id);
+        window.location.replace(path+'?id='+id);
     }
 
     render (){
@@ -56,7 +56,7 @@ class CarComponent extends React.Component {
                                     <td>{cars.carnumber}</td>
                                     <td>{cars.date}</td>
                                     <td><button className="middle" onClick={this.deleteCar.bind(this, cars.id)}><BsTrash/></button></td>
-                                    <td><button className="middle" onClick={this.direct.bind(this,cars.id, '/addCar/')}><BsFileEarmarkPlus/></button></td>
+                                    <td><button className="middle" onClick={this.direct.bind(this,cars.id,'/carupdate')}><BsFileEarmarkPlus/></button></td>
                                 </tr>
                             )
                         }
