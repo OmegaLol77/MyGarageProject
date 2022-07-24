@@ -24,7 +24,7 @@ public class Offer {
 		
 		public Offer(String ownername, int ownerid, int carnumber, int offer) {
 			super();
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			Date date = new Date();
 			setDate(formatter.format(date));
 			setOwnername(ownername);
