@@ -1,6 +1,7 @@
 package Garage.MyGarage.beans;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.annotation.Generated;
 import javax.persistence.CascadeType;
@@ -19,11 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Entity
 @Table(name ="Report")
 public class Report {
-	 @Id @GeneratedValue(strategy=GenerationType.AUTO) int id;
 	private String Descripton;
+	 @Id 
 	private int carNum;
-	private Date date;
-	
+   private Date date;
 	public Report() {
 		super();
 	}
@@ -36,22 +36,17 @@ public class Report {
 	 * @param carNum
 	 * @param date
 	 */
-	public Report(int id, String descripton, int carNum, Date date) {
+	public Report( String descripton, int carNum) {
 		super();
-		this.id = id;
+		SimpleDateFormat formatter= new SimpleDateFormat("dd/mm/yyyy HH:mm:ss");
 		Descripton = descripton;
 		this.carNum = carNum;
-		this.date = date;
-	}
+		//setDate(this.date);  	
+		}
 
-	public int getId() {
-		return id;
-	}
+	
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 	public String getDescripton() {
 		return Descripton;
 	}
@@ -78,7 +73,7 @@ public class Report {
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
+		this.date = date ;
 	}
 
 	@Override
@@ -88,7 +83,6 @@ public class Report {
 		result = prime * result + ((Descripton == null) ? 0 : Descripton.hashCode());
 		result = prime * result + carNum;
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result + id;
 		return result;
 	}
 
@@ -113,14 +107,12 @@ public class Report {
 				return false;
 		} else if (!date.equals(other.date))
 			return false;
-		if (id != other.id)
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Report [id=" + id + ", Descripton=" + Descripton + ", carNum=" + carNum + ", date=" + date + "]";
+		return "Report [Descripton=" + Descripton + ", carNum=" + carNum + ", date=" + date + "]";
 	}
 	
 	

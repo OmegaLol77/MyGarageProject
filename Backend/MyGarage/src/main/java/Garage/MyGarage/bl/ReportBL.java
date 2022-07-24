@@ -16,9 +16,10 @@ ReportBL reportBl;
 ReportRepository reportRepo;
 
 public Report getReport(int carNum) {
-	
+	if(ReportExists(carNum)==false) {
 	try {
-		return reportRepo.getById(carNum);
+		Report x=reportRepo.getById(carNum);
+		return x;
 		
 		}
 	catch (Exception e) {
@@ -26,9 +27,27 @@ public Report getReport(int carNum) {
 		return null;
 	}
 	}
+	else {
+		return null;
+	}
+}
+	
+	public boolean ReportExists(int carNum) {
+		try {
+			boolean x=reportRepo.existsById(carNum);
+			return x;
+			
+			}
+		catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	
 		public boolean addReport(Report report) {
 			
-				if(getReport(report.getCarNum())==null) {
+				if(ReportExists(report.getCarNum())==false) {
 					try {
 					reportRepo.save(report);
 					return true;
@@ -46,7 +65,7 @@ public Report getReport(int carNum) {
 			}
 		
 	public boolean updateReport(Report report) {
-		if(getReport(report.getCarNum())!=null) {
+		if(ReportExists(report.getCarNum())==true) {
 			
 			try {
 				reportRepo.save(report);	
@@ -65,22 +84,21 @@ public Report getReport(int carNum) {
 		
 	}
 	public boolean deleteReport(int carNum) {
-		if(getReport(carNum)!=null) {
+		if(ReportExists(carNum)==true) {
 		try {
 			reportRepo.deleteById(carNum);
 			return true;
-		}
-		catch(Exception e) {
+		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
 			
-		}
-		}
+		
+		}}
 		else {
 			return false;
-
-			
 		}
+		
+	
 		
 	}
 	

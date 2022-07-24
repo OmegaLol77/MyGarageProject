@@ -2,8 +2,10 @@ package Garage.MyGarage.controlers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,21 +21,26 @@ public class ReportController {
 	@Autowired
 	ReportBL reportBl;
 	
-	@GetMapping("addReport")
+	@PostMapping("addReport")
 	public boolean addReport(@RequestBody Report report) {
-		if(reportBl.getReport(report.getCarNum()).equals(null)){
+		try {
 			reportBl.addReport(report);
+			
 			return true;
+		
 		}
-		else {
-			return false;
+		catch (Exception e) {
+		e.printStackTrace();
+		return false;
 		}
+			
+	
 	}
 	@GetMapping("/{carNum}/getReport")
 	public Report getReport(int carNum) {
 		return reportBl.getReport(carNum);
 	}
-	@GetMapping("updateReport")
+	@PostMapping("updateReport")
 	public boolean updateReport(@RequestBody Report report) {
 		if(!reportBl.getReport(report.getCarNum()).equals(null)) {
 			reportBl.updateReport(report);
@@ -43,14 +50,12 @@ public class ReportController {
 			return false;
 		}
 	}
-	@GetMapping("/{carNum}/deleteReport")
+	@DeleteMapping("/{carNum}/deleteReport")
 	public boolean deleteReport(@PathVariable("carNum") int carNum) {
-		if(!reportBl.getReport(carNum).equals(null)) {
+		
 			reportBl.deleteReport(carNum) ;
 		return true;
-		}
-		else {
-			return false;
-		}
+		
+		
 	}
 }
