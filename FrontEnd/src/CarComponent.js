@@ -41,6 +41,7 @@ class CarComponent extends React.Component {
                             <td>Owner ID</td>
                             <td>Car Number</td>
                             <td>Date</td>
+                            <td>Car Proccess</td>
                             <td>Delete Car</td>
                             <td>Update Car</td>
                         </tr>
@@ -55,6 +56,7 @@ class CarComponent extends React.Component {
                                     <td>{cars.ownerid}</td>
                                     <td>{cars.carnumber}</td>
                                     <td>{cars.date}</td>
+                                    <td>{cars.carproccess}</td>
                                     <td><button className="middle" onClick={this.deleteCar.bind(this, cars.id)}><BsTrash/></button></td>
                                     <td><button className="middle" onClick={this.direct.bind(this,cars.id,'/carupdate')}><BsFileEarmarkPlus/></button></td>
                                 </tr>

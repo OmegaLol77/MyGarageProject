@@ -61,9 +61,9 @@ export default function CarProccessUpdate() {
         <p>Car Proccess:</p>
         <select type="SelectList" id='carproccess' placeholder='Being Checked' value={carproccess} onChange={(e) => setcarproccess(e.target.value)}>
           <option value="option 1">Car Being</option>
-          <option value="option 2">Car is Checked</option>
-          <option value="option 3">Car Being Repaired</option>
-          <option value="option 4">Car Repairing Done</option>
+          <option value="Car is Checked">Car is Checked</option>
+          <option value="Car Being Repaired">Car Being Repaired</option>
+          <option value="Car Repairing Done">Car Repairing Done</option>
         </select>
       </div>
       <button className='button' onClick={handleOnClick}>Save</button>

@@ -41,7 +41,8 @@ public class CarController {
 	
 	@PostMapping("addCar")
 	public boolean addCar(@RequestBody Car car) {
-		if(car.getCarnumber()>0 && car.getOwnerid()>0 && car.getDate().equals("")==false && car.getOwnername().equals("")==false) {
+		System.out.println(car.getCarnumber()+"  "+car.getCarproccess()+"  "+car.getDate()+"  "+car.getOwnerid()+"  "+car.getOwnername());
+		if(car.getCarnumber().equals("")==false && car.getOwnerid().equals("")==false && car.getOwnername().equals("")==false && car.getCarproccess().equals("")==false) {
 			
 			return carBL.addCar(car);
 		}
@@ -55,6 +56,8 @@ public class CarController {
 	
 	@PostMapping("/{id}/updateCar")
 	public boolean updateCar(@PathVariable("id") Integer id,@RequestBody Car car){
-		return carBL.updateCar(car);
+		if(car.getCarnumber().equals("")==false && car.getOwnerid().equals("")==false && car.getOwnername().equals("")==false && car.getCarproccess().equals("")==false) {
+			return carBL.updateCar(car);}
+		return false;
 	}
 }

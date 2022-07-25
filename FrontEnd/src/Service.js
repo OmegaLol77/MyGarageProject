@@ -3,6 +3,7 @@ import axios from 'axios';
 const GETCARS_REST_API_URL = 'http://localhost:8080/Car/getAllCars';
 const ADDCARS_REST_API_URL = 'http://localhost:8080/Car/addCar';
 const REMOVECARS_REST_API_URL = 'http://localhost:8080/Car';
+const UPDATECARS_REST_API_URL = 'http://localhost:8080/Car';
 
 class Service{
 
@@ -18,6 +19,24 @@ class Service{
             carproccess:cp
         }
         axios.post(ADDCARS_REST_API_URL,
+            this.state
+        ).then((response)=>
+        {return response.data;
+        },(error)=>
+        console.log(error));
+    }
+
+    updateCar(on,oi,d,cn,cp,id){
+        console.log(id)
+        this.state = { 
+            ownername:on,
+            ownerid:oi,
+            carnumber:cn,
+            date:d,
+            carproccess:cp,
+            id:id
+        }
+        axios.post(UPDATECARS_REST_API_URL+`/${id}/updateCar`,
             this.state
         ).then((response)=>
         {return response.data;
