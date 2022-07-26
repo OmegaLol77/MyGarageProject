@@ -41,7 +41,6 @@ public class CarController {
 	
 	@PostMapping("addCar")
 	public boolean addCar(@RequestBody Car car) {
-		System.out.println(car.getCarnumber()+"  "+car.getCarproccess()+"  "+car.getDate()+"  "+car.getOwnerid()+"  "+car.getOwnername());
 		if(car.getCarnumber().equals("")==false && car.getOwnerid().equals("")==false && car.getOwnername().equals("")==false && car.getCarproccess().equals("")==false) {
 			
 			return carBL.addCar(car);

@@ -25,8 +25,8 @@ const checker = async () => {
 export default function CarUpdate(id) {
 
   const [ownername,setownername] = useState("");
-  const [ownerid,setownerid] = useState(0);
-  const [carnumber,setcarnumber] = useState(0);
+  const [ownerid,setownerid] = useState("");
+  const [carnumber,setcarnumber] = useState("");
   const [date,setdate] = useState("");
   const [carproccess,setcarproccess] = useState("");
 
@@ -45,7 +45,7 @@ export default function CarUpdate(id) {
 
   const handleOnClick = e => {
     e.preventDefault();
-    console.log(Service.updateCar(ownername,ownerid,currdate,carnumber,carproccess,car.id));
+    console.log(Service.updateCar(car.ownername,car.ownerid,currdate,car.carnumber,car.carproccess,car.id));
     // if(Service.AddCar(ownername,ownerid,date,carnumber)){
     //   console.log(isOpen);
     //   refreshPage();
@@ -73,6 +73,8 @@ export default function CarUpdate(id) {
           setcarnumber(car.carnumber);
           setdate(car.date);
           setcarproccess(car.carproccess);
+          console.log(car.ownerid)
+          console.log(car.carnumber)
           return(
           <div className='center'>
           <h2>Car Update</h2>
