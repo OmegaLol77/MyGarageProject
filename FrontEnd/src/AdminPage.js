@@ -1,6 +1,6 @@
 import Navbar from './Navbar';
 import Home from './Home';
-import SideNavbar from './SideNavbar';
+import AdminSideNavbar from './AdminSideNavbar';
 import { BrowserRouter as Router, Route , Switch} from 'react-router-dom';
 import CarList from './CarList';
 import CarProccess from './CarProccess';
@@ -13,24 +13,16 @@ import AdminLogin from './AdminLogin';
 import WorkerCarReport from './WorkerCarReport';
 import CarUpdate from './CarUpdate';
 
-
-
-export default function App() {
-
+export default function AdminPage() {
   return (
     <Router>
       <div className="App">
         <Navbar />
         <div className='container'>
           <div className="side-navbar">
-            <SideNavbar />
+            <AdminSideNavbar />
           </div>
           <Switch>
-            <Route exact path="/">
-              <div className="card">
-                <Home />
-              </div>
-            </Route>
             <Route path="/carlist">
               <div className='card'>
                 <CarList />
@@ -85,6 +77,5 @@ export default function App() {
         </div>
       </div>
     </Router>
-  );
+  )
 }
-
