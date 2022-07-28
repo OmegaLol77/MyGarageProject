@@ -1,11 +1,17 @@
 // import { useState } from "react"
 // import CarList from "./CarList";
+import SideNavbar from './SideNavbar';
+import Login from './Login';
+
 
 export default function Home() {
 
   return (
-    <div className="content"><p>You are now centered in your parent element. You can do that vertically too.
-      You are now centered in your parent element</p></div>
+   
+        <div className="side-navbar">
+            <Login />
+          </div>
+          
       
   )
 }

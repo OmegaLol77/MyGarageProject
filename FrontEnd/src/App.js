@@ -22,16 +22,20 @@ export default function App() {
       <div className="App">
         <Navbar />
         <div className='container'>
-          <div className="side-navbar">
-            <SideNavbar />
-          </div>
+       
           <Switch>
-            <Route exact path="/">
+          <Route exact path="/">
               <div className="card">
                 <Home />
               </div>
             </Route>
-            <Route path="/carlist">
+          <Route path="/Login">
+              <div className="card">
+                <Login />
+              </div>
+            </Route>
+            
+            <Route path="/carlist/:id">
               <div className='card'>
                 <CarList />
               </div>
@@ -56,11 +60,7 @@ export default function App() {
                 <CarProccessUpdate />
               </div>
             </Route>
-            <Route path="/Login">
-              <div className="card">
-                <Login />
-              </div>
-            </Route>
+           
             <Route path="/AdminLogin">
               <div className="card">
                 <AdminLogin />

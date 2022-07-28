@@ -10,8 +10,6 @@ export default function SideNavbar() {
                 <Link to="/addcar">Add Car</Link>
                 <Link to="/carproccessupdate">Car Proccess Update</Link>
                 <Link to="/carlist">Car List</Link>
-                {/* <Link to="/carupdate">Car Update</Link> */}
-                <Link to="/carproccess">Car Proccess</Link>
                 <Link to="/Login">Login</Link>
                 <Link to="/AdminLogin">Admin Login</Link>
                 <Link to="/WriteCarReport">Write Report</Link>
