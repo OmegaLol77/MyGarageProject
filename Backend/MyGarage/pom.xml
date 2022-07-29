@@ -51,7 +51,7 @@
 			<version>2.9.2</version>
 		</dependency>
 	</dependencies>
-	<build>
+	<build> 
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
