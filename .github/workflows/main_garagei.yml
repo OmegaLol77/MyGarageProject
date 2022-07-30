@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'garagei'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E0F718BC0E1D40479D9BC0E0ECDA0D63 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_668014663E7B4D568E1742FAFBD8FBEE }}
           package: '*.jar'
