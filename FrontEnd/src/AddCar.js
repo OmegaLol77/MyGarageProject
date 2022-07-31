@@ -8,7 +8,7 @@ import Popup from './PopUp';
 export default function AddCar() {
   const [ownername,setownername] = useState("");
   const [ownerid,setownerid] = useState(0);
-  const [carnumber,setcarnumber] = useState(0);
+  const [carnumber,setcarnumber] = useState(0); 
   const [date,setdate] = useState("");
   const [carproccess,setcarproccess] = useState("");
   const [isOpen, setIsOpen] = useState(false);
