@@ -17,13 +17,12 @@ import javax.persistence.MappedSuperclass;
 public class Person {
 	
 	/*Create person Bean*/
+	@Id
+	private int PhoneNum;
 	
-	private int PhoneNum; 
 	private String FirstName;
 	private String LastName;
 	private String Email;
-	@Id
-	private int id;
 	
 
 	/**
@@ -38,13 +37,12 @@ public class Person {
 	 * @param lastName
 	 * @param email
 	 */
-	public Person(String firstName, String lastName, String email, int phoneNum, int id) {
+	public Person(String firstName, String lastName, String email, int phoneNum) {
 		super();
 		setPhoneNum(phoneNum);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setEmail(email);
-		setId(id);
 	}
 	
 	
@@ -73,12 +71,6 @@ public class Person {
 	}
 	public void setEmail(String email) {
 		Email = email;
-	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	@Override
 	public int hashCode() {

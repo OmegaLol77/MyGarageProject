@@ -30,14 +30,14 @@ public class CustomerController {
 		return customerBL.getAllCustomers();
 	}
 	
-	@GetMapping("/{Email}/findCustomerByEmail")
-	public Customer findCustomerByphoneNum(@PathVariable("Email") String Email) {
-		return customerBL.getCustomerByEmail(Email);
+	@GetMapping("/{phoneNum}/findCustomerByphoneNum")
+	public Customer findCustomerByphoneNum(@PathVariable("phoneNum") Integer phoneNum) {
+		return customerBL.findByphoneNum(phoneNum);
 	}
 	
 	@PostMapping("addCustomer")
 	public boolean addCustomer(@RequestBody Customer customer) {	
-		if(customerBL.getCustomerByEmail(customer.getEmail())==null){
+		if(customerBL.findByphoneNum(customer.getPhoneNum())==null){
 			customerBL.addCustomer(customer);
 			System.out.println("it got inserted ");
 			return true;
@@ -50,10 +50,10 @@ public class CustomerController {
 		
 	
 	}
-	@DeleteMapping("/{Email}/deleteCustomer")
-	public boolean deleteCustomer(@PathVariable("Email") String Email) {
-		if(!customerBL.getCustomerByEmail(Email).equals(null)) {
-			customerBL.deleteCustomer(Email);
+	@DeleteMapping("/{phoneNum}/deleteCustomer")
+	public boolean deleteCustomer(@PathVariable("phoneNum") Integer phoneNum) {
+		if(!customerBL.findByphoneNum(phoneNum).equals(null)) {
+			customerBL.deleteCustomer(phoneNum);
 			return true;
 		}
 		else {
@@ -62,10 +62,10 @@ public class CustomerController {
 		
 	}
 	
-	@PostMapping("/{Email}/updateCustomer")
-	public boolean updateCustomer(@PathVariable("Email") String Email,@RequestBody Customer customer) {
+	@PostMapping("/{phoneNum}/updateCustomer")
+	public boolean updateCustomer(@PathVariable("phoneNum") Integer phoneNum,@RequestBody Customer customer) {
 		
-		if(!customerBL.getCustomerByEmail(Email).equals(null)) {
+		if(!customerBL.findByphoneNum(phoneNum).equals(null)) {
 			customerBL.updatecustomer(customer);
 			return true;
 		}

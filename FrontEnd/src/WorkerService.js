@@ -4,13 +4,13 @@ const FINDWORKER_REST_API_URL='https://178.62.86.200:8443/Worker/';
 class WorkerService{
 
     
-    CheckWorker( Email,Password ){
+    CheckWorker( phoneNum,Password ){
         const data=[];
         const y={answer:false};
         const z=[];
 
-    return  axios.get(FINDWORKER_REST_API_URL+`${Email}`+'/findWorkerByEmail').then((response)=>{
-            alert(Email);
+    return  axios.get(FINDWORKER_REST_API_URL+`${phoneNum}`+'/findWorkerByphoneNum').then((response)=>{
+            alert(phoneNum);
                    data[0]=response.data;
                 return y.answer=Password==data[0].password;
            }).then(function(response) {

@@ -32,7 +32,7 @@ public class Admin extends Person {
 	 * @param email
 	 */
 	public Admin(String firstName, String lastName, String email, String password, int phoneNum) {
-		super(firstName, lastName, email, phoneNum, email.hashCode());
+		super(firstName, lastName, email, phoneNum);
 		setPassword(password);
 	}
 

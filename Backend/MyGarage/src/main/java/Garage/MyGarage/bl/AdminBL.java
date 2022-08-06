@@ -20,9 +20,9 @@ public class AdminBL {
 		return adminRepo.findAll();
 	}
 	
-	public Admin findAdminByEmail(String Email) {
+	public Admin findAdminByphoneNum(int phoneNum) {
 		try {
-			return adminRepo.findById(Email.hashCode()).get();
+			return adminRepo.findById(phoneNum).get();
 		} catch (Exception e) {
 			return null;
 		}
@@ -38,9 +38,9 @@ public class AdminBL {
 		}
 	}
 	
-	public boolean deleteAdmin(String Email) {
+	public boolean deleteAdmin(int phoneNum) {
 		try {
-			adminRepo.deleteById(Email.hashCode());
+			adminRepo.deleteById(phoneNum);
 			return true;
 		}catch(Exception e) {
 			e.printStackTrace();
