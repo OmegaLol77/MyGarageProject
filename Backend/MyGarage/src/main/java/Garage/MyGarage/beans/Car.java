@@ -3,8 +3,10 @@ package Garage.MyGarage.beans;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Car")
 public class Car {
 	 
 	@Id
