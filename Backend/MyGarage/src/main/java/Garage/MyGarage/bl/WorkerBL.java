@@ -22,7 +22,7 @@ public List<Worker> getAllWorkers(){
 
 public Worker findWorkerByEmail(String Email) {
 	
-	return workerRepo.getById(Email);
+	return workerRepo.getById(Email.hashCode());
 }
 
 public boolean addWorker(Worker worker) {
@@ -38,7 +38,7 @@ public boolean addWorker(Worker worker) {
 
 public boolean deleteWorker(String Email) {
 	try {
-		workerRepo.deleteById(Email);	
+		workerRepo.deleteById(Email.hashCode());	
 		return true;
 	}
 	catch (Exception e) {

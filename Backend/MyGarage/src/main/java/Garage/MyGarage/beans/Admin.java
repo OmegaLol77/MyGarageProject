@@ -31,9 +31,8 @@ public class Admin extends Person {
 	 * @param lastName
 	 * @param email
 	 */
-	public Admin(  String firstName, String lastName, String email,String password,int phoneNum) {
-		super(  firstName, lastName, email,phoneNum);
-		// TODO Auto-generated constructor stub
+	public Admin(String firstName, String lastName, String email, String password, int phoneNum) {
+		super(firstName, lastName, email, phoneNum, email.hashCode());
 		setPassword(password);
 	}
 

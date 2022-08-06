@@ -22,7 +22,7 @@ public class AdminBL {
 	
 	public Admin findAdminByEmail(String Email) {
 		try {
-			return adminRepo.findById(Email).get();
+			return adminRepo.findById(Email.hashCode()).get();
 		} catch (Exception e) {
 			return null;
 		}
@@ -40,7 +40,7 @@ public class AdminBL {
 	
 	public boolean deleteAdmin(String Email) {
 		try {
-			adminRepo.deleteById(Email);
+			adminRepo.deleteById(Email.hashCode());
 			return true;
 		}catch(Exception e) {
 			e.printStackTrace();

@@ -24,7 +24,7 @@ public class CustomerBL {
 	public Customer getCustomerByEmail(String Email) {
 
 		try {
-			return custRepo.findById(Email).get();
+			return custRepo.findById(Email.hashCode()).get();
 		} catch (Exception e) {
 			return null;
 		}
@@ -50,7 +50,7 @@ public class CustomerBL {
 
 	public boolean deleteCustomer(String Email) {
 		try {
-			custRepo.deleteById(Email);
+			custRepo.deleteById(Email.hashCode());
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

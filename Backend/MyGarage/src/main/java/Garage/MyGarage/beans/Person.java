@@ -38,12 +38,13 @@ public class Person {
 	 * @param lastName
 	 * @param email
 	 */
-	public Person(String firstName, String lastName, String email, int phoneNum) {
+	public Person(String firstName, String lastName, String email, int phoneNum, int id) {
 		super();
 		setPhoneNum(phoneNum);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setEmail(email);
+		setId(id);
 	}
 	
 	
@@ -72,7 +73,12 @@ public class Person {
 	}
 	public void setEmail(String email) {
 		Email = email;
-		id = email.hashCode();
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	@Override
 	public int hashCode() {

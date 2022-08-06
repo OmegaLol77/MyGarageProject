@@ -7,11 +7,21 @@ import javax.persistence.Table;
 public class Worker extends Person {
 	private int WorkerID;
 	private String password;
-
+	
 	public Worker() {
 		super();
 	}
 	
+	/**
+	 * @param phoneNum
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 */
+	public Worker(String firstName, String lastName, String email, String password, int phoneNum) {
+		super(firstName, lastName, email, phoneNum, email.hashCode());
+		setPassword(password);
+	}
 
 	public int getWorkerID() {
 		return WorkerID;
