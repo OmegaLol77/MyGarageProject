@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from "react";
-const FINDWORKER_REST_API_URL='http://localhost:8080/Worker/';
+const FINDWORKER_REST_API_URL='http://178.62.86.200:8080/Worker/';
 class WorkerService{
 
     

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from "react";
-const ADMIN_REST_API_URL='http://localhost:8080/';
-const REMOVEADMIN_REST_API_URL = 'http://localhost:8080/Admin/';
+const ADMIN_REST_API_URL='http://178.62.86.200:8080/';
+const REMOVEADMIN_REST_API_URL = 'http://178.62.86.200:8080/Admin/';
 
 
 class AdminService{
