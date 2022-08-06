@@ -21,7 +21,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Table(name ="Report")
 public class Report {
 	private String Descripton;
-	@Id 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int carNum;
 	private Date date;
 	

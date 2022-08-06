@@ -21,9 +21,10 @@ public class Person {
 	private int PhoneNum; 
 	private String FirstName;
 	private String LastName;
-	@Id
-	@Column(name = "Email", length = 200)
 	private String Email;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	
 
 	/**
@@ -33,13 +34,12 @@ public class Person {
 		super();
 	}
 	/**
-	 * @param id
 	 * @param phoneNum
 	 * @param firstName
 	 * @param lastName
 	 * @param email
 	 */
-	public Person(  String firstName, String lastName, String email,int phoneNum) {
+	public Person(String firstName, String lastName, String email, int phoneNum) {
 		super();
 		setPhoneNum(phoneNum);
 		setFirstName(firstName);
@@ -73,6 +73,7 @@ public class Person {
 	}
 	public void setEmail(String email) {
 		Email = email;
+		id = email.hashCode();
 	}
 	@Override
 	public int hashCode() {
