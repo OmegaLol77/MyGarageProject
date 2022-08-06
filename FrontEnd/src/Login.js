@@ -6,6 +6,8 @@ import CustomerService from "./CustomerService";
 import { useHistory} from "react-router-dom";
 import AdminService from "./AdminService";
 import WorkerService from "./WorkerService";
+import { Redirect } from 'react-router-dom';
+
 
 
 export default function Login() {  
@@ -25,7 +27,10 @@ export default function Login() {
         setAdmin(current =>!current);
     }
 
+    function signupClick(){
+        history.push("/SignUp")
 
+    }
 
 
     const ver=e=>{
@@ -71,7 +76,7 @@ export default function Login() {
             <input type="password" id="Password" placeholder="Your Password" value={Password} onChange={ (e) => setPassword(e.target.value)}></input>
         </a>
         <br></br>
-        doesn't have an account <a href="./SignUp" style={{color:"blue"}} >Signup</a>
+        doesn't have an account <button onClick={signupClick} >Signup</button> 
         <br></br>
       <label>  Worker<input type="checkbox" value={Worker}  name=""  onChange={ handleWorkerChange}  /></label>
       <label>  Admin<input type="checkbox" value={Admin}  name=""  onChange={ handleAdminChange}  /></label>
