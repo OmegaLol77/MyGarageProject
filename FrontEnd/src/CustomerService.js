@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from "react";
-const ADDCUSTOMER_REST_API_URL='https://178.62.86.200:8080/Customer/addCustomer';
+const ADDCUSTOMER_REST_API_URL='http://178.62.86.200:8080/Customer/addCustomer';
 
 class CustomerService{
         
@@ -10,7 +10,7 @@ class CustomerService{
          const y={answer:false};
          const z=[];
 
-     return  axios.get('https://178.62.86.200:8080/Customer/'+`${Email}`+'/findCustomerByEmail').then((response)=>{
+     return  axios.get('http://178.62.86.200:8080/Customer/'+`${Email}`+'/findCustomerByEmail').then((response)=>{
     
                     data[0]=response.data;
                  return y.answer=Password==data[0].password;
@@ -50,7 +50,7 @@ class CustomerService{
 
 
               DeleteCustomer(Email){
-                axios.delete('https://178.62.86.200:8080/Customer/'+`${Email}`+'/deleteCustomer').then((response)=>
+                axios.delete('http://178.62.86.200:8080/Customer/'+`${Email}`+'/deleteCustomer').then((response)=>
                 {
                     console.log(response.data);
                 },(error)=>
