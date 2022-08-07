@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from "react";
 const Local_URL = 'https://localhost:8443/Customer/';
-const Server_URL='https://178.62.86.200:8443/Customer/';
+const Server_URL='https://178.62.86.200:443/Customer/';
 
 class CustomerService{
         
