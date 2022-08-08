@@ -2,8 +2,8 @@
 import axios from 'axios';
 import React from "react";
 
-const ADD_REPORT_REST_API_URL='http://178.62.86.200:8080/Report/addReport';
-const UPDATE_REPORT_REST_API_URL='http://178.62.86.200:8080/Report/addReport';
+const ADD_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report/addReport';
+const UPDATE_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report/addReport';
 
 class ReportService{
 
@@ -20,7 +20,7 @@ AddReport(CarNum,Description){
 }
 DeleteReport(carNum){
     
-    axios.delete('http://178.62.86.200:8080/Report/'+`${carNum}`+'/deleteReport').then((response)=>
+    axios.delete('https://backend.mygarage.link:8443/Report/'+`${carNum}`+'/deleteReport').then((response)=>
     {
         console.log(response.data);
     },(error)=>

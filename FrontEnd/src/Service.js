@@ -1,9 +1,9 @@
 import axios from 'axios';
 // import http from '../http-common'
-const GETCARS_REST_API_URL = 'https://178.62.86.200:8443/Car/getAllCars';
-const ADDCARS_REST_API_URL = 'https://178.62.86.200:8443/Car/addCar';
-const REMOVECARS_REST_API_URL = 'https://178.62.86.200:8443/Car';
-const UPDATECARS_REST_API_URL = 'https://178.62.86.200:8443/Car';
+const GETCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car/getAllCars';
+const ADDCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car/addCar';
+const REMOVECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
+const UPDATECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
 
 class Service{
 

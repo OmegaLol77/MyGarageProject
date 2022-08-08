@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from "react";
 const ADMIN_REST_API_URL='https://178.62.86.200:8443/';
-const REMOVEADMIN_REST_API_URL = 'https://178.62.86.200:8443/Admin/';
+const REMOVEADMIN_REST_API_URL = 'https://backend.mygarage.link:8443/Admin/';
 
 
 class AdminService{
