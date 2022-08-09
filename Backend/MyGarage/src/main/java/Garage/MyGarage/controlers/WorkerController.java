@@ -28,15 +28,15 @@ public List<Worker> getAllWorkers(){
 }
 
 
-@GetMapping("/{Email}/findWorkerByEmail")
-public Worker findWorkerByEmail(@PathVariable("Email") String Email) {
-	System.out.println(Email);
-	return workerBL.findWorkerByEmail(Email);
+@GetMapping("/{phoneNum}/findWorkerByphoneNum")
+public Worker findWorkerByEmail(@PathVariable("phoneNum") Integer phoneNum) {
+	System.out.println(phoneNum);
+	return workerBL.findByphoneNum(phoneNum);
 }
 
 @PostMapping("addWorker")
 public boolean addWorker(@RequestBody Worker worker) {
-	if(workerBL.findWorkerByEmail(worker.getEmail()).equals(null)){
+	if(workerBL.findByphoneNum(worker.getPhoneNum()).equals(null)){
 		workerBL.addWorker(worker);
 		return true;
 	}
@@ -44,10 +44,10 @@ public boolean addWorker(@RequestBody Worker worker) {
 		return false;
 	}
 }
-@DeleteMapping("/{Email}/deleteWorker")
-public boolean deleteWorker(@PathVariable("Email")String Email) {
-	if(!workerBL.findWorkerByEmail(Email).equals(null)) {
-		workerBL.deleteWorker(Email);
+@DeleteMapping("/{phoneNum}/deleteWorker")
+public boolean deleteWorker(@PathVariable("phoneNum") Integer phoneNum) {
+	if(!workerBL.findByphoneNum(phoneNum).equals(null)) {
+		workerBL.deleteWorker(phoneNum);
 		return true;
 	}
 	else {
@@ -56,10 +56,10 @@ public boolean deleteWorker(@PathVariable("Email")String Email) {
 	
 }
 
-@PostMapping("/{Email}/updateWorker")
-public boolean updateWorker(@PathVariable("phoneNum") String Email,@RequestBody Worker worker) {
+@PostMapping("/{phoneNum}/updateWorker")
+public boolean updateWorker(@PathVariable("phoneNum") Integer phoneNum,@RequestBody Worker worker) {
 	
-	if(!workerBL.findWorkerByEmail(Email).equals(null)) {
+	if(!workerBL.findByphoneNum(phoneNum).equals(null)) {
 		workerBL.updateWorker(worker);
 		return true;
 	}

@@ -1,18 +1,18 @@
 import axios from 'axios';
 import React from "react";
-const ADMIN_REST_API_URL='http://178.62.86.200:8080/';
-const REMOVEADMIN_REST_API_URL = 'http://178.62.86.200:8080/Admin/';
+const ADMIN_REST_API_URL='https://178.62.86.200:8443/';
+const REMOVEADMIN_REST_API_URL = 'https://backend.mygarage.link:8443/Admin/';
 
 
 class AdminService{
         
     //contiune the validation of the user name and the passWord :)
-    CheckAdmin( Email,Password ){
+    CheckAdmin( phoneNum,Password ){
          const data=[];
          const y={answer:false};
          const z=[];
 
-     return  axios.get(ADMIN_REST_API_URL+'Admin'+'/'+`${Email}`+'/findAdminByEmail').then((response)=>{
+     return  axios.get(ADMIN_REST_API_URL+'Admin'+'/'+`${phoneNum}`+'/findAdminByphoneNum').then((response)=>{
     
                     data[0]=response.data;
                  return y.answer=Password==data[0].password;
@@ -22,8 +22,8 @@ class AdminService{
             })
         }
 
-        DeleteAdmin(Email){
-            axios.delete(REMOVEADMIN_REST_API_URL+`${Email}/deleteAdmin`)
+        DeleteAdmin(phoneNum){
+            axios.delete(REMOVEADMIN_REST_API_URL+`${phoneNum}/deleteAdmin`)
             .then((response)=>
                 {
                     console.log(response);

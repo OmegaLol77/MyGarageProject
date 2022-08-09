@@ -10,7 +10,7 @@ import { Redirect } from 'react-router-dom';
 
 
 export default function Login() {  
-    const [Email,setEmail] = useState("");
+    const [phoneNum,setphoneNum] = useState("");
     const [Password,setPassword] = useState("");
     const [Worker,setWorker] = useState(false);
     const [Admin,setAdmin] = useState(false);
@@ -42,19 +42,22 @@ export default function Login() {
         console.log("Admin "+Admin)
         console.log("worker " +Worker)
 
-        AdminService.CheckAdmin(Email,Password).then( props => {props==true ? history.push("/AdminCarList"): alert("You are not an Admin!")}).catch();
+
+        AdminService.CheckAdmin(phoneNum,Password).then( props => {props==true ? history.push("/carlist"): alert("You are not an Admin!")}).catch();
 
            }
            else if(Worker==true){
             console.log("Admin "+Admin)
 
             console.log("worker " +Worker)
-            WorkerService.CheckWorker(Email,Password).then( props => {props==true ? history.push("/WorkerCarList"): alert("You are not an Worker!")}).catch();
+
+            WorkerService.CheckWorker(phoneNum,Password).then( props => {props==true ? history.push("/addcar"): alert("You are not an Worker!")}).catch();
 
            }
            
            else{
-            CustomerService.CheckCustomer(Email,Password).then( props => {props==true ? history.push("/CustomerCarList"): alert("You are not a customer please Sign-up")}).catch();
+
+            CustomerService.CheckCustomer(phoneNum,Password).then( props => {props==true ? history.push("/addcar"): alert("You are not a customer please Sign-up")}).catch();
         
            }
         
@@ -65,9 +68,9 @@ export default function Login() {
     return(
         <form className="Login">
         <h1>Login</h1>
-        <a>Email:
+        <a>phoneNum:
         <br></br>
-            <input type="text" id="Email" placeholder="Your Email" value={Email} onChange={ (e) => setEmail(e.target.value)}></input>
+            <input type="text" id="phoneNum" placeholder="Your phoneNum" value={phoneNum} onChange={ (e) => setphoneNum(e.target.value)}></input>
         </a>
         <br></br><br></br>
         <a>Password:

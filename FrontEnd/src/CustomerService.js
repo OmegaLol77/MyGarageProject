@@ -1,16 +1,17 @@
 import axios from 'axios';
 import React from "react";
-const ADDCUSTOMER_REST_API_URL='https://178.62.86.200:8080/Customer/addCustomer';
+const Local_URL = 'https://localhost:8443/Customer/';
+const Server_URL='https://backend.mygarage.link:8443/Customer/';
 
 class CustomerService{
         
     //contiune the validation of the user name and the passWord :)
-    CheckCustomer( Email,Password ){
+    CheckCustomer( phoneNum,Password ){
          const data=[];
          const y={answer:false};
          const z=[];
 
-     return  axios.get('https://178.62.86.200:8080/Customer/'+`${Email}`+'/findCustomerByEmail').then((response)=>{
+     return  axios.get(Server_URL+`${phoneNum}`+'/findCustomerByphoneNum').then((response)=>{
     
                     data[0]=response.data;
                  return y.answer=Password==data[0].password;
@@ -36,27 +37,25 @@ class CustomerService{
                 
             }
             
-            axios.post(ADDCUSTOMER_REST_API_URL,this.state).then((response)=>{
+            axios.post(Server_URL+'addCustomer',this.state).then((response)=>{
                 console.log(response.data);
-               alert(response.data);
+                alert(response.data);
             //    if(response.data == 'false'){
             //     alert("the email is already signed up");
             //    }
             },(error)=>{
                 alert(error);
                 console.log(error)});
-              }
+            }
 
 
 
-              DeleteCustomer(Email){
-                axios.delete('https://178.62.86.200:8080/Customer/'+`${Email}`+'/deleteCustomer').then((response)=>
-                {
-                    console.log(response.data);
-                },(error)=>
+        DeleteCustomer(phoneNum){
+            axios.delete(Server_URL+`${phoneNum}`+'deleteCustomer').then((response)=>{
+                console.log(response.data);
+            },(error)=>
                 console.log(error));
-
-                }
+            }
               
 }
 export default new CustomerService();

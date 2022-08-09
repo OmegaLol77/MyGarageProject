@@ -41,7 +41,7 @@ export default function DeleteUser(){
         <div className='center'>
         <h2>Delete User</h2>
         <div className='inputcontent'>
-          <p>User Email:</p>
+          <p>User phoneNum:</p>
           <input type="text" id='Userid'  placeholder='Jack.96@gmail.com' value={userid} onChange={(e) => setuserid(e.target.value)}></input>
         </div>
         <div className='inputcontent'>

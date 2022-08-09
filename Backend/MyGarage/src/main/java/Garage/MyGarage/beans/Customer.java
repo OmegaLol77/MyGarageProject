@@ -26,16 +26,14 @@ public class Customer extends Person {
 	}
 
 	/**
-	 * @param id
 	 * @param phoneNum
 	 * @param firstNamertr
 	 * @param lastName
 	 * @param email
 	 */
-	public Customer( String firstName, String lastName, String email,String password,int phoneNum) {
-		super(  firstName, lastName, email,phoneNum);
+	public Customer(String firstName, String lastName, String email, String password, int phoneNum) {
+		super(firstName, lastName, email, phoneNum);
 		setPassword(password);
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getCarNum() {

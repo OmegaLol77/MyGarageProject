@@ -17,12 +17,11 @@ import javax.persistence.MappedSuperclass;
 public class Person {
 	
 	/*Create person Bean*/
+	@Id
+	private int PhoneNum;
 	
-	private int PhoneNum; 
 	private String FirstName;
 	private String LastName;
-	@Id
-	@Column(name = "Email", length = 200)
 	private String Email;
 	
 
@@ -33,13 +32,12 @@ public class Person {
 		super();
 	}
 	/**
-	 * @param id
 	 * @param phoneNum
 	 * @param firstName
 	 * @param lastName
 	 * @param email
 	 */
-	public Person(  String firstName, String lastName, String email,int phoneNum) {
+	public Person(String firstName, String lastName, String email, int phoneNum) {
 		super();
 		setPhoneNum(phoneNum);
 		setFirstName(firstName);

@@ -20,9 +20,9 @@ public List<Worker> getAllWorkers(){
 	return workerRepo.findAll();
 }
 
-public Worker findWorkerByEmail(String Email) {
+public Worker findByphoneNum(int phoneNum) {
 	
-	return workerRepo.getById(Email);
+	return workerRepo.getById(phoneNum);
 }
 
 public boolean addWorker(Worker worker) {
@@ -36,9 +36,9 @@ public boolean addWorker(Worker worker) {
 	}
 }
 
-public boolean deleteWorker(String Email) {
+public boolean deleteWorker(int phoneNum) {
 	try {
-		workerRepo.deleteById(Email);	
+		workerRepo.deleteById(phoneNum);	
 		return true;
 	}
 	catch (Exception e) {
