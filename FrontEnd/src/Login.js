@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "./index.css";
 import CustomerService from "./CustomerService";
 import { useHistory} from "react-router-dom";
 import AdminService from "./AdminService";
@@ -43,19 +42,19 @@ export default function Login() {
         console.log("Admin "+Admin)
         console.log("worker " +Worker)
 
-        AdminService.CheckAdmin(Email,Password).then( props => {props==true ? history.push("/carlist"): alert("You are not an Admin!")}).catch();
+        AdminService.CheckAdmin(Email,Password).then( props => {props==true ? history.push("/AdminCarList"): alert("You are not an Admin!")}).catch();
 
            }
            else if(Worker==true){
             console.log("Admin "+Admin)
 
             console.log("worker " +Worker)
-            WorkerService.CheckWorker(Email,Password).then( props => {props==true ? history.push("/addcar"): alert("You are not an Worker!")}).catch();
+            WorkerService.CheckWorker(Email,Password).then( props => {props==true ? history.push("/WorkerCarList"): alert("You are not an Worker!")}).catch();
 
            }
            
            else{
-            CustomerService.CheckCustomer(Email,Password).then( props => {props==true ? history.push("/addcar"): alert("You are not a customer please Sign-up")}).catch();
+            CustomerService.CheckCustomer(Email,Password).then( props => {props==true ? history.push("/CustomerCarList"): alert("You are not a customer please Sign-up")}).catch();
         
            }
         

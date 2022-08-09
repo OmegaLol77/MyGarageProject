@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import CustomerService from "./CustomerService";
 import "./index.css";
+import SideNavbar from './SideNavbar';
+
 
 
 
@@ -32,8 +34,9 @@ export default function SignUp() {
 
     
     return(
+        
         <form className="SignUp">
-        <h1>Sign Up</h1>
+       
         <a>
             First Name:
             <br></br> 
@@ -42,6 +45,7 @@ export default function SignUp() {
         </a>
         <br></br><br></br>
         <a>
+            
             Last Name:
             <br></br> 
             <input type="text"id="LastName"  placeholder="lastName Name" value={LastName} onChange={ (e) =>setLastName(e.target.value)}>
@@ -84,7 +88,8 @@ export default function SignUp() {
 
       
         <button type="submit" onClick={newCustomer} >Submit</button>
-
+        <h1>Sign Up</h1>
+        
         </form>
 
 

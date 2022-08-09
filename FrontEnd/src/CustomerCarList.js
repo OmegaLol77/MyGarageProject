@@ -2,9 +2,9 @@
 import React from "react";
 import {browseHistory} from "react-router";
 import CarComponent from "./CarComponent"
-import SideNavbar from './SideNavbar';
+import CustomerSideNavbar from './CustomerSideNavbar';
 
-export default function CarList() {
+export default function CustomerCarList() {
 
 
 
@@ -12,7 +12,7 @@ export default function CarList() {
         <div className="side-navbar">
            
            <div className="side-navbar">
-            <SideNavbar />
+            <CustomerSideNavbar />
             </div>
         </div>
     

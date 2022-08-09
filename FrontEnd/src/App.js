@@ -13,15 +13,18 @@ import AdminLogin from './AdminLogin';
 import WorkerCarReport from './WorkerCarReport';
 import CarUpdate from './CarUpdate';
 
+import WorkerCarList from './WorkerCarList';
+import AdminCarList from './AdminCarList';
+import CustomerCarList from './CustomerCarList';
 
 
 export default function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className="App" height="100%">
         <Navbar />
-        <div className='container'>
+        <div className="container"  >
        
           <Switch>
           <Route exact path="/">
@@ -35,14 +38,16 @@ export default function App() {
               </div>
             </Route>
             
-            <Route path="/carlist/:id">
+            <Route path="/carlist">
               <div className='card'>
                 <CarList />
+                
               </div>
             </Route>
             <Route path="/carproccess">
               <div className="card">
                 <CarProccess />
+               
               </div>
             </Route>
             <Route path="/DeleteUser">
@@ -79,6 +84,22 @@ export default function App() {
             <Route path="/WriteCarReport">
               <div className="card">
                 <WorkerCarReport />
+              </div>
+            </Route>
+            <Route path="/WorkerCarList">
+              <div className="card">
+                <WorkerCarList />
+              </div>
+            </Route>
+
+            <Route path="/AdminCarList">
+              <div className="card">
+                <AdminCarList />
+              </div>
+            </Route>
+            <Route path="/CustomerCarList">
+              <div className="card">
+                <CustomerCarList />
               </div>
             </Route>
           </Switch>
