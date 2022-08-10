@@ -22,10 +22,9 @@ export default function App() {
 
   return (
     <Router>
-      <div className="App" height="100%">
+      <div className="App">
         <Navbar />
-        <div className="container"  >
-       
+        <div className="container">
           <Switch>
           <Route exact path="/">
               <div className="card">

@@ -12,7 +12,7 @@ export default function CustomerCarList() {
         <div className="side-navbar">
            
            <div className="side-navbar">
-            <CustomerSideNavbar />
+                <CustomerSideNavbar />
             </div>
         </div>
     

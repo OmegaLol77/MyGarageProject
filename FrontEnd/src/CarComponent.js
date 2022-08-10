@@ -31,6 +31,7 @@ class CarComponent extends React.Component {
 
     render (){
         return(
+            <div className="container">
             <div className="content">
                 <h2>Cars List</h2>
                 <table border="2">
@@ -64,6 +65,7 @@ class CarComponent extends React.Component {
                         }
                     </tbody>
                 </table>
+            </div>
             </div>
 
         )
