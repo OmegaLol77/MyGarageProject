@@ -11,7 +11,7 @@ const checker = async () => {
   let neurl = new URL(url);
   let id = neurl.searchParams.get('id');
   
-  return axios.get('http://localhost:8080/Car'+`/${id}/findById`).then((res) => {
+  return axios.get('https://backend.mygarage.link:8443/Car'+`/${id}/findById`).then((res) => {
     if(res.status == 200){
       car = res.data;
       return true;
@@ -60,7 +60,7 @@ export default function CarUpdate(id) {
         if(isLoading){
           return(
             <div>
-              
+              <p>Loading Data!!</p>
             </div>
           )
         }
