@@ -19,9 +19,7 @@ export default function AdminPage() {
       <div className="App">
         <Navbar />
         <div className='container'>
-          <div className="side-navbar">
-            <AdminSideNavbar />
-          </div>
+          <AdminSideNavbar />
           <Switch>
             <Route path="/carlist">
               <div className='card'>
