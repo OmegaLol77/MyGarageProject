@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React from "react";
-const ADMIN_REST_API_URL='https://178.62.86.200:8443/';
-const REMOVEADMIN_REST_API_URL = 'https://backend.mygarage.link:8443/Admin/';
+const ADMIN_REST_API_URL = 'https://backend.mygarage.link:8443/Admin/';
 
 
 class AdminService{
@@ -23,7 +22,7 @@ class AdminService{
         }
 
         DeleteAdmin(phoneNum){
-            axios.delete(REMOVEADMIN_REST_API_URL+`${phoneNum}/deleteAdmin`)
+            axios.delete(ADMIN_REST_API_URL+`${phoneNum}/deleteAdmin`)
             .then((response)=>
                 {
                     console.log(response);

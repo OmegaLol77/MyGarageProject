@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from "react";
-const FINDWORKER_REST_API_URL='https://backend.mygarage.link:8443/Worker/';
+const WORKER_REST_API_URL='https://backend.mygarage.link:8443/Worker/';
 class WorkerService{
 
     
@@ -9,7 +9,7 @@ class WorkerService{
         const y={answer:false};
         const z=[];
 
-    return  axios.get(FINDWORKER_REST_API_URL+`${phoneNum}`+'/findWorkerByphoneNum').then((response)=>{
+    return  axios.get(WORKER_REST_API_URL+`${phoneNum}`+'/findWorkerByphoneNum').then((response)=>{
             alert(phoneNum);
                    data[0]=response.data;
                 return y.answer=Password==data[0].password;
