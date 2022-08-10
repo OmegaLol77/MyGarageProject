@@ -62,10 +62,9 @@
   border-radius: 20px;
 }
 .card {
-  max-width: 100vw;
-  max-height:calc(100vh - 112.9px);
+  width: 90%;
+ height:90%;
   position: relative;
-  left: 38vw;
   /* display: flex; */
   background-color: antiquewhite;
   margin: 15px;
@@ -130,6 +129,25 @@
   height:1000px;
   width:100%;
 }
+.page{
+  padding: 20px;
+  display: flex;
+  float: left;
+  background-color: antiquewhite;
+  max-width: 175px;
+  height: calc(100vh - 112.9px);
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/* CreateOfferPage*/
+.CreateOfferPage{
+ width: 100%;
+  height: 100%;
+}
+
 /* Popup style */
 .popup-box {
   position: fixed;

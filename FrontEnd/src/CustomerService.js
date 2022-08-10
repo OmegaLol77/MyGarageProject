@@ -12,7 +12,7 @@ class CustomerService{
          const z=[];
 
      return  axios.get(Server_URL+`${phoneNum}`+'/findCustomerByphoneNum').then((response)=>{
-    
+
                     data[0]=response.data;
                  return y.answer=Password==data[0].password;
             }).then(function(response) {
@@ -40,9 +40,9 @@ class CustomerService{
             axios.post(Server_URL+'addCustomer',this.state).then((response)=>{
                 console.log(response.data);
                 alert(response.data);
-            //    if(response.data == 'false'){
-            //     alert("the email is already signed up");
-            //    }
+                if(response.data == 'false'){
+            alert("the email is already signed up");
+               }
             },(error)=>{
                 alert(error);
                 console.log(error)});
@@ -54,6 +54,7 @@ class CustomerService{
             axios.delete(Server_URL+`${phoneNum}`+'deleteCustomer').then((response)=>{
                 console.log(response.data);
             },(error)=>
+
                 console.log(error));
             }
               

@@ -17,6 +17,8 @@ import WorkerCarList from './WorkerCarList';
 import AdminCarList from './AdminCarList';
 import CustomerCarList from './CustomerCarList';
 
+import CreateOffer from './CreateOffer';
+
 
 export default function App() {
 
@@ -100,6 +102,11 @@ export default function App() {
             <Route path="/CustomerCarList">
               <div className="card">
                 <CustomerCarList />
+              </div>
+            </Route>
+            <Route path="/CreateOffer">
+              <div className="card">
+                <CreateOffer />
               </div>
             </Route>
           </Switch>
