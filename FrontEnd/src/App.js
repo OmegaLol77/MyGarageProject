@@ -1,6 +1,5 @@
 import Navbar from './Navbar';
 import Home from './Home';
-import SideNavbar from './SideNavbar';
 import { BrowserRouter as Router, Route , Switch} from 'react-router-dom';
 import CarList from './CarList';
 import CarProccess from './CarProccess';
@@ -13,7 +12,6 @@ import DeleteUser from './DeleteUser';
 import AdminLogin from './AdminLogin';
 import WorkerCarReport from './WorkerCarReport';
 import CarUpdate from './CarUpdate';
-import AdminNav from "./AdminNav"
 import WorkerCarList from './WorkerCarList';
 import AdminCarList from './AdminCarList';
 import CustomerCarList from './CustomerCarList';
@@ -39,11 +37,12 @@ export default function App() {
                 <Login />
               </div>
             </Route>
-            
             <Route path="/carlist">
+            <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className='card'>
                 <CarList />
-                
               </div>
             </Route>
             <Route path="/carproccess">
@@ -52,11 +51,17 @@ export default function App() {
               </div>
             </Route>
             <Route path="/DeleteUser">
+            <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <DeleteUser />
               </div>
             </Route>
             <Route path="/addcar">
+            <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <AddCar />
               </div>
@@ -105,7 +110,6 @@ export default function App() {
                 <WorkerCarList />
               </div>
             </Route>
-
             <Route path="/AdminCarList">
             <div className='side-navbar'>
                 <AdminSideNavbar/>

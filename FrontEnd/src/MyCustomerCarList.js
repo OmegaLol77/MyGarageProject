@@ -3,7 +3,7 @@ import React from "react";
 import { Redirect, useHistory } from 'react-router-dom';
 import { BsTrash ,BsFileEarmarkPlus} from "react-icons/bs";
 
-class CarComponent extends React.Component {
+class MyCustomerCarList extends React.Component {
 
     constructor(props){
         super(props)
@@ -40,7 +40,6 @@ class CarComponent extends React.Component {
                             <td>Car ID</td>
                             <td>Owner Name</td>
                             <td>Owner ID</td>
-                            <td>Owner Phone Number</td>
                             <td>Car Number</td>
                             <td>Date</td>
                             <td>Car Proccess</td>
@@ -56,7 +55,6 @@ class CarComponent extends React.Component {
                                     <td>{cars.id}</td>
                                     <td>{cars.ownername}</td>
                                     <td>{cars.ownerid}</td>
-                                    <td>{cars.ownerPNum}</td>
                                     <td>{cars.carnumber}</td>
                                     <td>{cars.date}</td>
                                     <td>{cars.carproccess}</td>

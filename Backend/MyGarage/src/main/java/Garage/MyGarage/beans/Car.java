@@ -14,6 +14,7 @@ public class Car {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	private int ownerPNum;
 	private String ownername;
 	private String carnumber;
 	private String ownerid;
@@ -24,8 +25,9 @@ public class Car {
 		super();
 	}
 	
-	public Car(String ownername, String ownerid, String carnumber, String date, String carproccess) {
+	public Car(String ownername, String ownerid, String carnumber, String date, String carproccess,int ownerpnum) {
 		super();
+		setOwnerPNum(ownerpnum);
 		setOwnername(ownername);
 		setCarnumber(carnumber);
 		setDate(date);
@@ -33,8 +35,9 @@ public class Car {
 		setCarproccess(carproccess);
 	}
 	
-	public Car(String ownername, String ownerid, String carnumber, String date, String carproccess, int id) {
+	public Car(String ownername, String ownerid, String carnumber, String date, String carproccess,int ownerpnum, int id) {
 		super();
+		setOwnerPNum(ownerpnum);
 		setOwnername(ownername);
 		setCarnumber(carnumber);
 		setDate(date);
@@ -48,6 +51,12 @@ public class Car {
 	}
 	public void setOwnername(String ownername) {
 		this.ownername = ownername;
+	}
+	public int getOwnerPNum() {
+		return this.ownerPNum;
+	}
+	public void setOwnerPNum(int ownerpnum) {
+		this.ownerPNum = ownerpnum;
 	}
 	public String getCarnumber() {
 		return carnumber;

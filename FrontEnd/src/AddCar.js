@@ -9,6 +9,7 @@ export default function AddCar() {
   const [ownername,setownername] = useState("");
   const [ownerid,setownerid] = useState(0);
   const [carnumber,setcarnumber] = useState(0); 
+  const [PhoneNum,setPhoneNum] = useState(0);
   const [date,setdate] = useState("");
   const [carproccess,setcarproccess] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ export default function AddCar() {
   }
   const handleOnClick = e => {
     e.preventDefault();
-    console.log(Service.AddCar(ownername,ownerid,currdate,carnumber,carproccess));
+    console.log(Service.AddCar(ownername,ownerid,currdate,carnumber,carproccess,PhoneNum));
     // if(Service.AddCar(ownername,ownerid,date,carnumber)){
     //   console.log(isOpen);
     //   refreshPage();
@@ -52,6 +53,10 @@ export default function AddCar() {
       <div className='inputcontent'>
         <p>Owner ID:</p>
         <input type="text" id='ownerid' value={ownerid} onChange={(e) => setownerid(e.target.value)}></input>
+      </div>
+      <div className='inputcontent'>
+        <p>Owner PhoneNum:</p>
+        <input type="text" id='ownerPNum' value={PhoneNum} onChange={(e) => setPhoneNum(e.target.value)}></input>
       </div>
       <div className='inputcontent'>
         <p>Car Number:</p>
