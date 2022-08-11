@@ -37,13 +37,9 @@ export default function Login() {
            return;
         }
         if(Admin==true){
-            console.log("Admin "+Admin)
-            console.log("worker " +Worker)
             AdminService.CheckAdmin(phoneNum,Password).then( props => {props==true ? history.push("/AdminCarList"): alert("You are not an Admin!")}).catch();
         }
         else if(Worker==true){
-            console.log("Admin "+Admin)
-            console.log("worker " +Worker)
             WorkerService.CheckWorker(phoneNum,Password).then( props => {props==true ? history.push("/WorkerCarList"): alert("You are not an Worker!")}).catch();
         } 
         else{

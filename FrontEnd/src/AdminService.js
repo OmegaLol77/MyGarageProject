@@ -20,14 +20,34 @@ class AdminService{
               return  z[0];
             })
         }
-
         DeleteAdmin(phoneNum){
             axios.delete(ADMIN_REST_API_URL+`${phoneNum}/deleteAdmin`)
             .then((response)=>
                 {
-                    console.log(response);
+                console.log(response);
                 },(error)=>
                 console.log(error));
         }
+
+        AddAdmin(FirstName,LastName,Email,Password,phoneNum){
+            this.state = { 
+                firstName:FirstName,
+                lastName:LastName,
+                email:Email,
+                password:Password,
+                phoneNum:phoneNum
+            }
+            axios.post(ADMIN_REST_API_URL+'/addAdmin',this.state)
+            .then((response)=>{
+                alert(response.data);
+                if(response.data == 'false'){
+                alert("the email is already signed up");
+                }
+            },(error)=>{
+                alert(error);
+                console.log(error)});
+            }
     }
+
+    
     export default new AdminService();

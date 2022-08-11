@@ -21,6 +21,7 @@ import CustomerSideNavbar from './CustomerSideNavbar';
 import MyCustomerCarList from './MyCustomerCarList'
 import WCarUpdate from './WCarUpdate';
 import WCarList from './WCarList';
+import AddUser from './AddUser';
 
 export default function App() {
 
@@ -87,6 +88,15 @@ export default function App() {
                 <CarUpdate />
               </div>
             </Route>
+            <Route path="/adduser">
+              <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
+              <div className="card">
+                <AddUser />
+              </div>
+            </Route>
+            
 
             {/* Worker Pages */}
             <Route path="/WorkerCarList">

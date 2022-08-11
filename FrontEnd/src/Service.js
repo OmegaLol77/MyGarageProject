@@ -26,7 +26,8 @@ class Service{
         axios.post(ADDCARS_REST_API_URL,
             this.state
         ).then((response)=>
-        {return response.data;
+        {
+            return response.data;
         },(error)=>
         console.log(error));
     }
@@ -45,7 +46,8 @@ class Service{
         axios.post(UPDATECARS_REST_API_URL+`/${id}/updateCar`,
             this.state
         ).then((response)=>
-        {return response.data;
+        {
+            return response.data;
         },(error)=>
         console.log(error));
     }

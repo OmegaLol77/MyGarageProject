@@ -6,11 +6,10 @@ const Server_URL='https://backend.mygarage.link:8443/Customer/';
 class CustomerService{
         
     //contiune the validation of the user name and the passWord :)
-    CheckCustomer( phoneNum,Password ){
+    CheckCustomer(phoneNum,Password ){
          const data=[];
          const y={answer:false};
          const z=[];
-
      return  axios.get(Server_URL+`${phoneNum}`+'/findCustomerByphoneNum').then((response)=>{
 
                     data[0]=response.data;
@@ -23,10 +22,7 @@ class CustomerService{
         
         }
 
-
-
         AddCoustmer(FirstName,LastName,Email,Password,phoneNum){
-            console.log(FirstName,LastName,Email,Password,phoneNum)
             this.state = { 
                 firstName:FirstName,
                 lastName:LastName,
@@ -34,15 +30,13 @@ class CustomerService{
                 password:Password,
                 carNum:0,
                 phoneNum:phoneNum
-                
             }
-            
-            axios.post(Server_URL+'addCustomer',this.state).then((response)=>{
-                console.log(response.data);
+            axios.post(Server_URL+'addCustomer',this.state)
+            .then((response)=>{
                 alert(response.data);
                 if(response.data == 'false'){
-            alert("the email is already signed up");
-               }
+                alert("the email is already signed up");
+                }
             },(error)=>{
                 alert(error);
                 console.log(error)});

@@ -5,7 +5,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "worker")
 public class Worker extends Person {
-	private int WorkerID;
 	private String password;
 	
 	public Worker() {
@@ -23,14 +22,6 @@ public class Worker extends Person {
 		setPassword(password);
 	}
 
-	public int getWorkerID() {
-		return WorkerID;
-	}
-
-
-	public void setWorkerID(int workerID) {
-		WorkerID = workerID;
-	}
 
 
 	public String getPassword() {
@@ -45,7 +36,6 @@ public class Worker extends Person {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + WorkerID;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
@@ -59,8 +49,6 @@ public class Worker extends Person {
 		if (getClass() != obj.getClass())
 			return false;
 		Worker other = (Worker) obj;
-		if (WorkerID != other.WorkerID)
-			return false;
 		if (password == null) {
 			if (other.password != null)
 				return false;
@@ -71,7 +59,7 @@ public class Worker extends Person {
 
 	@Override
 	public String toString() {
-		return "Worker [WorkerID=" + WorkerID + ", password=" + password + "]";
+		return "Worker [WorkerID=" + ", password=" + password + "]";
 	}
 	
 	

@@ -34,7 +34,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("addAdmin")
-	public boolean addCustomer(@RequestBody Admin admin) {
+	public boolean addAdmin(@RequestBody Admin admin) {
 		if(AdminBL.findAdminByphoneNum(admin.getPhoneNum()).equals(null)){
 			AdminBL.addAdmin(admin);
 			return true;

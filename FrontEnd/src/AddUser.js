@@ -1,38 +1,56 @@
 import React, { useEffect, useState } from 'react'
 import CustomerService from "./CustomerService";
+import AdminService from './AdminService';
+import WorkerService from './WorkerService';
+
 import "./index.css";
 import SideNavbar from './SideNavbar';
 
 
 
 
-export default function SignUp() {
-    const[FirstName,setFirstName]= useState("");
+export default function AddUser() {
+    const [FirstName,setFirstName]= useState("");
     const [LastName,setLastName]= useState("");
     const [Email,setEmail] = useState("");
     const [PhoneNum,setPhoneNum] = useState("");
     const [Password,setPassword] = useState("");
     const [PasswordConf,setPasswordConf] = useState("");
+    const [Worker,setWorker] = useState(false);
+    const [Admin,setAdmin] = useState(false);
 
-    const newCustomer=e=>{
-        e.preventDefault();
-        if(Password===PasswordConf){
-       CustomerService.AddCoustmer(FirstName,LastName,Email,Password,PhoneNum) ;
-       
+    const handleWorkerChange=()=>{
+        setWorker(current =>!current);
     }
-    else if(CustomerService.CheckCustomer(Email)==false){
+
+    const handleAdminChange=()=>{
+        setAdmin(current =>!current);
+    }
+    const newUser=e=>{
+        e.preventDefault();
+    if(Password===PasswordConf){
+        if(Worker==true&&Admin==true){
+            alert("Please Only Select One")
+           return;
+        }
+        if(Admin==true){
+            AdminService.AddAdmin(FirstName,LastName,Email,Password,PhoneNum);
+        }
+        else if(Worker==true){
+            WorkerService.AddWorker(FirstName,LastName,Email,Password,PhoneNum);
+        } 
+    }
+    else if(AdminService.CheckAdmin(PhoneNum)==false || WorkerService.CheckWorker(PhoneNum)==false){
         alert("Email already exists!")
     }
-  
     if(Password!=PasswordConf){
         alert("two passwords is not the same");
     }
     else{
-        alert("Email Already in the DB")
+        alert("Email or Phone Number Already in the DB")
     }
     }
 
-    
     return(
         
         <form className="SignUp">
@@ -75,8 +93,13 @@ export default function SignUp() {
         </a>
         <br></br>
         <br></br>
-
-        <button type="submit" onClick={newCustomer} >Submit</button>
+        <label>  Worker<input type="checkbox" value={Worker}  name=""  onChange={ handleWorkerChange}  /></label>
+        <br></br>
+        <br></br>
+        <label>  Admin<input type="checkbox" value={Admin}  name=""  onChange={ handleAdminChange}  /></label>
+        <br></br>
+        <br></br>
+        <button type="submit" onClick={newUser} >Submit</button>
 
         </form>
 
