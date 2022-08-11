@@ -22,7 +22,7 @@ const checker = async () => {
   });
 }
 
-export default function CarUpdate(id) {
+export default function WCarUpdate(id) {
 
   const [ownername,setownername] = useState("");
   const [ownerid,setownerid] = useState("");

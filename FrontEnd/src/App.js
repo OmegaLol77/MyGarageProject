@@ -15,14 +15,12 @@ import CarUpdate from './CarUpdate';
 import WorkerCarList from './WorkerCarList';
 import AdminCarList from './AdminCarList';
 import CustomerCarList from './CustomerCarList';
-
-import CreateOffer from './CreateOffer';
-
-
 import AdminSideNavbar from './AdminSideNavbar';
 import WorkerSideNavbar from './WorkerSideNavbar';
 import CustomerSideNavbar from './CustomerSideNavbar';
 import MyCustomerCarList from './MyCustomerCarList'
+import WCarUpdate from './WCarUpdate';
+import WCarList from './WCarList';
 
 export default function App() {
 
@@ -34,20 +32,22 @@ export default function App() {
           <Switch>
           <Route exact path="/">
               <div className="card">
-                <Home />
+                <Login/>
               </div>
             </Route>
-          <Route path="/Login">
+            <Route path="/SignUp">
               <div className="card">
-                <Login />
+                <SignUp />
               </div>
             </Route>
-            <Route path="/mycustomercarlist">
+
+            {/* Admin Pages */}
+            <Route path="/AdminCarList">
             <div className='side-navbar'>
-                <CustomerSideNavbar/>
+                <AdminSideNavbar/>
               </div>
               <div className="card">
-                <MyCustomerCarList />
+                <AdminCarList />
               </div>
             </Route>
             <Route path="/carlist">
@@ -56,11 +56,6 @@ export default function App() {
               </div>
               <div className='card'>
                 <CarList />
-              </div>
-            </Route>
-            <Route path="/carproccess">
-              <div className="card">
-                <CarProccess />
               </div>
             </Route>
             <Route path="/DeleteUser">
@@ -87,34 +82,13 @@ export default function App() {
                 <CarProccessUpdate />
               </div>
             </Route>
-            <Route path="/carproccessupdatew">
-              <div className='side-navbar'>
-                <WorkerSideNavbar/>
-              </div>
-              <div className="card">
-                <CarProccessUpdateW />
-              </div>
-            </Route>
-            <Route path="/AdminLogin">
-              <div className="card">
-                <AdminLogin />
-              </div>
-            </Route>
-            <Route path="/SignUp">
-              <div className="card">
-                <SignUp />
-              </div>
-            </Route>
             <Route path="/carupdate">
               <div className="card">
                 <CarUpdate />
               </div>
             </Route>
-            <Route path="/WriteCarReport">
-              <div className="card">
-                <WorkerCarReport />
-              </div>
-            </Route>
+
+            {/* Worker Pages */}
             <Route path="/WorkerCarList">
             <div className='side-navbar'>
                 <WorkerSideNavbar/>
@@ -123,14 +97,42 @@ export default function App() {
                 <WorkerCarList />
               </div>
             </Route>
-            <Route path="/AdminCarList">
-            <div className='side-navbar'>
-                <AdminSideNavbar/>
+            <Route path="/carproccessupdatew">
+              <div className='side-navbar'>
+                <WorkerSideNavbar/>
               </div>
               <div className="card">
-                <AdminCarList />
+                <CarProccessUpdateW />
               </div>
             </Route>
+            <Route path="/WriteCarReport">
+              <div className='side-navbar'>
+                <WorkerSideNavbar/>
+              </div>
+              <div className="card">
+                <WorkerCarReport />
+              </div>
+            </Route>
+            <Route path="/wcarlist">
+              <div className='side-navbar'>
+                <WorkerSideNavbar/>
+              </div>
+              <div className="card">
+                <WCarList/>
+              </div>
+            </Route>
+            <Route path="/carupdatew">
+              <div className='side-navbar'>
+                <WorkerSideNavbar/>
+              </div>
+              <div className="card">
+                <WCarUpdate />
+              </div>
+            </Route>
+
+
+
+            {/* Customer Pages */}
             <Route path="/CustomerCarList">
             <div className='side-navbar'>
                 <CustomerSideNavbar/>
@@ -139,9 +141,17 @@ export default function App() {
                 <CustomerCarList />
               </div>
             </Route>
-            <Route path="/CreateOffer">
+            <Route path="/mycustomercarlist">
+            <div className='side-navbar'>
+                <CustomerSideNavbar/>
+              </div>
               <div className="card">
-                <CreateOffer />
+                <MyCustomerCarList />
+              </div>
+            </Route>
+            <Route path="/carproccess">
+              <div className="card">
+                <CarProccess />
               </div>
             </Route>
           </Switch>
@@ -150,4 +160,5 @@ export default function App() {
     </Router>
   );
 }
+
 

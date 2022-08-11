@@ -5,7 +5,7 @@ export default function CustomerSideNavbar() {
         <div >
             <h2 className="menu">Menu</h2>
             <div className="sidebar">
-                <Link to="/carproccessupdate">Car Proccess Update</Link>
+                {/* <Link to="/carproccessupdate">Car Proccess Update</Link> */}
                 <Link to="/mycustomercarlist">Car List</Link>
                 <Link to="/carproccess">Car Proccess</Link>
             </div>
