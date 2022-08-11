@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function CustomrtSideNavbar() {
+export default function CustomerSideNavbar() {
     return (
         <div >
             <h2 className="menu">Menu</h2>

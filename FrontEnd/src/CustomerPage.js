@@ -1,5 +1,6 @@
 
-export default function AdminPage() {
+
+export default function CustomerPage() {
   return (
         <div className='container'>
         </div>

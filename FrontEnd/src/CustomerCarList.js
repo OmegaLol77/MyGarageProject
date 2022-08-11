@@ -2,17 +2,16 @@
 import React from "react";
 import {browseHistory} from "react-router";
 import CarComponent from "./CarComponent"
-import CustomerSideNavbar from './CustomerSideNavbar';
+import CustomerPage from "./CustomerPage";
 
 export default function CustomerCarList() {
 
 
 
     return (
-        <div className="side-navbar">
-           
-           <div className="side-navbar">
-                <CustomerSideNavbar />
+        <div>
+           <div>
+                <CustomerPage />
             </div>
         </div>
     

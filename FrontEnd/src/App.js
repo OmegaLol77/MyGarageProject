@@ -8,22 +8,25 @@ import AddCar from './AddCar';
 import Login from './Login';
 import SignUp from './SignUp';
 import CarProccessUpdate from './CarProccessUpdate';
+import CarProccessUpdateW from './CarProccessUpdateW';
 import DeleteUser from './DeleteUser';
 import AdminLogin from './AdminLogin';
 import WorkerCarReport from './WorkerCarReport';
 import CarUpdate from './CarUpdate';
-
+import AdminNav from "./AdminNav"
 import WorkerCarList from './WorkerCarList';
 import AdminCarList from './AdminCarList';
 import CustomerCarList from './CustomerCarList';
-
+import AdminSideNavbar from './AdminSideNavbar';
+import WorkerSideNavbar from './WorkerSideNavbar';
+import CustomerSideNavbar from './CustomerSideNavbar';
 
 export default function App() {
 
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar/>
         <div className="container">
           <Switch>
           <Route exact path="/">
@@ -46,7 +49,6 @@ export default function App() {
             <Route path="/carproccess">
               <div className="card">
                 <CarProccess />
-               
               </div>
             </Route>
             <Route path="/DeleteUser">
@@ -60,11 +62,21 @@ export default function App() {
               </div>
             </Route>
             <Route path="/carproccessupdate">
+              <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <CarProccessUpdate />
               </div>
             </Route>
-           
+            <Route path="/carproccessupdatew">
+              <div className='side-navbar'>
+                <WorkerSideNavbar/>
+              </div>
+              <div className="card">
+                <CarProccessUpdateW />
+              </div>
+            </Route>
             <Route path="/AdminLogin">
               <div className="card">
                 <AdminLogin />
@@ -86,17 +98,26 @@ export default function App() {
               </div>
             </Route>
             <Route path="/WorkerCarList">
+            <div className='side-navbar'>
+                <WorkerSideNavbar/>
+              </div>
               <div className="card">
                 <WorkerCarList />
               </div>
             </Route>
 
             <Route path="/AdminCarList">
+            <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <AdminCarList />
               </div>
             </Route>
             <Route path="/CustomerCarList">
+            <div className='side-navbar'>
+                <CustomerSideNavbar/>
+              </div>
               <div className="card">
                 <CustomerCarList />
               </div>
