@@ -9,6 +9,7 @@ public class Admin extends Person {
 
 	
 	private String password;
+	
 	public String getPassword() {
 		return password;
 	}

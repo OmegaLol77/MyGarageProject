@@ -30,6 +30,7 @@ class AdminService{
         }
 
         AddAdmin(FirstName,LastName,Email,Password,phoneNum){
+            // console.log(FirstName+","+LastName+","+Email+","+Password+","+phoneNum)
             this.state = { 
                 firstName:FirstName,
                 lastName:LastName,

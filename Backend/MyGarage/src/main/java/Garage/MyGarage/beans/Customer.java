@@ -9,6 +9,8 @@ public class Customer extends Person {
 	
 	private int carNum;
 	private String password;
+	
+	
 	public String getPassword() {
 		return password;
 	}

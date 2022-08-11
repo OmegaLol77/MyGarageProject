@@ -36,7 +36,7 @@ public Worker findWorkerByEmail(@PathVariable("phoneNum") Integer phoneNum) {
 
 @PostMapping("addWorker")
 public boolean addWorker(@RequestBody Worker worker) {
-	if(workerBL.findByphoneNum(worker.getPhoneNum()).equals(null)){
+	if(workerBL.findByphoneNum(worker.getPhoneNum())==null){
 		workerBL.addWorker(worker);
 		return true;
 	}

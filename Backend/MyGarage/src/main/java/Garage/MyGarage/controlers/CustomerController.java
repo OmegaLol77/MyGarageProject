@@ -39,7 +39,6 @@ public class CustomerController {
 	public boolean addCustomer(@RequestBody Customer customer) {	
 		if(customerBL.findByphoneNum(customer.getPhoneNum())==null){
 			customerBL.addCustomer(customer);
-			System.out.println("it got inserted ");
 			return true;
 		}
 		else {
