@@ -109,8 +109,8 @@
   display: flex;
   float: left;
   background-color: antiquewhite;
-  max-width: 200px;
-  height: calc(100vh - 90px);
+  max-width: 225px;
+  height: calc(100vh - 105px);
   position: relative;
   top: 0;
   left: 0;
