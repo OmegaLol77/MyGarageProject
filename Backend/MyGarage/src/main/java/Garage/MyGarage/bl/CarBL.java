@@ -30,6 +30,10 @@ public class CarBL {
 //		return carRepo.findBycarproccess();
 //	}
 	
+	public List<Car> getCustomerCars(int ownerPNum){
+		return carRepo.findByownerPNum(ownerPNum);
+	}
+	
 	public Car getById(int id) {
 		return carRepo.findById(id).get();
 	}

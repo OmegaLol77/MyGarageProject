@@ -18,11 +18,10 @@ export default function Login() {
     let history =useHistory();
 
     const handleWorkerChange=()=>{
-
         setWorker(current =>!current);
     }
-    const handleAdminChange=()=>{
 
+    const handleAdminChange=()=>{
         setAdmin(current =>!current);
     }
 
@@ -31,7 +30,6 @@ export default function Login() {
 
     }
 
-
     const ver=e=>{
         e.preventDefault();
         if(Worker==true&&Admin==true){
@@ -39,31 +37,20 @@ export default function Login() {
            return;
         }
         if(Admin==true){
-        console.log("Admin "+Admin)
-        console.log("worker " +Worker)
-
-
-        AdminService.CheckAdmin(phoneNum,Password).then( props => {props==true ? history.push("/AdminCarList"): alert("You are not an Admin!")}).catch();
-
-           }
-           else if(Worker==true){
             console.log("Admin "+Admin)
-
             console.log("worker " +Worker)
-
-            WorkerService.CheckWorker(phoneNum,Password).then( props => {props==true ? history.push("/WorkerCarList"): alert("You are not an Worker!")}).catch();
-
-           }
-           
-           else{
-
-            CustomerService.CheckCustomer(phoneNum,Password).then( props => {props==true ? history.push("/CustomerCarList"): alert("You are not a customer please Sign-up")}).catch();
-        
-           }
-        
+            AdminService.CheckAdmin(phoneNum,Password).then( props => {props==true ? history.push("/AdminCarList"): alert("You are not an Admin!")}).catch();
         }
-
-
+        else if(Worker==true){
+            console.log("Admin "+Admin)
+            console.log("worker " +Worker)
+            WorkerService.CheckWorker(phoneNum,Password).then( props => {props==true ? history.push("/WorkerCarList"): alert("You are not an Worker!")}).catch();
+        } 
+        else{
+            localStorage.setItem("Cphonenum",phoneNum)
+            CustomerService.CheckCustomer(phoneNum,Password).then( props => {props==true ? history.push("/CustomerCarList"): alert("You are not a customer please Sign-up")}).catch();
+        }
+    }
 
     return(
         <form className="Login">
@@ -82,17 +69,9 @@ export default function Login() {
         <br></br>
       <label>  Worker<input type="checkbox" value={Worker}  name=""  onChange={ handleWorkerChange}  /></label>
       <label>  Admin<input type="checkbox" value={Admin}  name=""  onChange={ handleAdminChange}  /></label>
-
       <br></br>
-
         <button type="submit" onClick={ver} >Submit</button>
-
-
-
         </form>
-
-
-        
   )
   
 }

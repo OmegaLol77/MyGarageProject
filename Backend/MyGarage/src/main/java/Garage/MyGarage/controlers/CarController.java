@@ -29,6 +29,11 @@ public class CarController {
 		return carBL.getAllCars();
 	}
 	
+	@GetMapping("/{ownerPNum}/getCustomerCars")
+	public List<Car> getCustomerCars(@PathVariable("ownerPNum") Integer ownerPNum){
+		return carBL.getCustomerCars(ownerPNum);
+	}
+	
 	@GetMapping("/{id}/findById")
 	public Car findbyid(@PathVariable("id") Integer id) {
 		return carBL.getById(id);

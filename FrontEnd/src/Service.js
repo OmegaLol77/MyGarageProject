@@ -1,6 +1,7 @@
 import axios from 'axios';
 // import http from '../http-common'
 const GETCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car/getAllCars';
+const GETCUSTOMERCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
 const ADDCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car/addCar';
 const REMOVECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
 const UPDATECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
@@ -10,13 +11,17 @@ class Service{
     getAllCars(){
         return axios.get(GETCARS_REST_API_URL);
     }
-    AddCar(on,oi,d,cn,cp){
+    getCustomerCars(){
+        return axios.get(GETCUSTOMERCARS_REST_API_URL+`/${localStorage.getItem("Cphonenum")}/getCustomerCars`);
+    }
+    AddCar(on,oi,d,cn,cp,pn){
         this.state = { 
             ownername:on,
             ownerid:oi,
             carnumber:cn,
             date:d,
-            carproccess:cp
+            carproccess:cp,
+            ownerPNum:pn
         }
         axios.post(ADDCARS_REST_API_URL,
             this.state
@@ -26,7 +31,7 @@ class Service{
         console.log(error));
     }
 
-    updateCar(on,oi,d,cn,cp,id){
+    updateCar(on,oi,d,cn,cp,pn,id){
         console.log(id)
         this.state = { 
             ownername:on,
@@ -34,6 +39,7 @@ class Service{
             carnumber:cn,
             date:d,
             carproccess:cp,
+            ownerPNum:pn,
             id:id
         }
         axios.post(UPDATECARS_REST_API_URL+`/${id}/updateCar`,

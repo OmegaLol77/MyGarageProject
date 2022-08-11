@@ -1,6 +1,5 @@
 import Navbar from './Navbar';
 import Home from './Home';
-import SideNavbar from './SideNavbar';
 import { BrowserRouter as Router, Route , Switch} from 'react-router-dom';
 import CarList from './CarList';
 import CarProccess from './CarProccess';
@@ -8,11 +7,11 @@ import AddCar from './AddCar';
 import Login from './Login';
 import SignUp from './SignUp';
 import CarProccessUpdate from './CarProccessUpdate';
+import CarProccessUpdateW from './CarProccessUpdateW';
 import DeleteUser from './DeleteUser';
 import AdminLogin from './AdminLogin';
 import WorkerCarReport from './WorkerCarReport';
 import CarUpdate from './CarUpdate';
-
 import WorkerCarList from './WorkerCarList';
 import AdminCarList from './AdminCarList';
 import CustomerCarList from './CustomerCarList';
@@ -20,14 +19,18 @@ import CustomerCarList from './CustomerCarList';
 import CreateOffer from './CreateOffer';
 
 
+import AdminSideNavbar from './AdminSideNavbar';
+import WorkerSideNavbar from './WorkerSideNavbar';
+import CustomerSideNavbar from './CustomerSideNavbar';
+import MyCustomerCarList from './MyCustomerCarList'
+
 export default function App() {
 
   return (
     <Router>
-      <div className="App" height="100%">
-        <Navbar />
-        <div className="container"  >
-       
+      <div className="App">
+        <Navbar/>
+        <div className="container">
           <Switch>
           <Route exact path="/">
               <div className="card">
@@ -39,35 +42,59 @@ export default function App() {
                 <Login />
               </div>
             </Route>
-            
+            <Route path="/mycustomercarlist">
+            <div className='side-navbar'>
+                <CustomerSideNavbar/>
+              </div>
+              <div className="card">
+                <MyCustomerCarList />
+              </div>
+            </Route>
             <Route path="/carlist">
+            <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className='card'>
                 <CarList />
-                
               </div>
             </Route>
             <Route path="/carproccess">
               <div className="card">
                 <CarProccess />
-               
               </div>
             </Route>
             <Route path="/DeleteUser">
+            <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <DeleteUser />
               </div>
             </Route>
             <Route path="/addcar">
+            <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <AddCar />
               </div>
             </Route>
             <Route path="/carproccessupdate">
+              <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <CarProccessUpdate />
               </div>
             </Route>
-           
+            <Route path="/carproccessupdatew">
+              <div className='side-navbar'>
+                <WorkerSideNavbar/>
+              </div>
+              <div className="card">
+                <CarProccessUpdateW />
+              </div>
+            </Route>
             <Route path="/AdminLogin">
               <div className="card">
                 <AdminLogin />
@@ -89,17 +116,25 @@ export default function App() {
               </div>
             </Route>
             <Route path="/WorkerCarList">
+            <div className='side-navbar'>
+                <WorkerSideNavbar/>
+              </div>
               <div className="card">
                 <WorkerCarList />
               </div>
             </Route>
-
             <Route path="/AdminCarList">
+            <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <AdminCarList />
               </div>
             </Route>
             <Route path="/CustomerCarList">
+            <div className='side-navbar'>
+                <CustomerSideNavbar/>
+              </div>
               <div className="card">
                 <CustomerCarList />
               </div>

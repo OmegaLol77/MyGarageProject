@@ -28,6 +28,7 @@ export default function CarUpdate(id) {
   const [ownerid,setownerid] = useState("");
   const [carnumber,setcarnumber] = useState("");
   const [date,setdate] = useState("");
+  const [PhoneNum,setPhoneNum] = useState(0); 
   const [carproccess,setcarproccess] = useState("");
 
   const current = new Date();
@@ -45,7 +46,7 @@ export default function CarUpdate(id) {
 
   const handleOnClick = e => {
     e.preventDefault();
-    console.log(Service.updateCar(car.ownername,car.ownerid,currdate,car.carnumber,car.carproccess,car.id));
+    console.log(Service.updateCar(car.ownername,car.ownerid,currdate,car.carnumber,car.carproccess,car.ownerPNum,car.id));
     // if(Service.AddCar(ownername,ownerid,date,carnumber)){
     //   console.log(isOpen);
     //   refreshPage();
@@ -73,6 +74,7 @@ export default function CarUpdate(id) {
           setcarnumber(car.carnumber);
           setdate(car.date);
           setcarproccess(car.carproccess);
+          setPhoneNum(car.ownerPNum)
           console.log(car.ownerid)
           console.log(car.carnumber)
           return(
@@ -85,6 +87,10 @@ export default function CarUpdate(id) {
           <div className='inputcontent'>
             <p>Owner ID:</p>
             <input type="text" id='ownerid' defaultValue={ownerid} onChange={(e) => car.ownerid = e.target.value}></input>
+          </div>
+          <div className='inputcontent'>
+            <p>Owner PhoneNum:</p>
+            <input type="text" id='ownerPNum' defaultvalue={PhoneNum} onChange={(e) => setPhoneNum(e.target.value)}></input>
           </div>
           <div className='inputcontent'>
             <p>Car Number:</p>

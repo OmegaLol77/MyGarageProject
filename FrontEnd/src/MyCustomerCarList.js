@@ -3,7 +3,7 @@ import React from "react";
 import { Redirect, useHistory } from 'react-router-dom';
 import { BsTrash ,BsFileEarmarkPlus} from "react-icons/bs";
 
-class CarComponent extends React.Component {
+class MyCustomerCarList extends React.Component {
 
     constructor(props){
         super(props)
@@ -13,7 +13,7 @@ class CarComponent extends React.Component {
     }
     
     componentDidMount(){
-        Service.getAllCars().then((response)=>
+        Service.getCustomerCars().then((response)=>
         {
             this.setState({cars:response.data})
         })
@@ -21,13 +21,6 @@ class CarComponent extends React.Component {
     refreshPage() {
         window.location.reload(false);
       }
-    deleteCar = (id) =>{
-        Service.DeleteCar(id);
-        this.refreshPage();
-    }
-    direct = (id,path) =>{
-        window.location.replace(path+'?id='+id);
-    }
 
     render (){
         return(
@@ -40,12 +33,10 @@ class CarComponent extends React.Component {
                             <td>Car ID</td>
                             <td>Owner Name</td>
                             <td>Owner ID</td>
-                            <td>Owner Phone Number</td>
+                            <td>Phone Number</td>
                             <td>Car Number</td>
                             <td>Date</td>
                             <td>Car Proccess</td>
-                            <td>Delete Car</td>
-                            <td>Update Car</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,8 +51,6 @@ class CarComponent extends React.Component {
                                     <td>{cars.carnumber}</td>
                                     <td>{cars.date}</td>
                                     <td>{cars.carproccess}</td>
-                                    <td><button className="middle" onClick={this.deleteCar.bind(this, cars.id)}><BsTrash/></button></td>
-                                    <td><button className="middle" onClick={this.direct.bind(this,cars.id,'/carupdate')}><BsFileEarmarkPlus/></button></td>
                                 </tr>
                             )
                         }
@@ -75,4 +64,4 @@ class CarComponent extends React.Component {
 
 }
 
-export default CarComponent
+export default MyCustomerCarList
