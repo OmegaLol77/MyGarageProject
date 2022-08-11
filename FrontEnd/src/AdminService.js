@@ -21,7 +21,7 @@ class AdminService{
             })
     }
     DeleteAdmin(phoneNum){
-        axios.delete(ADMIN_REST_API_URL+`${phoneNum}/deleteAdmin`)
+        axios.delete(ADMIN_REST_API_URL+'/'+`${phoneNum}/deleteAdmin`)
         .then((response)=>{
             console.log("User Deleted");
         },(error)=>

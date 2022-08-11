@@ -45,7 +45,7 @@ class CustomerService{
 
 
         DeleteCustomer(phoneNum){
-            axios.delete(Server_URL+`${phoneNum}`+'deleteCustomer').then((response)=>{
+            axios.delete(Server_URL+`${phoneNum}`+'/deleteCustomer').then((response)=>{
                 console.log(response.data);
             },(error)=>
 
