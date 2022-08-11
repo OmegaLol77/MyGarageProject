@@ -46,7 +46,7 @@ public boolean addWorker(@RequestBody Worker worker) {
 }
 @DeleteMapping("/{phoneNum}/deleteWorker")
 public boolean deleteWorker(@PathVariable("phoneNum") Integer phoneNum) {
-	if(!workerBL.findByphoneNum(phoneNum).equals(null)) {
+	if(workerBL.findByphoneNum(phoneNum)!=null) {
 		workerBL.deleteWorker(phoneNum);
 		return true;
 	}

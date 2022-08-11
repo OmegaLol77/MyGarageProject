@@ -45,7 +45,7 @@ public class AdminController {
 	}
 	@DeleteMapping("/{phoneNum}/deleteAdmin")
 	public boolean deleteAdmin(@PathVariable("phoneNum") Integer phoneNum) {
-		if(!AdminBL.findAdminByphoneNum(phoneNum).equals(null)) {
+		if(AdminBL.findAdminByphoneNum(phoneNum)!=null) {
 			AdminBL.deleteAdmin(phoneNum);
 			return true;
 		}

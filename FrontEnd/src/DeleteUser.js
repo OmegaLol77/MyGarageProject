@@ -3,6 +3,7 @@ import CustomerService from "./CustomerService";
 import AdminService from "./AdminService";
 import React, { useEffect, useState } from 'react'
 import Popup from './PopUp';
+import WorkerService from "./WorkerService";
 
 
 export default function DeleteUser(){
@@ -24,7 +25,7 @@ export default function DeleteUser(){
             console.log(AdminService.DeleteAdmin(userid));
         }
         if(usertype === 'Worker'){
-            console.log(Service.AddCar(userid));
+            console.log(WorkerService.DeleteWorker(userid));
         }
         if(usertype === 'Customer'){
             console.log(CustomerService.DeleteCustomer(userid));

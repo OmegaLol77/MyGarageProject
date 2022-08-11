@@ -51,7 +51,7 @@ public class CustomerController {
 	}
 	@DeleteMapping("/{phoneNum}/deleteCustomer")
 	public boolean deleteCustomer(@PathVariable("phoneNum") Integer phoneNum) {
-		if(!customerBL.findByphoneNum(phoneNum).equals(null)) {
+		if(customerBL.findByphoneNum(phoneNum)!=null) {
 			customerBL.deleteCustomer(phoneNum);
 			return true;
 		}

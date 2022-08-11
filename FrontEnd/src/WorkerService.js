@@ -37,6 +37,13 @@ class WorkerService{
             console.log(error)});
         }
 
+        DeleteWorker(phoneNum){
+            axios.delete(WORKER_REST_API_URL+`${phoneNum}/deleteWorker`)
+            .then((response)=>{
+                console.log("User Deleted");
+            },(error)=>
+                console.log(error));
+        }
 
 
 }
