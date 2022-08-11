@@ -18,6 +18,7 @@ import CustomerCarList from './CustomerCarList';
 import AdminSideNavbar from './AdminSideNavbar';
 import WorkerSideNavbar from './WorkerSideNavbar';
 import CustomerSideNavbar from './CustomerSideNavbar';
+import MyCustomerCarList from './MyCustomerCarList'
 
 export default function App() {
 
@@ -35,6 +36,14 @@ export default function App() {
           <Route path="/Login">
               <div className="card">
                 <Login />
+              </div>
+            </Route>
+            <Route path="/mycustomercarlist">
+            <div className='side-navbar'>
+                <CustomerSideNavbar/>
+              </div>
+              <div className="card">
+                <MyCustomerCarList />
               </div>
             </Route>
             <Route path="/carlist">

@@ -48,7 +48,6 @@ export default function Login() {
         } 
         else{
             localStorage.setItem("Cphonenum",phoneNum)
-            console.log(localStorage.getItem("Cphonenum"))
             CustomerService.CheckCustomer(phoneNum,Password).then( props => {props==true ? history.push("/CustomerCarList"): alert("You are not a customer please Sign-up")}).catch();
         }
     }

@@ -13,7 +13,7 @@ class MyCustomerCarList extends React.Component {
     }
     
     componentDidMount(){
-        Service.getAllCars().then((response)=>
+        Service.getCustomerCars().then((response)=>
         {
             this.setState({cars:response.data})
         })
@@ -40,6 +40,7 @@ class MyCustomerCarList extends React.Component {
                             <td>Car ID</td>
                             <td>Owner Name</td>
                             <td>Owner ID</td>
+                            <td>Owner Phone Number</td>
                             <td>Car Number</td>
                             <td>Date</td>
                             <td>Car Proccess</td>
@@ -55,6 +56,7 @@ class MyCustomerCarList extends React.Component {
                                     <td>{cars.id}</td>
                                     <td>{cars.ownername}</td>
                                     <td>{cars.ownerid}</td>
+                                    <td>{cars.ownerPNum}</td>
                                     <td>{cars.carnumber}</td>
                                     <td>{cars.date}</td>
                                     <td>{cars.carproccess}</td>
@@ -73,4 +75,4 @@ class MyCustomerCarList extends React.Component {
 
 }
 
-export default CarComponent
+export default MyCustomerCarList

@@ -1,6 +1,7 @@
 import axios from 'axios';
 // import http from '../http-common'
 const GETCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car/getAllCars';
+const GETCUSTOMERCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
 const ADDCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car/addCar';
 const REMOVECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
 const UPDATECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
@@ -9,6 +10,9 @@ class Service{
 
     getAllCars(){
         return axios.get(GETCARS_REST_API_URL);
+    }
+    getCustomerCars(){
+        return axios.get(GETCUSTOMERCARS_REST_API_URL+`/${localStorage.getItem("Cphonenum")}/getCustomerCars`);
     }
     AddCar(on,oi,d,cn,cp,pn){
         this.state = { 
