@@ -11,43 +11,40 @@ class AdminService{
          const y={answer:false};
          const z=[];
 
-     return  axios.get(ADMIN_REST_API_URL+'/'+`${phoneNum}`+'/findAdminByphoneNum').then((response)=>{
-    
-                    data[0]=response.data;
-                 return y.answer=Password==data[0].password;
-            }).then(function(response) {
-                z[0]=response;
-              return  z[0];
+     return  axios.get(ADMIN_REST_API_URL+'/'+`${phoneNum}`+'/findAdminByphoneNum')
+        .then((response)=>{
+            data[0]=response.data;
+            return y.answer=Password==data[0].password;
+        }).then(function(response) {
+            z[0]=response;
+            return  z[0];
             })
-        }
-        DeleteAdmin(phoneNum){
-            axios.delete(ADMIN_REST_API_URL+`${phoneNum}/deleteAdmin`)
-            .then((response)=>
-                {
-                console.log(response);
-                },(error)=>
-                console.log(error));
-        }
+    }
+    DeleteAdmin(phoneNum){
+        axios.delete(ADMIN_REST_API_URL+`${phoneNum}/deleteAdmin`)
+        .then((response)=>{
+            console.log("User Deleted");
+        },(error)=>
+            console.log(error));
+    }
 
-        AddAdmin(FirstName,LastName,Email,Password,phoneNum){
-            // console.log(FirstName+","+LastName+","+Email+","+Password+","+phoneNum)
-            this.state = { 
-                firstName:FirstName,
-                lastName:LastName,
-                email:Email,
-                password:Password,
-                phoneNum:phoneNum
+    AddAdmin(FirstName,LastName,Email,Password,phoneNum){
+        this.state = { 
+            firstName:FirstName,
+            lastName:LastName,
+            email:Email,
+            password:Password,
+            phoneNum:phoneNum
+        }
+        axios.post(ADMIN_REST_API_URL+'/addAdmin',this.state)
+        .then((response)=>{
+            if(response.data == 'false'){
+            alert("the email is already signed up");
             }
-            axios.post(ADMIN_REST_API_URL+'/addAdmin',this.state)
-            .then((response)=>{
-                alert(response.data);
-                if(response.data == 'false'){
-                alert("the email is already signed up");
-                }
-            },(error)=>{
-                alert(error);
-                console.log(error)});
-            }
+        },(error)=>{
+            alert(error);
+            console.log(error)});
+        }
     }
 
     
