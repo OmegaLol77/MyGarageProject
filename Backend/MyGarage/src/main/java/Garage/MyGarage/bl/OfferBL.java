@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Garage.MyGarage.beans.Admin;
+import Garage.MyGarage.beans.Car;
 import Garage.MyGarage.beans.Offer;
+import Garage.MyGarage.repositories.CarRepository;
 import Garage.MyGarage.repositories.OfferRepository;
 
 @Service
@@ -16,8 +18,12 @@ public class OfferBL {
 	
 	@Autowired
 	OfferRepository offerRepo;
+	@Autowired
+	CarRepository carRepo;
 	
-	
+	public List<Car> getAllCheckedCars(){
+		return carRepo.getAllCheckedCars();
+	}
 	public List<Offer> getAllOffers(){
 		return offerRepo.findAll();
 	}

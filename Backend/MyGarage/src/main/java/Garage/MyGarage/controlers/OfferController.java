@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Garage.MyGarage.beans.Admin;
+import Garage.MyGarage.beans.Car;
 import Garage.MyGarage.beans.Offer;
 import Garage.MyGarage.bl.OfferBL;
 
@@ -23,6 +24,12 @@ import Garage.MyGarage.bl.OfferBL;
 public class OfferController {
 	@Autowired
 	OfferBL OfferBL;
+	
+	
+	@GetMapping("getAllCheckedCars")
+	public List<Car>getAllCheckedCars(){
+		return OfferBL.getAllCheckedCars();
+	}
 	
 	
 	@GetMapping("getAllOffers")

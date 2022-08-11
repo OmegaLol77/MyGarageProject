@@ -11,8 +11,7 @@ export default function CarList() {
         <div>
            <div>
                 <CarComponent/>
-            </div>
-        </div>
+                </div></div>
     
 );
 
