@@ -21,8 +21,11 @@ public List<Worker> getAllWorkers(){
 }
 
 public Worker findByphoneNum(int phoneNum) {
-	
-	return workerRepo.getById(phoneNum);
+	try {
+		return workerRepo.findById(phoneNum).get();
+	} catch (Exception e) {
+		return null;
+	}
 }
 
 public boolean addWorker(Worker worker) {
