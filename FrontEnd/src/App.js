@@ -84,6 +84,9 @@ export default function App() {
               </div>
             </Route>
             <Route path="/carupdate">
+              <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <CarUpdate />
               </div>
