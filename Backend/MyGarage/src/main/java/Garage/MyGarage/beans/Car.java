@@ -16,7 +16,7 @@ public class Car {
 	
 	private int ownerPNum;
 	private String ownername;
-	private String carnumber;
+	private int carnumber;
 	private String ownerid;
 	private String carproccess;
 	private String date;
@@ -25,7 +25,7 @@ public class Car {
 		super();
 	}
 	
-	public Car(String ownername, String ownerid, String carnumber, String date, String carproccess,int ownerpnum) {
+	public Car(String ownername, String ownerid, int carnumber, String date, String carproccess,int ownerpnum) {
 		super();
 		setOwnerPNum(ownerpnum);
 		setOwnername(ownername);
@@ -35,7 +35,7 @@ public class Car {
 		setCarproccess(carproccess);
 	}
 	
-	public Car(String ownername, String ownerid, String carnumber, String date, String carproccess,int ownerpnum, int id) {
+	public Car(String ownername, String ownerid, int carnumber, String date, String carproccess,int ownerpnum, int id) {
 		super();
 		setOwnerPNum(ownerpnum);
 		setOwnername(ownername);
@@ -58,10 +58,10 @@ public class Car {
 	public void setOwnerPNum(int ownerpnum) {
 		this.ownerPNum = ownerpnum;
 	}
-	public String getCarnumber() {
+	public int getCarnumber() {
 		return carnumber;
 	}
-	public void setCarnumber(String carnumber) {
+	public void setCarnumber(int carnumber) {
 		this.carnumber = carnumber;
 	}
 	public String getOwnerid() {

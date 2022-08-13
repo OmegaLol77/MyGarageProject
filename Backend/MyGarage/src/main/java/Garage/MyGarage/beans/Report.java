@@ -25,6 +25,7 @@ public class Report {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int carNum;
 	private Date date;
+	private boolean approved;
 	
 	public Report() {
 		super();
@@ -36,22 +37,28 @@ public class Report {
 	 * @param carNum
 	 * @param date
 	 */
-	public Report(  int carNum,String descripton) {
+	public Report(int carNum,String descripton,Date date,boolean approved) {
 		super();
-		SimpleDateFormat formatter= new SimpleDateFormat("dd/mm/yyyy HH:mm:ss");
-		Descripton = descripton;
-		this.carNum = carNum;
-		//setDate(this.date);  	
+		setDate(date);
+		setDescription(descripton);
+		setCarNum(carNum);
+		setApproved(approved);
 		}
 
-	
+	public boolean getApproved() {
+		return this.approved;
+	}
 
-	
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+
+
 	public String getDescripton() {
 		return Descripton;
 	}
 
-	public void setDescripton(String descripton) {
+	public void setDescription(String descripton) {
 		Descripton = descripton;
 	}
 

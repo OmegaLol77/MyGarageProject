@@ -41,6 +41,13 @@ public class ReportController {
 		System.out.println("controller is being called  car num  "+carNum);
 		return reportBl.getReport(carNum);
 	}
+	
+	@GetMapping("/{approved}/getNotApproved")
+	public Report getNotApproved(@PathVariable("approved")int approved) {
+		System.out.println("controller is being called  car num  "+approved);
+		return reportBl.getNotApprovedReport(approved);
+	}
+	
 	@PostMapping("updateReport")
 	public boolean updateReport(@RequestBody Report report) {
 		if(!reportBl.getReport(report.getCarNum()).equals(null)) {

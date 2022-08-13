@@ -70,6 +70,7 @@ export default function AddCar() {
         <p>Car Proccess:</p>
         <select type="SelectList" id='carproccess' placeholder='Being Checked' defaultValue={carproccess} onChange={(e) => setcarproccess(e.target.value)}>
           <option value="option 1">Please Choose</option>
+          <option value="Car Inserted To Database">Car Inserted To Database</option>
           <option value="Car is Checked">Car is Checked</option>
           <option value="Car Being Repaired">Car Being Repaired</option>
           <option value="Car Repairing Done">Car Repairing Done</option>

@@ -15,17 +15,19 @@ ReportBL reportBl;
 @Autowired
 ReportRepository reportRepo;
 
-public Report getReport(int carNum) {
-	System.out.println(carNum);
-	return reportRepo.getById(carNum);
-
-}
+	public Report getReport(int carNum) {
+		return reportRepo.getById(carNum);
+	
+	}
+	
+	public Report getNotApprovedReport(int approved) {
+		return reportRepo.findByapproved(approved);
+	}
 	
 	public boolean ReportExists(int carNum) {
 		try {
 			boolean x=reportRepo.existsById(carNum);
 			return x;
-			
 			}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -33,29 +35,26 @@ public Report getReport(int carNum) {
 		}
 	}
 	
-	
-		public boolean addReport(Report report) {
-			
-				if(ReportExists(report.getCarNum())==false) {
-					try {
-					reportRepo.save(report);
-					return true;
-				}
-					catch (Exception e) {
-						e.printStackTrace();
-						return false;
-					}
+	public boolean addReport(Report report) {
+		if(ReportExists(report.getCarNum())==false) {
+			try {
+				reportRepo.save(report);
+				return true;
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			}
 					
-			}
-				else {
-					return false;
-				}
+		}
+		else {
+			return false;
+		}
 				
-			}
+	}
 		
 	public boolean updateReport(Report report) {
 		if(ReportExists(report.getCarNum())==true) {
-			
 			try {
 				reportRepo.save(report);	
 				return true;
@@ -64,14 +63,12 @@ public Report getReport(int carNum) {
 				e.printStackTrace();
 				return false;
 			}
-			
-		
 		}
 		else {
 			return false;
 		}
-		
 	}
+	
 	public boolean deleteReport(int carNum) {
 		if(ReportExists(carNum)==true) {
 		try {
@@ -80,15 +77,11 @@ public Report getReport(int carNum) {
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
-			
-		
-		}}
+			}
+		}
 		else {
 			return false;
 		}
-		
-	
-		
 	}
 	
 

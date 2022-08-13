@@ -10,9 +10,11 @@ import Garage.MyGarage.beans.Car;
 public interface CarRepository extends JpaRepository<Car, Integer> {
 	
 
-	 @Query(value = "SELECT * FROM car where carproccess like 'Car is Checked'", nativeQuery = true)
-	 List<Car> getAllCheckedCars();
-	 
+	@Query(value = "SELECT * FROM car where carproccess like 'Car is Checked'", nativeQuery = true)
+	List<Car> getAllCheckedCars();
+	
+	public Car findBycarnumber(int carnumber);
+	
 	public List<Car> findByownerPNum(int ownerPNum);
 
 }
