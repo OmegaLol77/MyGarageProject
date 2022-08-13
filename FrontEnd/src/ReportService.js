@@ -15,20 +15,18 @@ class ReportService{
 
         
     AddReport(CarNum,Description,Date,Approved){
-        console.log("enterd the method");
         this.state={
             descripton:Description,
             carNum:CarNum,
             date:Date,
             approved:Approved
-        };
-        axios.post(ADD_REPORT_REST_API_URL,this.state).then((response)=>{
-        alert(response.data);
-    
+        }
+        axios.post(ADD_REPORT_REST_API_URL,
+            this.state)
+        .then((response)=>{
+            return response.data;
         },(error)=>{
-            alert(error);
             console.log(error)});
-
     }
     DeleteReport(carNum){
         
