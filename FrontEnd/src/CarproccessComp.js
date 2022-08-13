@@ -14,7 +14,7 @@ class CarproccessComp extends React.Component {
     }
     
     componentDidMount(){
-        ReportService.GetNotApproved(0).then((response)=>
+        ReportService.GetNotApproved(false).then((response)=>
         {
             this.setState({report:response.data})
         })

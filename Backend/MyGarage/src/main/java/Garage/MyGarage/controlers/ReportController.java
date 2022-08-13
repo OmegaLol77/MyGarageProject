@@ -43,7 +43,7 @@ public class ReportController {
 	}
 	
 	@GetMapping("/{approved}/getNotApproved")
-	public Report getNotApproved(@PathVariable("approved")int approved) {
+	public Report getNotApproved(@PathVariable("approved")boolean approved) {
 		System.out.println("controller is being called  car num  "+approved);
 		return reportBl.getNotApprovedReport(approved);
 	}

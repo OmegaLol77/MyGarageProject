@@ -20,7 +20,7 @@ ReportRepository reportRepo;
 	
 	}
 	
-	public Report getNotApprovedReport(int approved) {
+	public Report getNotApprovedReport(boolean approved) {
 		return reportRepo.findByapproved(approved);
 	}
 	

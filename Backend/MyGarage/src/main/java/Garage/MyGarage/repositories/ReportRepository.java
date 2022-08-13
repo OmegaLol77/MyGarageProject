@@ -5,6 +5,6 @@ import Garage.MyGarage.beans.Report;
 
 public interface ReportRepository extends JpaRepository<Report, Integer> {
 	
-	public Report findByapproved(int approved);
+	public Report findByapproved(boolean approved);
 
 }
