@@ -24,6 +24,10 @@ public class CustomerController {
 	@Autowired
 	CustomerBL customerBL;
 	
+	@GetMapping("/{CarNum}/GetCustomerByCarNum")
+	public Customer GetCustomerByCarNum(@PathVariable("CarNum") Integer CarNum) {
+		return customerBL.GetCustomerByCarNum(CarNum);
+	}
 	
 	@GetMapping("getAllCustomers")
 	public List<Customer> getAllCustomers(){

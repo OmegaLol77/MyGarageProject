@@ -15,6 +15,10 @@ import CarUpdate from './CarUpdate';
 import WorkerCarList from './WorkerCarList';
 import AdminCarList from './AdminCarList';
 import CustomerCarList from './CustomerCarList';
+
+import CheckedList from './CheckedList';
+
+
 import AdminSideNavbar from './AdminSideNavbar';
 import WorkerSideNavbar from './WorkerSideNavbar';
 import CustomerSideNavbar from './CustomerSideNavbar';
@@ -22,6 +26,8 @@ import MyCustomerCarList from './MyCustomerCarList'
 import WCarUpdate from './WCarUpdate';
 import WCarList from './WCarList';
 import AddUser from './AddUser';
+
+import CreateOffer from './CreateOffer'
 
 export default function App() {
 
@@ -99,6 +105,16 @@ export default function App() {
                 <AddUser />
               </div>
             </Route>
+            <Route path="/CheckedList">
+              <div className="card">
+                <CheckedList />
+              </div>
+            </Route>
+            <Route path="/CreateOffer">
+              <div className="card">
+                <CarProccess />
+              </div>
+            </Route>
             
 
             {/* Worker Pages */}
@@ -162,11 +178,14 @@ export default function App() {
                 <MyCustomerCarList />
               </div>
             </Route>
+          
             <Route path="/carproccess">
               <div className="card">
                 <CarProccess />
               </div>
             </Route>
+
+
           </Switch>
         </div>
       </div>

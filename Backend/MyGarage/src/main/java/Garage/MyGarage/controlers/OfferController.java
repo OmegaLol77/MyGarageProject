@@ -44,13 +44,15 @@ public class OfferController {
 	
 	@PostMapping("addOffer")
 	public boolean addOffer(@RequestBody Offer offer) {
-		if(OfferBL.findOfferById(offer.getCarnumber()).equals(null)){
+		try {
+			
 			OfferBL.addOffer(offer);
 			return true;
 		}
-		else {
-			return false;
-		}
+		catch (Exception e) {
+			return false;		} 
+			
+		
 	}
 	@DeleteMapping("/{carnum}/deleteOffer")
 	public boolean deleteAdmin(@PathVariable("carnumber") Integer carnum) {

@@ -36,7 +36,7 @@ public class Report {
 	 * @param carNum
 	 * @param date
 	 */
-	public Report( String descripton, int carNum) {
+	public Report(  int carNum,String descripton) {
 		super();
 		SimpleDateFormat formatter= new SimpleDateFormat("dd/mm/yyyy HH:mm:ss");
 		Descripton = descripton;

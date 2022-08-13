@@ -105,6 +105,7 @@ export default function CarUpdate(id) {
             <select type="SelectList" id='carproccess' defaultValue={carproccess} onChange={(e) => car.carproccess = e.target.value}>
               <option value="option 1">Please Choose</option>
               <option value="Car is Checked">Car is Checked</option>
+              <option value="Car Have Pending Offer">Car Have Pending Offer</option>
               <option value="Car Being Repaired">Car Being Repaired</option>
               <option value="Car Repairing Done">Car Repairing Done</option>
             </select>

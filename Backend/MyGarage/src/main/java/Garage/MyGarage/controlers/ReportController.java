@@ -37,7 +37,8 @@ public class ReportController {
 	
 	}
 	@GetMapping("/{carNum}/getReport")
-	public Report getReport(int carNum) {
+	public Report getReport(@PathVariable("carNum")int carNum) {
+		System.out.println("controller is being called  car num  "+carNum);
 		return reportBl.getReport(carNum);
 	}
 	@PostMapping("updateReport")

@@ -12,7 +12,6 @@ import javax.persistence.Id;
 public class Offer {
 	 
 		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int carnumber;
 		
 		private String ownername;

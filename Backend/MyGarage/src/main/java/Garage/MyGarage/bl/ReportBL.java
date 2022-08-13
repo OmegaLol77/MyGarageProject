@@ -16,20 +16,9 @@ ReportBL reportBl;
 ReportRepository reportRepo;
 
 public Report getReport(int carNum) {
-	if(ReportExists(carNum)==false) {
-	try {
-		Report x=reportRepo.getById(carNum);
-		return x;
-		
-		}
-	catch (Exception e) {
-		e.printStackTrace();
-		return null;
-	}
-	}
-	else {
-		return null;
-	}
+	System.out.println(carNum);
+	return reportRepo.getById(carNum);
+
 }
 	
 	public boolean ReportExists(int carNum) {

@@ -22,6 +22,12 @@ class CustomerService{
         
         }
 
+        
+        getCustomerByCarId(carNum){
+           return axios.get('http://localhost:8080/Customer/'+`${carNum}`+'/GetCustomerByCarNum');
+        }
+
+
         AddCoustmer(FirstName,LastName,Email,Password,phoneNum){
             this.state = { 
                 firstName:FirstName,
