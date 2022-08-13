@@ -106,11 +106,17 @@ export default function App() {
               </div>
             </Route>
             <Route path="/CheckedList">
+              <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <CheckedList />
               </div>
             </Route>
             <Route path="/CreateOffer">
+              <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
               <div className="card">
                 <CarProccess />
               </div>

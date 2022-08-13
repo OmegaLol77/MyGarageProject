@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from "react";
-const CHECKEDCARS_REST_API_URL='http://localhost:8080/Offer/getAllCheckedCars';
+const CHECKEDCARS_REST_API_URL='https://backend.mygarage.link:8443/Offer/getAllCheckedCars';
 
 class OfferService{
 
@@ -18,7 +18,7 @@ class OfferService{
           
            
         }
-        axios.post('http://localhost:8080/Offer/addOffer',this.state).then((response)=>
+        axios.post('https://backend.mygarage.link:8443/Offer/addOffer',this.state).then((response)=>
         {return response.data;
         },(error)=>
         console.log(error));
