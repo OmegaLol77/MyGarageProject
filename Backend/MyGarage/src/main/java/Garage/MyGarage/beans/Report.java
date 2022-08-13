@@ -24,7 +24,7 @@ public class Report {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int carNum;
-	private Date date;
+	private String date;
 	private boolean approved;
 	
 	public Report() {
@@ -37,7 +37,7 @@ public class Report {
 	 * @param carNum
 	 * @param date
 	 */
-	public Report(int carNum,String descripton,Date date,boolean approved) {
+	public Report(int carNum,String descripton,String date,boolean approved) {
 		super();
 		setDate(date);
 		setDescription(descripton);
@@ -75,11 +75,11 @@ public class Report {
 
 
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date ;
 	}
 
