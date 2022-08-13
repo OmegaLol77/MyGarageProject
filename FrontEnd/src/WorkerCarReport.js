@@ -26,7 +26,7 @@ export default function WorkerCarReport() {
         console.log(description);
         console.log(CarNum);
         //fix the then and see in the Backend why the BL of the report have to print the x to insert a row
-        ReportService.AddReport(CarNum,description,currdate,false);//then( props => {props==true ? history.push("/"): alert("You are not a customer please Sign-up")}).catch();
+        ReportService.AddReport(CarNum,description,currdate,0);//then( props => {props==true ? history.push("/"): alert("You are not a customer please Sign-up")}).catch();
       }
   return (
     <div className='center'>

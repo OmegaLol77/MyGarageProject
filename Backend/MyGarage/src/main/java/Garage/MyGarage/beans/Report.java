@@ -25,7 +25,7 @@ public class Report {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int carNum;
 	private String date;
-	private boolean approved;
+	private int approved;
 	
 	public Report() {
 		super();
@@ -37,7 +37,7 @@ public class Report {
 	 * @param carNum
 	 * @param date
 	 */
-	public Report(int carNum,String descripton,String date,boolean approved) {
+	public Report(int carNum,String descripton,String date,int approved) {
 		super();
 		setDate(date);
 		setDescription(descripton);
@@ -45,11 +45,11 @@ public class Report {
 		setApproved(approved);
 		}
 
-	public boolean getApproved() {
+	public int getApproved() {
 		return this.approved;
 	}
 
-	public void setApproved(boolean approved) {
+	public void setApproved(int approved) {
 		this.approved = approved;
 	}
 
