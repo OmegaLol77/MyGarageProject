@@ -1,5 +1,7 @@
 package Garage.MyGarage.controlers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,7 +45,7 @@ public class ReportController {
 	}
 	
 	@GetMapping("/{approved}/getNotApproved")
-	public Report getNotApproved(@PathVariable("approved")int approved) {
+	public List<Report> getNotApproved(@PathVariable("approved")int approved) {
 		System.out.println("controller is being called  car num  "+approved);
 		return reportBl.getNotApprovedReport(approved);
 	}
