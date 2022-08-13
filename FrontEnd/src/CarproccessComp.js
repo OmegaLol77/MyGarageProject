@@ -50,7 +50,7 @@ class CarproccessComp extends React.Component {
                                 <tr key={report.carNum}>
                                     <td>{report.carNum}</td>
                                     <td>{report.Descripton}</td>
-                                    <td>{report.Date}</td>
+                                    <td>{report.date}</td>
                                     <td>{report.approved}</td>
                                 </tr>
                             )
