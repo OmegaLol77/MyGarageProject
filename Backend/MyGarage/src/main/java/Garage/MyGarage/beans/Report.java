@@ -55,16 +55,16 @@ public class Report {
 
 
 	public String getDescripton() {
-		return Descripton;
+		return this.Descripton;
 	}
 
 	public void setDescription(String descripton) {
-		Descripton = descripton;
+		this.Descripton = descripton;
 	}
 
 	
 	public int getCarNum() {
-		return carNum;
+		return this.carNum;
 	}
 
 
@@ -76,7 +76,7 @@ public class Report {
 
 
 	public String getDate() {
-		return date;
+		return this.date;
 	}
 
 	public void setDate(String date) {

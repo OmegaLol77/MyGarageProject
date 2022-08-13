@@ -26,14 +26,13 @@ public class ReportController {
 	@PostMapping("addReport")
 	public boolean addReport(@RequestBody Report report) {
 		try {
+			System.out.println(report.getDescripton());
 			reportBl.addReport(report);
-			
 			return true;
-		
 		}
 		catch (Exception e) {
-		e.printStackTrace();
-		return false;
+			e.printStackTrace();
+			return false;
 		}
 			
 	
@@ -60,12 +59,10 @@ public class ReportController {
 			return false;
 		}
 	}
+	
 	@DeleteMapping("/{carNum}/deleteReport")
 	public boolean deleteReport(@PathVariable("carNum") int carNum) {
-		
-			reportBl.deleteReport(carNum) ;
+		reportBl.deleteReport(carNum) ;
 		return true;
-		
-		
 	}
 }
