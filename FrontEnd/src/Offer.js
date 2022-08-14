@@ -32,7 +32,7 @@ class Offer extends React.Component{
             <div>
             <div className="content">
                 <h2>Cars List</h2>
-                <table border="2">
+                <table className='styled-table' border="1">
                     <thead>
                         <tr>
                             <td>Car ID</td>
@@ -49,7 +49,7 @@ class Offer extends React.Component{
                         {
                             this.state.cars.map(
                                 cars =>
-                                <tr key={cars.id}>
+                                <tr className='active-row' key={cars.id}>
                                     <td>{cars.id}</td>
                                     <td>{cars.ownername}</td>
                                     <td>{cars.ownerid}</td>

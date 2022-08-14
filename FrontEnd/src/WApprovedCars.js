@@ -28,7 +28,7 @@ class WApprovedCars extends React.Component {
         return(
             <div className="content">
                 <h2>Approved Cars List</h2>
-                <table border="2">
+                <table className="styled-table" border="1">
                     <thead>
                         <tr>
                             <td>Car Number</td>
@@ -40,7 +40,7 @@ class WApprovedCars extends React.Component {
                         {
                             this.state.report.map(
                                 report =>
-                                <tr key={report.carNum}>
+                                <tr className="active-row" key={report.carNum}>
                                     <td>{report.carNum}</td>
                                     <td>{report.descripton}</td>
                                     <td>{report.date}</td>

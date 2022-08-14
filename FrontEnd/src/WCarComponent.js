@@ -72,7 +72,7 @@ class WCarComponent extends React.Component {
                     </select>
                     <button className="button" onClick={this.handleFilter}>Filter</button>
                 </div>
-                <table border="2">
+                <table className="styled-table" border="1">
                     <thead>
                         <tr>
                             <td>Car ID</td>
@@ -89,7 +89,7 @@ class WCarComponent extends React.Component {
                         {
                             this.state.cars.map(
                                 cars =>
-                                <tr key={cars.id}>
+                                <tr className="active-row" key={cars.id}>
                                     <td>{cars.id}</td>
                                     <td>{cars.ownername}</td>
                                     <td>{cars.ownerid}</td>
