@@ -27,7 +27,6 @@ const checker = async () => {
     var  customer
     CustomerService.getCustomerByCarId(carNum).then((response)=>
     {
-   
          customer=response.data
          OfferService.AddOffer(customer.firstName,customer.phoneNum,carNum,Offer);
      
@@ -38,7 +37,6 @@ const checker = async () => {
   
 export default function CreateOffer(id) {
     const [Offer,setOffer] = useState(0); 
-
 
   return(
 
@@ -76,7 +74,7 @@ export default function CreateOffer(id) {
                                     <td>{Report.descripton}</td>
                                     <td>{Report.date}</td>
                                     <td><input type="number" id='Offer'  value={Offer}  onChange={(e) => setOffer(e.target.value)}></input></td>
-                                   <td><button type="submit" onClick={saveOffer(Offer)} >Submit</button></td> 
+                                    <td><button type="submit" onClick={saveOffer(Offer)} >Submit</button></td> 
 
                                     </tr>
                             

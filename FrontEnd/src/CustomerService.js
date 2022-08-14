@@ -24,7 +24,7 @@ class CustomerService{
 
         
         getCustomerByCarId(carNum){
-           return axios.get('http://localhost:8080/Customer/'+`${carNum}`+'/GetCustomerByCarNum');
+           return axios.get(Server_URL+`${carNum}`+'/GetCustomerByCarNum');
         }
 
 

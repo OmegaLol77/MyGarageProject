@@ -13,6 +13,7 @@ class CarComponent extends React.Component {
             cars:[]
         }
         this.handleChange = this.handleChange.bind(this);
+        this.handleFilter = this.handleFilter.bind(this);
     }
     
     componentDidMount(){
@@ -40,6 +41,9 @@ class CarComponent extends React.Component {
 
     handleChange(event) {
         this.setState({carproccess: event.target.value});
+    }
+
+    handleFilter(){
         if(this.state.carproccess=="Car is Checked"){
             Service.getAllCheckedCars().then((response)=>
             {
@@ -58,7 +62,6 @@ class CarComponent extends React.Component {
                 this.setState({cars:response.data})
             })
         }
-        console.log(this.state.carproccess)
     }
 
     render (){
@@ -74,6 +77,7 @@ class CarComponent extends React.Component {
                         <option value="Car Being Repaired">Car Being Repaired</option>
                         <option value="Car Repairing Done">Car Repairing Done</option>
                     </select>
+                    <button className="button" onClick={this.handleFilter}>Filter</button>
                 </div>
                 <table border="2">
                     <thead>
