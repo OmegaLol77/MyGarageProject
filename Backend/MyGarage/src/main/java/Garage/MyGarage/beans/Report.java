@@ -20,10 +20,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Entity
 @Table(name ="Report")
 public class Report {
-	private String Descripton;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int carNum;
+	
+	private String Descripton;
 	private String date;
 	private int approved;
 	
