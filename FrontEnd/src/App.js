@@ -119,10 +119,18 @@ export default function App() {
                 <AdminSideNavbar/>
               </div>
               <div className="card">
+                <CreateOffer />
+              </div>
+            </Route>
+            <Route path="/notapproved">
+              <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
+              <div className="card">
                 <CarProccess />
               </div>
             </Route>
-            
+
 
             {/* Worker Pages */}
             <Route path="/WorkerCarList">
@@ -195,11 +203,6 @@ export default function App() {
               </div>
             </Route>
           
-            <Route path="/carproccess">
-              <div className="card">
-                <CarProccess />
-              </div>
-            </Route>
 
 
           </Switch>

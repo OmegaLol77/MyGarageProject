@@ -21,15 +21,12 @@ class CarproccessComp extends React.Component {
     }
 
     direct = (carNum,descripton,date,approved) =>{
-        console.log(carNum)
-        console.log(descripton)
-        console.log(date)
-        console.log(approved)
         ReportService.updateReport(carNum,"dododo",date,approved)
+        this.refreshPage();
     }
-    // refreshPage() {
-    //     window.location.reload(false);
-    //   }
+    refreshPage() {
+        window.location.reload(false);
+      }
 
 
     render (){
@@ -43,7 +40,6 @@ class CarproccessComp extends React.Component {
                             <td>Description</td>
                             <td>Date</td>
                             <td>Approve</td>
-                            <td>Approve</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,7 +50,6 @@ class CarproccessComp extends React.Component {
                                     <td>{report.carNum}</td>
                                     <td>{report.descripton}</td>
                                     <td>{report.date}</td>
-                                    <td>{report.approved}</td>
                                     <td><button className="middle" onClick={this.direct.bind(this,report.carNum,report.descripton,report.date,1)}><BsFileEarmarkPlus/></button></td>
                                 </tr>
                             )

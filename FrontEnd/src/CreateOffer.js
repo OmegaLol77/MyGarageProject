@@ -13,7 +13,7 @@ const checker = async () => {
   let neurl = new URL(url);
   let id = neurl.searchParams.get('id');
   carNum =id;
-  return axios.get('http://localhost:8080/Report'+`/${carNum}/getReport`).then((res) => {
+  return axios.get('https://backend.mygarage.link:8443/Report'+`/${carNum}/getReport`).then((res) => {
   if(res.status == 200){
         Report = res.data;
       return true;
@@ -66,7 +66,6 @@ export default function CreateOffer(id) {
                             <td>date</td>
                             <td>Offer</td>
                             <td>Submit</td>
-                            
                         </tr>
                     </thead>
                     <tbody>
