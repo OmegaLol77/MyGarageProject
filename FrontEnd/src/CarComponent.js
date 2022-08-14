@@ -44,6 +44,12 @@ class CarComponent extends React.Component {
     }
 
     handleFilter(){
+        if(this.state.carproccess=="option 1"){
+            Service.getAllCars().then((response)=>
+            {
+                this.setState({cars:response.data})
+            })
+        }
         if(this.state.carproccess=="Car is Checked"){
             Service.getAllCheckedCars().then((response)=>
             {
