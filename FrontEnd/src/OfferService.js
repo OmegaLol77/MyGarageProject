@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React from "react";
 const CHECKEDCARS_REST_API_URL='https://backend.mygarage.link:8443/Offer/getAllCheckedCars';
 
 class OfferService{

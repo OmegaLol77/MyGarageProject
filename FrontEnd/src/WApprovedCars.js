@@ -4,7 +4,7 @@ import ReportService from "./ReportService";
 import { Redirect, useHistory } from 'react-router-dom';
 import { BsTrash ,BsFileEarmarkPlus} from "react-icons/bs";
 
-class CarproccessComp extends React.Component {
+class WApprovedCars extends React.Component {
 
     constructor(props){
         super(props)
@@ -14,36 +14,26 @@ class CarproccessComp extends React.Component {
     }
     
     componentDidMount(){
-        ReportService.GetNotApproved(0).then((response)=>
+        ReportService.GetNotApproved(1).then((response)=>
         {
             this.setState({report:response.data})
         })
     }
 
-    direct = (carNum,descripton,date,approved) =>{
-        console.log(carNum)
-        console.log(descripton)
-        console.log(date)
-        console.log(approved)
-        ReportService.updateReport(carNum,"dododo",date,approved)
-    }
     // refreshPage() {
     //     window.location.reload(false);
     //   }
 
-
     render (){
         return(
             <div className="content">
-                <h2>Not Approved Report List</h2>
+                <h2>Approved Cars List</h2>
                 <table border="2">
                     <thead>
                         <tr>
                             <td>Car Number</td>
                             <td>Description</td>
                             <td>Date</td>
-                            <td>Approve</td>
-                            <td>Approve</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,8 +44,6 @@ class CarproccessComp extends React.Component {
                                     <td>{report.carNum}</td>
                                     <td>{report.descripton}</td>
                                     <td>{report.date}</td>
-                                    <td>{report.approved}</td>
-                                    <td><button className="middle" onClick={this.direct.bind(this,report.carNum,report.descripton,report.date,1)}><BsFileEarmarkPlus/></button></td>
                                 </tr>
                             )
                         }
@@ -68,4 +56,4 @@ class CarproccessComp extends React.Component {
 
 }
 
-export default CarproccessComp
+export default WApprovedCars

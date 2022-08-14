@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import Garage.MyGarage.beans.Car;
 import Garage.MyGarage.beans.Report;
 import Garage.MyGarage.bl.ReportBL;
 
@@ -45,19 +46,26 @@ public class ReportController {
 	
 	@GetMapping("/{approved}/getNotApproved")
 	public List<Report> getNotApproved(@PathVariable("approved")int approved) {
-		System.out.println("controller is being called  car num  "+approved);
 		return reportBl.getNotApprovedReport(approved);
 	}
 	
+//	@PostMapping("updateReport")
+//	public boolean updateReport(@RequestBody Report report) {
+//		if(!reportBl.getReport(report.getCarNum()).equals(null)) {
+//			reportBl.updateReport(report);
+//		return true;
+//		}
+//		else {
+//			return false;
+//		}
+//	}
+	
 	@PostMapping("updateReport")
-	public boolean updateReport(@RequestBody Report report) {
-		if(!reportBl.getReport(report.getCarNum()).equals(null)) {
-			reportBl.updateReport(report);
-		return true;
-		}
-		else {
-			return false;
-		}
+	public boolean updateReport(@RequestBody Report report){
+		if(report.getCarNum()!=0 && report.getDescripton().equals("")==false && report.getDate().equals("")==false) {
+			return reportBl.updateReport(report);
+			}
+		return false;
 	}
 	
 	@DeleteMapping("/{carNum}/deleteReport")

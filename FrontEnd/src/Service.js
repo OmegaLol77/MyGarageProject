@@ -34,7 +34,6 @@ class Service{
     }
 
     updateCar(on,oi,d,cn,cp,pn,id){
-        console.log(id)
         this.state = { 
             ownername:on,
             ownerid:oi,

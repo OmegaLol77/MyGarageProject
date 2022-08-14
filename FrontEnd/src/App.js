@@ -28,6 +28,7 @@ import WCarList from './WCarList';
 import AddUser from './AddUser';
 
 import CreateOffer from './CreateOffer'
+import WApprovedCars from './WApprovedCars';
 
 export default function App() {
 
@@ -132,14 +133,14 @@ export default function App() {
                 <WorkerCarList />
               </div>
             </Route>
-            <Route path="/carproccessupdatew">
+            {/* <Route path="/carproccessupdatew">
               <div className='side-navbar'>
                 <WorkerSideNavbar/>
               </div>
               <div className="card">
                 <CarProccessUpdateW />
               </div>
-            </Route>
+            </Route> */}
             <Route path="/WriteCarReport">
               <div className='side-navbar'>
                 <WorkerSideNavbar/>
@@ -164,6 +165,15 @@ export default function App() {
                 <WCarUpdate />
               </div>
             </Route>
+            <Route path="/wapprovedcars">
+              <div className='side-navbar'>
+                <WorkerSideNavbar/>
+              </div>
+              <div className="card">
+                <WApprovedCars />
+              </div>
+            </Route>
+
 
 
 
