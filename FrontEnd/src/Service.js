@@ -5,9 +5,9 @@ const GETCUSTOMERCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
 const ADDCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car/addCar';
 const REMOVECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
 const UPDATECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
-const CHECKEDCARS_REST_API_URL='https://backend.mygarage.link:8443/Offer/getAllCheckedCars';
-const REPAIRINGCARS_REST_API_URL='https://backend.mygarage.link:8443/Offer/getAllBeingRepairedCars';
-const REPAIREDCARS_REST_API_URL='https://backend.mygarage.link:8443/Offer/getAllRepairedCars';
+const CHECKEDCARS_REST_API_URL='https://backend.mygarage.link:8443/Car/getAllCheckedCars';
+const REPAIRINGCARS_REST_API_URL='https://backend.mygarage.link:8443/Car/getAllBeingRepairedCars';
+const REPAIREDCARS_REST_API_URL='https://backend.mygarage.link:8443/Car/getAllRepairedCars';
 
 
 

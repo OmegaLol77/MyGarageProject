@@ -41,19 +41,19 @@ class CarComponent extends React.Component {
     handleChange(event) {
         this.setState({carproccess: event.target.value});
         if(this.state.carproccess=="Car is Checked"){
-            Service.getAllCheckedCars.then((response)=>
+            Service.getAllCheckedCars().then((response)=>
             {
                 this.setState({cars:response.data})
             })
         }
         if(this.state.carproccess=="Car Being Repaired"){
-            Service.getAllBeingRepairedCars.then((response)=>
+            Service.getAllBeingRepairedCars().then((response)=>
             {
                 this.setState({cars:response.data})
             })
         }
         if(this.state.carproccess=="Car Repairing Done"){
-            Service.getAllRepairedCars.then((response)=>
+            Service.getAllRepairedCars().then((response)=>
             {
                 this.setState({cars:response.data})
             })
