@@ -25,6 +25,18 @@ public class CarBL {
 		return carRepo.findAll();
 	}
 	
+	public List<Car> getAllCheckedCars(){
+		return carRepo.getAllCheckedCars();
+	}
+	
+	public List<Car> getAllRepairingCars(){
+		return carRepo.getAllRepairingCars();
+	}
+	
+	public List<Car> getAllRepairedCars(){
+		return carRepo.getAllRepairedCars();
+	}
+	
 //	@GetMapping("getAllCarsnotapproved")
 //	public List<Car> getAllCarsproccess(){
 //		return carRepo.findBycarproccess();

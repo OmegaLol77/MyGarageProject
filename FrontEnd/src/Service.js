@@ -5,6 +5,11 @@ const GETCUSTOMERCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
 const ADDCARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car/addCar';
 const REMOVECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
 const UPDATECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
+const CHECKEDCARS_REST_API_URL='https://backend.mygarage.link:8443/Offer/getAllCheckedCars';
+const REPAIRINGCARS_REST_API_URL='https://backend.mygarage.link:8443/Offer/getAllBeingRepairedCars';
+const REPAIREDCARS_REST_API_URL='https://backend.mygarage.link:8443/Offer/getAllRepairedCars';
+
+
 
 class Service{
 
@@ -14,7 +19,19 @@ class Service{
     getCustomerCars(){
         return axios.get(GETCUSTOMERCARS_REST_API_URL+`/${localStorage.getItem("Cphonenum")}/getCustomerCars`);
     }
-    
+
+    getAllCheckedCars(){
+        return axios.get(CHECKEDCARS_REST_API_URL);
+    }
+
+    getAllBeingRepairedCars(){
+        return axios.get(REPAIRINGCARS_REST_API_URL);
+    }
+
+    getAllRepairedCars(){
+        return axios.get(REPAIREDCARS_REST_API_URL);
+    }
+
     AddCar(on,oi,d,cn,cp,pn){
         this.state = { 
             ownername:on,
