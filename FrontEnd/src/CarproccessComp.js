@@ -2,7 +2,7 @@ import Service from "./Service";
 import React from "react";
 import ReportService from "./ReportService";
 import { Redirect, useHistory } from 'react-router-dom';
-import { BsTrash ,BsFileEarmarkPlus} from "react-icons/bs";
+import { BsTrash ,BsFillCheckCircleFill} from "react-icons/bs";
 
 class CarproccessComp extends React.Component {
 
@@ -50,7 +50,7 @@ class CarproccessComp extends React.Component {
                                     <td>{report.carNum}</td>
                                     <td>{report.descripton}</td>
                                     <td>{report.date}</td>
-                                    <td><button className="middle" onClick={this.direct.bind(this,report.carNum,report.descripton,report.date,1)}><BsFileEarmarkPlus/></button></td>
+                                    <td><button className="middle" onClick={this.direct.bind(this,report.carNum,report.descripton,report.date,1)}><BsFillCheckCircleFill/></button></td>
                                 </tr>
                             )
                         }
