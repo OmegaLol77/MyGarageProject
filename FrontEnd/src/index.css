@@ -22,7 +22,7 @@ a{
 
 .App{
   height: 100%;
-  background-color: #818589;
+  background-color: #ECE9E9;
   background-size: cover;
   align-items: center;
   justify-content: center;
@@ -64,7 +64,8 @@ a{
   border-bottom: 2.5px solid #333;
 }
 .navbar h1 {
-  color: #f1356d;
+  font-size: 2.5vw;
+  color: #D2D4DA;
 }
 .navbar .links {
   font-size: 10px;
@@ -82,7 +83,7 @@ a{
   padding: 6px;
 }
 .navbar a:hover {
-  color: #f1356d;
+  color: #D2D4DA;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.3);
   border-radius: 20px;
 }
@@ -93,7 +94,7 @@ a{
   width: 100%;
   height:90%;
   position: flex;
-  background-color: #c4c4c4;
+  background-color: #D3DCDE;
   margin: 15px;
   padding: 20px;
   border-radius: 25px;
@@ -109,7 +110,7 @@ a{
 }
 .list-preview h2 {
   font-size: 20px;
-  color: #f1356d;
+  color: #D2D4DA;
   margin-bottom: 8px;
 }
 .side-navbar{
@@ -117,7 +118,7 @@ a{
   display: flex;
   float: left;
   overflow: hidden;
-  background-color: #71797E;
+  background-color: #B3B5BD;
   max-width: 225px;
   position: relative;
   top: 0;
@@ -138,7 +139,7 @@ a{
   padding: 5px;
 }
 .sidebar a:hover {
-  color: #f1356d;
+  color: white;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
   border-radius: 20px;
 }
@@ -219,7 +220,7 @@ a{
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
-  background-color: #6082B6;
+  background-color: #9496A1;
   color: #ffffff;
   text-align: left;
 }
@@ -236,11 +237,11 @@ a{
 }
 
 .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #6082B6;
+  border-bottom: 2px solid #9496A1;
 }
 .styled-table tbody tr.active-row {
   font-weight: bold;
-  color: #6082B6;
+  color: #9496A1;
 }
 /* @media only screen and (max-width: 300px) {
   .container{
