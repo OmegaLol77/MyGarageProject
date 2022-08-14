@@ -22,7 +22,7 @@ a{
 
 .App{
   height: 100%;
-  background-color: wheat;
+  background-color: #818589;
   background-size: cover;
   align-items: center;
   justify-content: center;
@@ -32,6 +32,7 @@ a{
   overflow: hidden;
 }
 .button{
+  width: 8vw;
   height: 3vh;
   font-weight: bold;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.3);
@@ -39,6 +40,10 @@ a{
 }
 .middle{
   width: 8vw;
+  height: 3vh;
+  font-weight: bold;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.3);
+  border-radius: 20px;
 }
 .center{
   display: grid;
@@ -53,7 +58,7 @@ a{
   padding: 20px;
   display: flex;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: #232323;
   max-width: 100%;
   margin: 0 auto;
   border-bottom: 2.5px solid #333;
@@ -88,7 +93,7 @@ a{
   width: 100%;
   height:90%;
   position: flex;
-  background-color: antiquewhite;
+  background-color: #c4c4c4;
   margin: 15px;
   padding: 20px;
   border-radius: 25px;
@@ -112,7 +117,7 @@ a{
   display: flex;
   float: left;
   overflow: hidden;
-  background-color: antiquewhite;
+  background-color: #71797E;
   max-width: 225px;
   position: relative;
   top: 0;
@@ -208,13 +213,13 @@ a{
 .styled-table {
   border-collapse: collapse;
   margin: 25px 0;
-  font-size: 0.9em;
+  font-size: 1.1em;
   font-family: sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
-  background-color: #009879;
+  background-color: #6082B6;
   color: #ffffff;
   text-align: left;
 }
@@ -231,11 +236,11 @@ a{
 }
 
 .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #6082B6;
 }
 .styled-table tbody tr.active-row {
   font-weight: bold;
-  color: #009879;
+  color: #6082B6;
 }
 /* @media only screen and (max-width: 300px) {
   .container{

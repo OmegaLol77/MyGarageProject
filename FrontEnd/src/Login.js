@@ -61,12 +61,12 @@ export default function Login() {
             <input type="password" id="Password" placeholder="Your Password" value={Password} onChange={ (e) => setPassword(e.target.value)}></input>
         </a>
         <br></br>
-        doesn't have an account <button onClick={signupClick} >Signup</button> 
+        doesn't have an account <button className='middle' onClick={signupClick} >Signup</button> 
         <br></br>
       <label>  Worker<input type="checkbox" value={Worker}  name=""  onChange={ handleWorkerChange}  /></label>
       <label>  Admin<input type="checkbox" value={Admin}  name=""  onChange={ handleAdminChange}  /></label>
       <br></br>
-        <button type="submit" onClick={ver} >Submit</button>
+        <button className='middle' type="submit" onClick={ver} >Submit</button>
         </form>
   )
   

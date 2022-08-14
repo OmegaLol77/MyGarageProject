@@ -99,7 +99,7 @@ export default function AddUser() {
         <label>  Admin<input type="checkbox" value={Admin}  name=""  onChange={ handleAdminChange}  /></label>
         <br></br>
         <br></br>
-        <button type="submit" onClick={newUser} >Submit</button>
+        <button className='button' type="submit" onClick={newUser} >Submit</button>
 
         </form>
 
