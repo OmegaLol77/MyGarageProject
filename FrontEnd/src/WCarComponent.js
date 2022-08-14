@@ -8,8 +8,11 @@ class WCarComponent extends React.Component {
     constructor(props){
         super(props)
         this.state = {
+            carproccess:"",
             cars:[]
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleFilter = this.handleFilter.bind(this);
     }
     
     componentDidMount(){
@@ -29,11 +32,46 @@ class WCarComponent extends React.Component {
         window.location.replace(path+'?id='+id);
     }
 
+    handleChange(event) {
+        this.setState({carproccess: event.target.value});
+    }
+
+    handleFilter(){
+        if(this.state.carproccess=="Car is Checked"){
+            Service.getAllCheckedCars().then((response)=>
+            {
+                this.setState({cars:response.data})
+            })
+        }
+        if(this.state.carproccess=="Car Being Repaired"){
+            Service.getAllBeingRepairedCars().then((response)=>
+            {
+                this.setState({cars:response.data})
+            })
+        }
+        if(this.state.carproccess=="Car Repairing Done"){
+            Service.getAllRepairedCars().then((response)=>
+            {
+                this.setState({cars:response.data})
+            })
+        }
+    }
+
     render (){
         return(
             <div>
             <div className="content">
                 <h2>Cars List</h2>
+                <div className='inputcontent'>
+                    <p>Car Proccess:</p>
+                    <select type="SelectList" id='carproccess' defaultValue={this.state.carproccess} onChange={this.handleChange}>
+                        <option value="option 1">Please Select An Option</option>
+                        <option value="Car is Checked">Car is Checked</option>
+                        <option value="Car Being Repaired">Car Being Repaired</option>
+                        <option value="Car Repairing Done">Car Repairing Done</option>
+                    </select>
+                    <button className="button" onClick={this.handleFilter}>Filter</button>
+                </div>
                 <table border="2">
                     <thead>
                         <tr>
