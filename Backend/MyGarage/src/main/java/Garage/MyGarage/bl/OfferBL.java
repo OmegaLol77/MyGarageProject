@@ -28,9 +28,9 @@ public class OfferBL {
 		return offerRepo.findAll();
 	}
 	
-	public List<Offer> findOfferById(int carnum) {
+	public List<Offer> findOfferById(int carnumber) {
 		try {
-			return offerRepo.findBycarnumber(carnum);
+			return offerRepo.findBycarnumber(carnumber);
 		} catch (Exception e) {
 			return null;
 		}

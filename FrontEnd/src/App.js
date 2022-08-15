@@ -29,6 +29,7 @@ import AddUser from './AddUser';
 
 import CreateOffer from './CreateOffer'
 import WApprovedCars from './WApprovedCars';
+import CustomerCarOffer from './CustomerCarOffer';
 
 export default function App() {
 
@@ -200,6 +201,14 @@ export default function App() {
               </div>
               <div className="card">
                 <MyCustomerCarList />
+              </div>
+            </Route>
+            <Route path="/customercaroffer">
+            <div className='side-navbar'>
+                <CustomerSideNavbar/>
+              </div>
+              <div className="card">
+                <CustomerCarOffer />
               </div>
             </Route>
           

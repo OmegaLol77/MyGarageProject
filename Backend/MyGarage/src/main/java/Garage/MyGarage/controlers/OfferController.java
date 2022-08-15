@@ -37,9 +37,9 @@ public class OfferController {
 		return OfferBL.getAllOffers();
 	}
 	
-	@GetMapping("/{carnum}/findOfferByCarnum")
-	public List<Offer> findOfferByCarnum(@PathVariable("carnumber") Integer carnum) {
-		return OfferBL.findOfferById(carnum);
+	@GetMapping("/{carnumber}/findOfferByCarnum")
+	public List<Offer> findOfferByCarnum(@PathVariable("carnumber") Integer carnumber) {
+		return OfferBL.findOfferById(carnumber);
 	}
 	
 	@PostMapping("addOffer")
