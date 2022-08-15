@@ -37,8 +37,8 @@ public class OfferController {
 		return OfferBL.getAllOffers();
 	}
 	
-	@GetMapping("/{carnum}/findAdminByCarnum")
-	public Offer findOfferByCarnum(@PathVariable("carnumber") Integer carnum) {
+	@GetMapping("/{carnum}/findOfferByCarnum")
+	public List<Offer> findOfferByCarnum(@PathVariable("carnumber") Integer carnum) {
 		return OfferBL.findOfferById(carnum);
 	}
 	

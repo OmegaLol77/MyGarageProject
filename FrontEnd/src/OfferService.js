@@ -23,6 +23,9 @@ class OfferService{
         console.log(error));
     }
 
+    getOfferByCarnumber(carnum){
+        return axios.get('https://backend.mygarage.link:8443/Offer/'+`${carnum}/findOfferByCarnum`);
+    }
 
 
 
