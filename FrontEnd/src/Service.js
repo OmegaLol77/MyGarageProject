@@ -16,9 +16,8 @@ class Service{
     getAllCars(){
         return axios.get(GETCARS_REST_API_URL);
     }
-
-    getCarByiId(id){
-        return axios.get('http://localhost:8080/Car'+`${id}`+'findById');
+    getCustomerCars(){
+        return axios.get(GETCUSTOMERCARS_REST_API_URL+`/${localStorage.getItem("Cphonenum")}/getCustomerCars`);
     }
 
     getAllCheckedCars(){
@@ -33,8 +32,6 @@ class Service{
         return axios.get(REPAIREDCARS_REST_API_URL);
     }
 
-  
-    
     AddCar(on,oi,d,cn,cp,pn){
         this.state = { 
             ownername:on,
