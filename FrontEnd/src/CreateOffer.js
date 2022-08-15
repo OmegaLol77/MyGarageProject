@@ -29,8 +29,8 @@ const checker = async () => {
     const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     CustomerService.getCustomerByCarId(carNum).then((response)=>
     {
-         customer=response.data
-         OfferService.AddOffer(customer.firstName,customer.phoneNum,carNum,Offer,currdate);
+      customer=response.data
+      OfferService.AddOffer(customer.firstName,customer.phoneNum,carNum,Offer,currdate);
      
 
     })

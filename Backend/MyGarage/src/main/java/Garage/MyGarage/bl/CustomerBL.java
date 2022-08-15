@@ -23,7 +23,7 @@ public class CustomerBL {
 	
 	public Customer GetCustomerByCarNum(int CarNum) {
 		try {
-		return custRepo.findBycarNum(CarNum);
+			return custRepo.GetCustomerByCarNum(CarNum);
 		}
 		catch (Exception e) {
 			return null;
