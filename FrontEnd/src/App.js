@@ -128,7 +128,7 @@ export default function App() {
                 <AdminSideNavbar/>
               </div>
               <div className="card">
-                <CreateOffer />
+                <CarProccess />
               </div>
             </Route>
 

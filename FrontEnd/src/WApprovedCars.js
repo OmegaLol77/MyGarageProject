@@ -21,7 +21,7 @@ class WApprovedCars extends React.Component {
     }
     direct = (carNum,descripton,date,approved) =>{
         ReportService.updateReport(carNum,"dododo",date,approved)
-        // this.refreshPage();
+        this.refreshPage();
     }
     refreshPage() {
         window.location.reload(false);
