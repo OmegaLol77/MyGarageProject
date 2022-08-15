@@ -7,7 +7,6 @@ import javax.persistence.Table;
 @Table(name = "Customer")
 public class Customer extends Person {
 	
-	private int carNum;
 	private String password;
 	
 	
@@ -38,19 +37,12 @@ public class Customer extends Person {
 		setPassword(password);
 	}
 
-	public int getCarNum() {
-		return carNum;
-	}
 
-	public void setCarNum(int carNum) {
-		this.carNum = carNum;
-	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + carNum;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
@@ -64,8 +56,6 @@ public class Customer extends Person {
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
-		if (carNum != other.carNum)
-			return false;
 		if (password == null) {
 			if (other.password != null)
 				return false;
@@ -76,9 +66,9 @@ public class Customer extends Person {
 
 	@Override
 	public String toString() {
-		return "Customer [carNum=" + carNum + ", password=" + password + ", getPhoneNum()=" + getPhoneNum()
-				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getEmail()="
-				+ getEmail() + ", toString()=" + super.toString() + ", getClass()=" + getClass() + "]";
+		return "Customer [password=" + password + ", getPhoneNum()=" + getPhoneNum() + ", getFirstName()="
+				+ getFirstName() + ", getLastName()=" + getLastName() + ", getEmail()=" + getEmail() + ", toString()="
+				+ super.toString() + ", getClass()=" + getClass() + "]";
 	}
 
 

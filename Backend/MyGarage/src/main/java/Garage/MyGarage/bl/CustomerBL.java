@@ -21,14 +21,8 @@ public class CustomerBL {
 		return custRepo.findAll();
 	}
 	
-	public Customer GetCustomerByCarNum(int CarNum) {
-		try {
-			return custRepo.GetCustomerByCarNum(CarNum);
-		}
-		catch (Exception e) {
-			return null;
-		}
-		}
+
+
 
 	public Customer findByphoneNum(int phoneNum) {
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect,useState } from 'react';
-import CustomerService from './CustomerService';
+import Service from './Service';
 import Popup from './PopUp';
 import Async from 'react-async';
 import OfferService from'./OfferService';
@@ -24,13 +24,17 @@ const checker = async () => {
   })};
   
  function saveOffer(Offer){
-    var  customer
+
     const current = new Date();
     const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-    CustomerService.getCustomerByCarId(carNum).then((response)=>
+  
+    var  car
+    Service.getCarByiId(carNum).then((response)=>
     {
-      customer=response.data
-      OfferService.AddOffer(customer.firstName,customer.phoneNum,carNum,Offer,currdate);
+   
+         car=response.data
+         OfferService.AddOffer(car.ownername,car.ownerid,carNum,Offer);
+
      
 
     })
