@@ -25,10 +25,12 @@ const checker = async () => {
   
  function saveOffer(Offer){
     var  customer
+    const current = new Date();
+    const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     CustomerService.getCustomerByCarId(carNum).then((response)=>
     {
          customer=response.data
-         OfferService.AddOffer(customer.firstName,customer.phoneNum,carNum,Offer);
+         OfferService.AddOffer(customer.firstName,customer.phoneNum,carNum,Offer,currdate);
      
 
     })

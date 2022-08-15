@@ -23,11 +23,9 @@ public class Offer {
 			super();
 		}
 		
-		public Offer(String ownername, int ownerid, int carnumber, int offer) {
+		public Offer(String ownername, int ownerid, int carnumber, int offer,String date) {
 			super();
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-			Date date = new Date();
-			setDate(formatter.format(date));
+			setDate(date);
 			setOwnername(ownername);
 			setCarnumber(carnumber);
 			setOwnerid(ownerid);
