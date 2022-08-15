@@ -2,7 +2,7 @@ import Service from "./Service";
 import React from "react";
 import ReportService from "./ReportService";
 import { Redirect, useHistory } from 'react-router-dom';
-import { BsTrash ,BsFileEarmarkPlus} from "react-icons/bs";
+import { BsTrash ,BsFillCheckCircleFill} from "react-icons/bs";
 
 class WApprovedCars extends React.Component {
 
@@ -19,6 +19,13 @@ class WApprovedCars extends React.Component {
             this.setState({report:response.data})
         })
     }
+    direct = (carNum,descripton,date,approved) =>{
+        ReportService.updateReport(carNum,"dododo",date,approved)
+        // this.refreshPage();
+    }
+    refreshPage() {
+        window.location.reload(false);
+      }
 
     // refreshPage() {
     //     window.location.reload(false);
@@ -34,6 +41,7 @@ class WApprovedCars extends React.Component {
                             <td>Car Number</td>
                             <td>Description</td>
                             <td>Date</td>
+                            <td>Done The Job</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,6 +52,7 @@ class WApprovedCars extends React.Component {
                                     <td>{report.carNum}</td>
                                     <td>{report.descripton}</td>
                                     <td>{report.date}</td>
+                                    <td><button className="middle" onClick={this.direct.bind(this,report.carNum,report.descripton,report.date,2)}><BsFillCheckCircleFill/></button></td>
                                 </tr>
                             )
                         }

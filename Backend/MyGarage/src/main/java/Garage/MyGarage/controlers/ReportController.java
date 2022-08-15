@@ -49,24 +49,24 @@ public class ReportController {
 		return reportBl.getNotApprovedReport(approved);
 	}
 	
-//	@PostMapping("updateReport")
-//	public boolean updateReport(@RequestBody Report report) {
-//		if(!reportBl.getReport(report.getCarNum()).equals(null)) {
-//			reportBl.updateReport(report);
-//		return true;
-//		}
-//		else {
-//			return false;
-//		}
-//	}
-	
 	@PostMapping("updateReport")
-	public boolean updateReport(@RequestBody Report report){
-		if(report.getCarNum()!=0 && report.getDescripton().equals("")==false && report.getDate().equals("")==false) {
-			return reportBl.updateReport(report);
-			}
-		return false;
+	public boolean updateReport(@RequestBody Report report) {
+		if(!reportBl.getReport(report.getCarNum()).equals(null)) {
+			reportBl.updateReport(report);
+		return true;
+		}
+		else {
+			return false;
+		}
 	}
+	
+//	@PostMapping("updateReport")
+//	public boolean updateReport(@RequestBody Report report){
+//		if(report.getCarNum()!=0 && report.getDescripton().equals("")==false && report.getDate().equals("")==false) {
+//			return reportBl.updateReport(report);
+//			}
+//		return false;
+//	}
 	
 	@DeleteMapping("/{carNum}/deleteReport")
 	public boolean deleteReport(@PathVariable("carNum") int carNum) {

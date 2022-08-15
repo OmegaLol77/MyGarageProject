@@ -82,14 +82,14 @@ export default function App() {
                 <AddCar />
               </div>
             </Route>
-            <Route path="/carproccessupdate">
+            {/* <Route path="/carproccessupdate">
               <div className='side-navbar'>
                 <AdminSideNavbar/>
               </div>
               <div className="card">
                 <CarProccessUpdate />
               </div>
-            </Route>
+            </Route> */}
             <Route path="/carupdate">
               <div className='side-navbar'>
                 <AdminSideNavbar/>

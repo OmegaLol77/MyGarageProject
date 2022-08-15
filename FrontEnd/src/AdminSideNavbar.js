@@ -9,7 +9,7 @@ export default function AdminSideNavbar() {
                 <Link to="/adduser">Add User</Link>
                 <Link to="/carlist">Car List</Link>
                 <Link to="/DeleteUser">Delete User</Link>
-                <Link to="/carproccessupdate">Car Proccess Update</Link>
+                {/* <Link to="/carproccessupdate">Car Proccess Update</Link> */}
                 <Link to="/notapproved">Not Approved Reports</Link>
                 <Link to="/CheckedList">Cars In Need Of Offer List</Link>
                 {/* <Link to="/AdminLogin">Admin Login</Link> */}
