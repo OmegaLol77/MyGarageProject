@@ -9,7 +9,7 @@ import Garage.MyGarage.beans.Car;
 import Garage.MyGarage.beans.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
-	 @Query(value = "SELECT * FROM mygarage.customer where car_num = ?1", nativeQuery = true)
+	 @Query(value = "SELECT * FROM customer where car_num = ?1", nativeQuery = true)
 	 Customer GetCustomerByCarNum(int carNum);
 
 }
