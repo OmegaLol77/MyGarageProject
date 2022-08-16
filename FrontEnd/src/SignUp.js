@@ -36,7 +36,7 @@ export default function SignUp() {
     return(
         
         <form className="SignUp">
-        <h1>Sign Up</h1>
+        <h2>Sign Up</h2>
             <a>First Name:
             <br></br> 
             <input type="text"  id="FirstName" placeholder="First Name" value={FirstName} onChange={ (e) =>setFirstName(e.target.value)}>

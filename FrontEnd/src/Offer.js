@@ -57,7 +57,7 @@ class Offer extends React.Component{
                                     <td>{cars.carnumber}</td>
                                     <td>{cars.date}</td>
                                     <td>{cars.carproccess}</td>
-                                    <td><button className="middle" onClick={this.direct.bind(this,cars.carnumber,'/CreateOffer')}>Create An Offer</button></td>
+                                    <td><button className="middle" onClick={this.direct.bind(this,cars.carnumber,'/CreateOffer')}>Create Offer</button></td>
                                     
                                 </tr>
                             )

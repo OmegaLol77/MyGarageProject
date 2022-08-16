@@ -50,7 +50,7 @@ export default function Login() {
 
     return(
         <form className="Login">
-        <h1>Login</h1>
+        <h2>Login</h2>
         <a>phoneNum:
         <br></br>
             <input type="text" id="phoneNum" placeholder="Your phoneNum" value={phoneNum} onChange={ (e) => setphoneNum(e.target.value)}></input>
