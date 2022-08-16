@@ -36,6 +36,7 @@ export default function AddCar() {
   const handleOnClick = e => {
     e.preventDefault();
     Service.AddCar(ownername,ownerid,currdate,carnumber,carproccess,PhoneNum);
+    refreshPage();
     // if(Service.AddCar(ownername,ownerid,date,carnumber)){
     //   console.log(isOpen);
     //   refreshPage();

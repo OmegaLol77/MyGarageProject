@@ -16,6 +16,10 @@ class Service{
     getAllCars(){
         return axios.get(GETCARS_REST_API_URL);
     }
+
+    getCarByiId(id){
+        return axios.get('https://backend.mygarage.link:8443/Car/'+`${id}`+'/findById');
+    }
     getCustomerCars(){
         return axios.get(GETCUSTOMERCARS_REST_API_URL+`/${localStorage.getItem("Cphonenum")}/getCustomerCars`);
     }

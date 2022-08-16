@@ -18,7 +18,7 @@ class CustomerCarOffer extends React.Component {
         let url = window.location.href;
         let neurl = new URL(url);
         let id = neurl.searchParams.get('carnum');
-        OfferService.getOfferByCarnumber(id).then((response)=>
+        OfferService.getMyOffers(id).then((response)=>
         {
             this.setState({offer:response.data})
         })

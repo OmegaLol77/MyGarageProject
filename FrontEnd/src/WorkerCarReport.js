@@ -4,7 +4,6 @@ import ReportService from"./ReportService";
 import { useHistory} from "react-router-dom";
 
 
-
 export default function WorkerCarReport() {
     const [description,setreportcard] = useState("");
     const [CarNum,setcarnumber] = useState(0);
@@ -21,13 +20,18 @@ export default function WorkerCarReport() {
     const current = new Date();
     const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
+    const refreshPage = () => {
+        window.location.reload(false);
+      }
+
     const handleOnClick = e => {
         e.preventDefault();
         console.log(description);
         console.log(CarNum);
         //fix the then and see in the Backend why the BL of the report have to print the x to insert a row
         ReportService.AddReport(CarNum,description,currdate,0);//then( props => {props==true ? history.push("/"): alert("You are not a customer please Sign-up")}).catch();
-      }
+        refreshPage();
+    }
   return (
     <div className='center'>
         <h2>Report Card</h2>

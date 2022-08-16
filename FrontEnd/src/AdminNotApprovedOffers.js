@@ -33,7 +33,7 @@ class AdminNotApprovedOffers extends React.Component {
                             <td>Car Number</td>
                             <td>Date</td>
                             <td>Offer</td>
-                            <td>Offer</td>
+                            <td>Re Submit Offer</td>
                         </tr>
                     </thead>
                     <tbody>

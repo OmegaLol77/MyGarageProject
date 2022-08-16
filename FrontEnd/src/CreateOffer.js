@@ -56,9 +56,9 @@ export default function CreateOffer(id) {
         }
         if (data) {
           return(
-          <div className='center'>
+          <div className='content'>
             <h2>Car Update</h2>
-            <table border="2">
+            <table className="styled-table" border="1">
               <thead>
                 <tr>
                   <td>car number</td>
@@ -69,12 +69,12 @@ export default function CreateOffer(id) {
                 </tr>
               </thead>
               <tbody>{
-                <tr key={Report.carNum}>
+                <tr className="active-row" key={Report.carNum}>
                   <td>{Report.carNum}</td>
                   <td>{Report.descripton}</td>
                   <td>{Report.date}</td>
                   <td><input type="number" id='Offer'  value={Offer}  onChange={(e) => setOffer(e.target.value)}></input></td>
-                  <td><button type="submit" onClick={saveOffer(Offer)} >Submit</button></td> 
+                  <td><button className='middle' type="submit" onClick={saveOffer(Offer)} >Submit</button></td> 
                 </tr>}
               </tbody>
             </table>

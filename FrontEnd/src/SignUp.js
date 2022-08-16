@@ -76,7 +76,7 @@ export default function SignUp() {
         <br></br>
         <br></br>
 
-        <button type="submit" onClick={newCustomer} >Submit</button>
+        <button className='middle' type="submit" onClick={newCustomer} >Submit</button>
 
         </form>
 
