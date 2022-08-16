@@ -222,10 +222,10 @@ h2{
 .styled-table {
   border-collapse: collapse;
   margin: 2.5vw 0;
-  font-size: 1.1em;
+  font-size: 0.9vw;
   font-family: sans-serif;
   min-width: 25vw;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
   background-color: #9496A1;
@@ -237,7 +237,7 @@ h2{
     padding: 1.15vw 1.2vw;
 }
 .styled-table tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 0.075vw solid #dddddd;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
@@ -245,7 +245,7 @@ h2{
 }
 
 .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #9496A1;
+  border-bottom: 0.175vw solid #9496A1;
 }
 .styled-table tbody tr.active-row {
   font-weight: bold;
