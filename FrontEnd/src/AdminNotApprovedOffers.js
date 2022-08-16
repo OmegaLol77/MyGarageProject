@@ -5,7 +5,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import { BsFillXCircleFill ,BsFillCheckCircleFill} from "react-icons/bs";
 import OfferService from "./OfferService";
 
-class CustomerCarOffer extends React.Component {
+class AdminNotApprovedOffers extends React.Component {
 
     constructor(props){
         super(props)
@@ -15,28 +15,14 @@ class CustomerCarOffer extends React.Component {
     }
     
     componentDidMount(){
-        let url = window.location.href;
-        let neurl = new URL(url);
-        let id = neurl.searchParams.get('carnum');
-        OfferService.getOfferByCarnumber(id).then((response)=>
+        OfferService.getDeclinedOffers(2).then((response)=>
         {
             this.setState({offer:response.data})
         })
     }
-
-    approve = (offer) =>{
-        OfferService.UpdateOffer(offer.ownername,offer.ownerid,offer.carnumber,offer.offer,offer.date,1);
-        this.refreshPage();
+    direct = (id,path) =>{
+        window.location.replace(path+'?id='+id);
     }
-    decline = (offer) =>{
-        OfferService.UpdateOffer(offer.ownername,offer.ownerid,offer.carnumber,offer.offer,offer.date,2);
-        this.refreshPage();
-    }
-    refreshPage() {
-        window.location.reload(false);
-      }
-
-
     render (){
         return(
             <div className="content">
@@ -47,8 +33,7 @@ class CustomerCarOffer extends React.Component {
                             <td>Car Number</td>
                             <td>Date</td>
                             <td>Offer</td>
-                            <td>Approve</td>
-                            <td>Decline</td>
+                            <td>Offer</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,18 +44,15 @@ class CustomerCarOffer extends React.Component {
                                     <td>{offer.carnumber}</td>
                                     <td>{offer.currDate}</td>
                                     <td>{offer.offer}</td>
-                                    <td><button className="middle" onClick={this.approve.bind(this,offer)}><BsFillCheckCircleFill/></button></td>
-                                    <td><button className="middle" onClick={this.decline.bind(this,offer)}><BsFillXCircleFill/></button></td>
+                                    <td><button className="middle" onClick={this.direct.bind(this,offer.carnumber,'/CreateOffer')}>Create An Offer</button></td>
                                 </tr>
                             )
                         }
                     </tbody>
                 </table>
             </div>
-
         )
     }
-
 }
 
-export default CustomerCarOffer
+export default AdminNotApprovedOffers

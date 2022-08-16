@@ -6,18 +6,44 @@ class OfferService{
     getAllCheckedCars(){
         return axios.get(CHECKEDCARS_REST_API_URL);
     }
+
+    getMyOffers(cn){
+        return axios.get('https://backend.mygarage.link:8443/Offer/'+`${cn}/findMyOffers`);
+    }
+
+    getApprovedOffers(ap){
+        return axios.get('https://backend.mygarage.link:8443/Offer/'+`${ap}/getApprovedOffers`);
+    }
+
+    getDeclinedOffers(ap){
+        return axios.get('https://backend.mygarage.link:8443/Offer/'+`${ap}/getDeclinedOffers`);
+    }
    
-    AddOffer(on,oi,cn,cp){
+    AddOffer(on,oi,cn,cp,date,ap){
         this.state = { 
-           
             ownername:on,
             ownerid:oi,
             carnumber:cn,
-            offer:cp
-          
-           
+            offer:cp,
+            date:date,
+            approved:ap
         }
         axios.post('https://backend.mygarage.link:8443/Offer/addOffer',this.state).then((response)=>
+        {return response.data;
+        },(error)=>
+        console.log(error));
+    }
+
+    UpdateOffer(on,oi,cn,cp,date,ap){
+        this.state = { 
+            ownername:on,
+            ownerid:oi,
+            carnumber:cn,
+            offer:cp,
+            date:date,
+            approved:ap
+        }
+        axios.post('https://backend.mygarage.link:8443/Offer/'+`${cn}/updateOffer`,this.state).then((response)=>
         {return response.data;
         },(error)=>
         console.log(error));

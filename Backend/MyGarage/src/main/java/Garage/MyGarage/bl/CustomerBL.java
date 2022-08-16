@@ -20,9 +20,6 @@ public class CustomerBL {
 	public List<Customer> getAllCustomers() {
 		return custRepo.findAll();
 	}
-	
-
-
 
 	public Customer findByphoneNum(int phoneNum) {
 

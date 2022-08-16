@@ -24,6 +24,18 @@ public class OfferBL {
 	public List<Car> getAllCheckedCars(){
 		return carRepo.getAllCheckedCars();
 	}
+	
+	public List<Offer> findMyOffers(int carnumber,int approved){
+		return offerRepo.findMyOffers(carnumber,approved);
+	}
+	
+	public List<Offer> findApprovedOffers(int approved){
+		return offerRepo.findApprovedOffers(approved);
+	}
+	
+	public List<Offer> findDeclinedOffers(int approved){
+		return offerRepo.findDeclinedOffers(approved);
+	}
 	public List<Offer> getAllOffers(){
 		return offerRepo.findAll();
 	}

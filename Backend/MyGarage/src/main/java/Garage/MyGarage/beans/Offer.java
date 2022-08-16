@@ -18,18 +18,28 @@ public class Offer {
 		private int ownerid;
 		private int offer;
 		private String currDate;
+		private int approved;
 		
 		public Offer() {
 			super();
 		}
 		
-		public Offer(String ownername, int ownerid, int carnumber, int offer,String date) {
+		public Offer(String ownername, int ownerid, int carnumber, int offer,String date,int approved) {
 			super();
 			setDate(date);
 			setOwnername(ownername);
 			setCarnumber(carnumber);
 			setOwnerid(ownerid);
 			setOffer(offer);
+			setApproved(approved);
+		}
+		
+		public int getApproved() {
+			return this.approved;
+		}
+
+		public void setApproved(int approved) {
+			this.approved = approved;
 		}
 		
 		public String getOwnername() {

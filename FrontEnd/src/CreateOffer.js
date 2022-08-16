@@ -27,16 +27,12 @@ const checker = async () => {
 
     const current = new Date();
     const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-  
+
     var  car
     Service.getCarByiId(carNum).then((response)=>
-    {
-   
-         car=response.data
-         OfferService.AddOffer(car.ownername,car.ownerid,carNum,Offer);
-
-     
-
+    { 
+      car=response.data
+      OfferService.AddOffer(car.ownername,car.ownerid,carNum,Offer,currdate,0);
     })
   };
 
@@ -61,35 +57,28 @@ export default function CreateOffer(id) {
         if (data) {
           return(
           <div className='center'>
-          <h2>Car Update</h2>
-          <table border="2">
-                    <thead>
-                        <tr>
-                            <td>car number</td>
-                            <td>descripton</td>
-                            <td>date</td>
-                            <td>Offer</td>
-                            <td>Submit</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            
-                                <tr key={Report.carNum}>
-                                    <td>{Report.carNum}</td>
-                                    <td>{Report.descripton}</td>
-                                    <td>{Report.date}</td>
-                                    <td><input type="number" id='Offer'  value={Offer}  onChange={(e) => setOffer(e.target.value)}></input></td>
-                                    <td><button type="submit" onClick={saveOffer(Offer)} >Submit</button></td> 
-
-                                    </tr>
-                            
-                        }
-                    </tbody>
-                </table>
-             
-
- </div>)
+            <h2>Car Update</h2>
+            <table border="2">
+              <thead>
+                <tr>
+                  <td>car number</td>
+                  <td>descripton</td>
+                  <td>date</td>
+                  <td>Offer</td>
+                  <td>Submit</td>
+                </tr>
+              </thead>
+              <tbody>{
+                <tr key={Report.carNum}>
+                  <td>{Report.carNum}</td>
+                  <td>{Report.descripton}</td>
+                  <td>{Report.date}</td>
+                  <td><input type="number" id='Offer'  value={Offer}  onChange={(e) => setOffer(e.target.value)}></input></td>
+                  <td><button type="submit" onClick={saveOffer(Offer)} >Submit</button></td> 
+                </tr>}
+              </tbody>
+            </table>
+          </div>)
    
       }
     } 

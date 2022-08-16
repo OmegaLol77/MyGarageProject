@@ -30,6 +30,7 @@ import AddUser from './AddUser';
 import CreateOffer from './CreateOffer'
 import WApprovedCars from './WApprovedCars';
 import CustomerCarOffer from './CustomerCarOffer';
+import AdminNotApprovedOffers from './AdminNotApprovedOffers';
 
 export default function App() {
 
@@ -131,6 +132,16 @@ export default function App() {
                 <CarProccess />
               </div>
             </Route>
+            <Route path="/NotApprovedOffers">
+              <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
+              <div className="card">
+                <AdminNotApprovedOffers />
+              </div>
+            </Route>
+
+
 
 
             {/* Worker Pages */}
