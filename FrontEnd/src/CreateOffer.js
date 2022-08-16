@@ -24,10 +24,8 @@ const checker = async () => {
   })};
   
  function saveOffer(Offer){
-
     const current = new Date();
     const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-
     var  car
     Service.getCarByiId(carNum).then((response)=>
     { 
