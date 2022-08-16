@@ -31,7 +31,7 @@ class Offer extends React.Component{
         return(
             <div>
             <div className="content">
-                <h2>Cars List</h2>
+                <h2>Cars List Which Needs An Offer</h2>
                 <table className='styled-table' border="1">
                     <thead>
                         <tr>
