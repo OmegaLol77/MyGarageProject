@@ -7,10 +7,10 @@
   color: #333;
 }
 p{
-  font-size: 1vw;
+  font-size: 1.15vw;
 }
 a{
-  font-size: 1vw;
+  font-size: 1.15vw;
   font-weight: bold;
 }
 .Login{
@@ -35,7 +35,7 @@ a{
   overflow: hidden;
 }
 .button{
-  font-size: 1vw;
+  font-size: 1.15vw;
   width: 8vw;
   height: 3vh;
   font-weight: bold;
@@ -45,7 +45,7 @@ a{
 .middle{
   width: 8vw;
   height: 3vh;
-  font-size: 1vw;
+  font-size: 1.15vw;
   font-weight: bold;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.3);
   border-radius: 20px;
@@ -73,7 +73,7 @@ a{
   color: #D2D4DA;
 }
 .navbar .links {
-  font-size: 1.5vw;
+  font-size: 1.65vw;
   font-weight: bold;
   padding-left: 5px;
   align-items: center;
@@ -84,7 +84,7 @@ a{
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
-  font-size: 1vw;
+  font-size: 1.15vw;
   padding: 6px;
 }
 .navbar a:hover {
@@ -96,7 +96,7 @@ a{
   width: 25vw;
 }
 h2{
-  font-size: 2vw;
+  font-size: 2.1vw;
 }
 .card {
   width: 100%;
@@ -261,15 +261,15 @@ h2{
   }
   .button{
     font-size: 2vw;
-    width: 8vw;
-    height: 3vh;
+    width: 10vw;
+    height: 4vh;
     font-weight: bold;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.3);
     border-radius: 20px;
   }
   .middle{
-    width: 8vw;
-    height: 3vh;
+    width: 10vw;
+    height: 4vh;
     font-size: 2vw;
     font-weight: bold;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.3);
@@ -277,6 +277,19 @@ h2{
   }
   h2{
     font-size: 4vw;
+  }
+  .side-navbar{
+    padding: 20px;
+    display: flex;
+    float: left;
+    overflow: hidden;
+    width: 32.5vw;
+    background-color: #B3B5BD;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
   .sidebar a {
     text-decoration: none;
