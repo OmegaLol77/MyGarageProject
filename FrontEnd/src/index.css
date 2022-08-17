@@ -224,7 +224,7 @@ h2{
   margin: 2.5vw 0;
   font-size: 0.9vw;
   font-family: sans-serif;
-  min-width: 25vw;
+  min-width: 15vw;
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
@@ -302,4 +302,8 @@ h2{
     font-size: 5vw;
     color: #D2D4DA;
   }
+  .styled-table th,
+  .styled-table td {
+    padding: 0.95vw 0.3vw;
+}
 }
