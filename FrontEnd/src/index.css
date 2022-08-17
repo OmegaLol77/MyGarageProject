@@ -298,4 +298,8 @@ h2{
     font-weight: bold;
     padding: 5px;
   }
+  .navbar h1 {
+    font-size: 5vw;
+    color: #D2D4DA;
+  }
 }
