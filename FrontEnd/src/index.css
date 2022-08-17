@@ -261,15 +261,15 @@ h2{
   }
   .button{
     font-size: 2vw;
-    width: 10vw;
-    height: 4vh;
+    width: 11.5vw;
+    height: 3.5vh;
     font-weight: bold;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.3);
     border-radius: 20px;
   }
   .middle{
-    width: 10vw;
-    height: 4vh;
+    width: 11.5vw;
+    height: 3.5vh;
     font-size: 2vw;
     font-weight: bold;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.3);
