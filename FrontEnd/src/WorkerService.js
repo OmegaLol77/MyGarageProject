@@ -1,6 +1,10 @@
 import axios from 'axios';
 import React from "react";
+
+
 const WORKER_REST_API_URL='https://backend.mygarage.link:8443/Worker/';
+
+
 class WorkerService{
 
     
@@ -17,7 +21,7 @@ class WorkerService{
             z[0]=response;
             return  z[0];
            })
-       }
+     }
 
     AddWorker(FirstName,LastName,Email,Password,phoneNum){
         this.state = { 
@@ -30,21 +34,22 @@ class WorkerService{
         axios.post(WORKER_REST_API_URL+'addWorker',this.state)
         .then((response)=>{
             if(response.data == 'false'){
-            alert("the email is already signed up");
+                alert("Email Or PhoneNumber Are already signed up");
+            }else{
+                alert("Added User Successfully");
+
             }
         },(error)=>{
             alert(error);
             console.log(error)});
-        }
+    }
 
-        DeleteWorker(phoneNum){
-            axios.delete(WORKER_REST_API_URL+`${phoneNum}/deleteWorker`)
-            .then((response)=>{
-                console.log("User Deleted");
-            },(error)=>
-                console.log(error));
-        }
-
-
+    DeleteWorker(phoneNum){
+        axios.delete(WORKER_REST_API_URL+`${phoneNum}/deleteWorker`)
+        .then((response)=>{
+            alert.log("User Deleted");
+        },(error)=>
+            console.log(error));
+    }
 }
 export default new WorkerService();

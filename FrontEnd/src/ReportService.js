@@ -7,14 +7,12 @@ const UPDATE_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report/upda
 const NOTAPPROVED_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report';
 
 
-
 class ReportService{
 
     GetNotApproved(approved){
         return axios.get(NOTAPPROVED_REPORT_REST_API_URL+`/${approved}/getNotApproved`);
     } 
 
-        
     AddReport(CarNum,Description,Date,Approved){
         this.state={
             descripton:Description,
@@ -25,6 +23,7 @@ class ReportService{
         axios.post(ADD_REPORT_REST_API_URL,
             this.state)
         .then((response)=>{
+            alert("Report Added Successfully")
             return response.data;
         },(error)=>{
             console.log(error)});
@@ -33,9 +32,9 @@ class ReportService{
     DeleteReport(carNum){ 
         axios.delete('https://backend.mygarage.link:8443/Report/'+`${carNum}`+'/deleteReport').then((response)=>
         {
-            console.log(response.data);
+            alert("Report Deleted Successfully");
         },(error)=>
-        console.log(error));
+            console.log(error));
     }
 
 
@@ -48,13 +47,10 @@ class ReportService{
         };
         axios.post(UPDATE_REPORT_REST_API_URL,this.state)
         .then((response)=>{
-            // alert(response.data);
+            alert("Report Update Successfully");
         },(error)=>{
             alert(error);
             console.log(error)});
         }
     }
-
-
-
 export default new ReportService();

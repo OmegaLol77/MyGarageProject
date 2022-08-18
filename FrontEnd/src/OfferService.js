@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const CHECKEDCARS_REST_API_URL='https://backend.mygarage.link:8443/Offer/getAllCheckedCars';
 
 class OfferService{
@@ -28,10 +29,12 @@ class OfferService{
             date:date,
             approved:ap
         }
-        axios.post('https://backend.mygarage.link:8443/Offer/addOffer',this.state).then((response)=>
-        {return response.data;
+        axios.post('https://backend.mygarage.link:8443/Offer/addOffer',this.state)
+        .then((response)=>{
+            alert("Offer Added Successfully")
+            return response.data;
         },(error)=>
-        console.log(error));
+            console.log(error));
     }
 
     UpdateOffer(on,oi,cn,cp,date,ap){
@@ -43,8 +46,10 @@ class OfferService{
             date:date,
             approved:ap
         }
-        axios.post('https://backend.mygarage.link:8443/Offer/'+`${cn}/updateOffer`,this.state).then((response)=>
-        {return response.data;
+        axios.post('https://backend.mygarage.link:8443/Offer/'+`${cn}/updateOffer`,this.state)
+        .then((response)=>{
+            alert("Offer Updated Successfully")
+            return response.data;
         },(error)=>
         console.log(error));
     }
@@ -52,8 +57,5 @@ class OfferService{
     getOfferByCarnumber(carnum){
         return axios.get('https://backend.mygarage.link:8443/Offer/'+`${carnum}/findOfferByCarnum`);
     }
-
-
-
 }
 export default new OfferService(); 

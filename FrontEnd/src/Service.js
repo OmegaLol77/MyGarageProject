@@ -49,9 +49,10 @@ class Service{
             this.state
         ).then((response)=>
         {
+            alert.log()
             return response.data;
         },(error)=>
-        console.log(error));
+            console.log(error));
     }
 
     updateCar(on,oi,d,cn,cp,pn,id){
@@ -64,25 +65,20 @@ class Service{
             ownerPNum:pn,
             id:id
         }
-        axios.post(UPDATECARS_REST_API_URL+`/${id}/updateCar`,
-            this.state
-        ).then((response)=>
-        {
+        axios.post(UPDATECARS_REST_API_URL+`/${id}/updateCar`,this.state)
+        .then((response)=>{
+            alert("Car Updated Successfully");
             return response.data;
         },(error)=>
-        console.log(error));
+            console.log(error));
     }
 
     DeleteCar(id){
         axios.delete(REMOVECARS_REST_API_URL+`/${id}/deleteCar`)
-        .then((response)=>
-            {
-                console.log(response);
-            },(error)=>
+        .then((response)=>{
+            alert("Car Deleted Successfully");
+        },(error)=>
             console.log(error));
     }
-
 }
-
-
 export default new Service();

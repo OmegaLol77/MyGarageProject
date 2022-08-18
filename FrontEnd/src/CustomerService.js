@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from "react";
+
 const Local_URL = 'https://localhost:8443/Customer/';
 const Server_URL='https://backend.mygarage.link:8443/Customer/';
 
@@ -7,56 +8,50 @@ class CustomerService{
         
     //contiune the validation of the user name and the passWord :)
     CheckCustomer(phoneNum,Password ){
-         const data=[];
-         const y={answer:false};
-         const z=[];
-     return  axios.get(Server_URL+`${phoneNum}`+'/findCustomerByphoneNum').then((response)=>{
-
-                    data[0]=response.data;
-                 return y.answer=Password==data[0].password;
-            }).then(function(response) {
-                z[0]=response;
-              return  z[0];
+        const data=[];
+        const y={answer:false};
+        const z=[];
+        return  axios.get(Server_URL+`${phoneNum}`+'/findCustomerByphoneNum')
+        .then((response)=>{
+            data[0]=response.data;
+            return y.answer=Password==data[0].password;
+        }) 
+        .then(function(response) {
+            z[0]=response;
+            return  z[0];
             })
-            
-        
         }
-
         
-        getCustomerByCarId(carNum){
-           return axios.get(Server_URL+`${carNum}`+'/GetCustomerByCarNum');
+    getCustomerByCarId(carNum){
+        return axios.get(Server_URL+`${carNum}`+'/GetCustomerByCarNum');
+    }
+
+    AddCoustmer(FirstName,LastName,Email,Password,phoneNum){
+        this.state = { 
+            firstName:FirstName,
+            lastName:LastName,
+            email:Email,
+            password:Password,
+            carNum:0,
+            phoneNum:phoneNum
         }
-
-
-        AddCoustmer(FirstName,LastName,Email,Password,phoneNum){
-            this.state = { 
-                firstName:FirstName,
-                lastName:LastName,
-                email:Email,
-                password:Password,
-                carNum:0,
-                phoneNum:phoneNum
+        axios.post(Server_URL+'addCustomer',this.state)
+        .then((response)=>{
+            if(response.data == 'false'){
+                alert("Email And PhoneNumber Are already signed up");
+            }else{
+                alert("Signed Up Successfully!!");
             }
-            axios.post(Server_URL+'addCustomer',this.state)
-            .then((response)=>{
-                alert(response.data);
-                if(response.data == 'false'){
-                alert("the email is already signed up");
-                }
-            },(error)=>{
-                alert(error);
-                console.log(error)});
-            }
+        },(error)=>{
+            console.log(error)});
+    }
 
-
-
-        DeleteCustomer(phoneNum){
-            axios.delete(Server_URL+`${phoneNum}`+'/deleteCustomer').then((response)=>{
-                console.log(response.data);
-            },(error)=>
-
-                console.log(error));
-            }
+    DeleteCustomer(phoneNum){
+        axios.delete(Server_URL+`${phoneNum}`+'/deleteCustomer').then((response)=>{
+            alert("Customer Deleted Successfully");
+        },(error)=>
+            console.log(error));
+    }
               
 }
 export default new CustomerService();

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from "react";
-const ADMIN_REST_API_URL = 'https://backend.mygarage.link:8443/Admin';
 
+const ADMIN_REST_API_URL = 'https://backend.mygarage.link:8443/Admin';
 
 class AdminService{
         
@@ -23,7 +23,7 @@ class AdminService{
     DeleteAdmin(phoneNum){
         axios.delete(ADMIN_REST_API_URL+'/'+`${phoneNum}/deleteAdmin`)
         .then((response)=>{
-            console.log("User Deleted");
+            alert.log("Admin Deleted Successfully");
         },(error)=>
             console.log(error));
     }
@@ -39,13 +39,12 @@ class AdminService{
         axios.post(ADMIN_REST_API_URL+'/addAdmin',this.state)
         .then((response)=>{
             if(response.data == 'false'){
-            alert("the email is already signed up");
+                alert("Email Or PhoneNumber are already signed up");
+            }else{
+                alert("User Added Successfully");
             }
         },(error)=>{
-            alert(error);
             console.log(error)});
         }
     }
-
-    
-    export default new AdminService();
+export default new AdminService();
