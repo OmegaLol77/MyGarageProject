@@ -2,18 +2,13 @@ import Service from "./Service";
 import CustomerService from "./CustomerService";
 import AdminService from "./AdminService";
 import React, { useEffect, useState } from 'react'
-import Popup from './PopUp';
 import WorkerService from "./WorkerService";
 
 
 export default function DeleteUser(){
     const [userid,setuserid] = useState("");
     const [usertype,setusertype] = useState("");
-    const [isOpen, setIsOpen] = useState(false);
 
-    const togglePopup = () => {
-      setIsOpen(!isOpen);
-    }
     function refreshPage() {
       window.location.reload(false);
     }
@@ -22,20 +17,18 @@ export default function DeleteUser(){
         e.preventDefault();
         console.log(usertype)
         if(usertype === 'Admin'){
-            console.log(AdminService.DeleteAdmin(userid));
+          AdminService.DeleteAdmin(userid);
+          setTimeout(() => refreshPage(),1000);
         }
         if(usertype === 'Worker'){
-            console.log(WorkerService.DeleteWorker(userid));
+          WorkerService.DeleteWorker(userid);
+          setTimeout(() => refreshPage(),1000);
         }
         if(usertype === 'Customer'){
-            console.log(CustomerService.DeleteCustomer(userid));
+          CustomerService.DeleteCustomer(userid);
+          setTimeout(() => refreshPage(),1000);
         }
-        // if(usertype === 'Option'){
-        //   console.log(isOpen);
-        //   refreshPage();
-        // }else{
-        //   togglePopup();
-        // }
+
       };
 
     return(
@@ -55,12 +48,6 @@ export default function DeleteUser(){
         </select>
       </div>
         <button className='button' onClick={handleOnClick}>Delete</button>
-        {/* {isOpen && <Popup
-          content={<>
-            <b>Error Message</b>
-            <p>One of the Text Areas is EMPTY</p>
-          </>}
-          handleClose={togglePopup}/>} */}
       </div>
     )
 }

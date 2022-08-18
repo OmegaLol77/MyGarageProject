@@ -14,13 +14,9 @@ export default function Login() {
     let history =useHistory();
 
 
-const handleChange=()=>{
-
-    setWorkerOrAdmin(current =>!current);
-}
-
-
-
+    const handleChange=()=>{
+        setWorkerOrAdmin(current =>!current);
+    }
     const ver=e=>{
         e.preventDefault();
        if(WorkerOrAdmin==true){
@@ -32,8 +28,6 @@ const handleChange=()=>{
        }
         
         }
-
-
 
     return(
         <form className="Login">
@@ -53,7 +47,7 @@ const handleChange=()=>{
         </a>
         <br></br>
         <br></br>
-      <label>  Worker<input type="checkbox" value={WorkerOrAdmin}  name=""  onChange={ handleChange}  /></label>
+        <label>  Worker<input type="checkbox" value={WorkerOrAdmin}  name=""  onChange={ handleChange}  /></label>
         <br></br>
         <button type="submit" onClick={ver} >Submit</button>
 

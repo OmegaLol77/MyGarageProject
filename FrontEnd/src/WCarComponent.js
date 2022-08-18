@@ -26,7 +26,7 @@ class WCarComponent extends React.Component {
       }
     deleteCar = (id) =>{
         Service.DeleteCar(id);
-        this.refreshPage();
+        setTimeout(() => this.refreshPage(),1000);
     }
     direct = (id,path) =>{
         window.location.replace(path+'?id='+id);

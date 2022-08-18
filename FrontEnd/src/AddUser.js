@@ -18,9 +18,12 @@ export default function AddUser() {
     const [PasswordConf,setPasswordConf] = useState("");
     const [Worker,setWorker] = useState(false);
     const [Admin,setAdmin] = useState(false);
-
     const [errorMessage, setErrorMessage] = useState('')
  
+    function refreshPage() {
+        window.location.reload(false);
+      }
+
     const validate = (value) => {
         setPassword(value);
         if (validator.isStrongPassword(value, {
@@ -50,7 +53,7 @@ export default function AddUser() {
     }
     const newUser=e=>{
         e.preventDefault();
-        if(Password===PasswordConf){
+        if(Password===PasswordConf&&PhoneNum.length===10){
             if(Worker==true&&Admin==true){
                 alert("Please Only Select One")
             return;
@@ -58,19 +61,25 @@ export default function AddUser() {
             if(Admin==true){
                 if(ValidateEmail(Email)===true){
                     AdminService.AddAdmin(FirstName,LastName,Email,Password,PhoneNum);
+                    setTimeout(() => refreshPage(),1000);
                 }
             }
             else if(Worker==true){
                 if(ValidateEmail(Email)===true){
                     WorkerService.AddWorker(FirstName,LastName,Email,Password,PhoneNum);
+                    setTimeout(() => refreshPage(),1000);
+
                 }
             } 
         }
         else if(AdminService.CheckAdmin(PhoneNum)==false || WorkerService.CheckWorker(PhoneNum)==false){
             alert("Email already exists!")
         }
+        if(PhoneNum.length<10||PhoneNum.length>10){
+            alert("Phone Number Is Incorrect!!");
+        }
         if(Password!=PasswordConf){
-            alert("two passwords is not the same");
+            alert("Passwords Does Not Match");
         }
         else{
             alert("Email or Phone Number Already in the DB")

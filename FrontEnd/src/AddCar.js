@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import Service from './Service';
-import Popup from './PopUp';
 
 
 
@@ -12,37 +11,24 @@ export default function AddCar() {
   const [PhoneNum,setPhoneNum] = useState(0);
   const [date,setdate] = useState("");
   const [carproccess,setcarproccess] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
 
   const current = new Date();
   const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  }
-
-  // const [car,setCar]=useState({});
-  // useEffect(()=>{
-  //   axios.get('http://localhost:8080/Car'+`/${id}/findById`)
-  //   .then((result)=>{
-  //       setCar(result.data.result);
-  //     }
-  //   )
-  // });
 
   function refreshPage() {
     window.location.reload(false);
   }
   const handleOnClick = e => {
     e.preventDefault();
-    Service.AddCar(ownername,ownerid,currdate,carnumber,carproccess,PhoneNum);
-    refreshPage();
-    // if(Service.AddCar(ownername,ownerid,date,carnumber)){
-    //   console.log(isOpen);
-    //   refreshPage();
-    // }else{
-    //   togglePopup();
-    // }
+    var phonlen = PhoneNum.toString().length;
+    if(phonlen===10){
+      Service.AddCar(ownername,ownerid,currdate,carnumber,carproccess,PhoneNum);
+      setTimeout(() => refreshPage(),1000);
+    }else{
+      alert("Phone Number Is Incorrect!!");
+    }
+    
   };
   return (
     <div className='center'>
@@ -78,12 +64,6 @@ export default function AddCar() {
         </select>
       </div>
       <button className='button' onClick={handleOnClick}>Save</button>
-      {isOpen && <Popup
-        content={<>
-          <b>Error Message</b>
-          <p>One of the Text Areas is EMPTY or the car you are trying to save is already in the DataBase</p>
-        </>}
-        handleClose={togglePopup}/>}
     </div>
   )
 }

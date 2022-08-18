@@ -47,12 +47,8 @@ export default function CarUpdate(id) {
   const handleOnClick = e => {
     e.preventDefault();
     console.log(Service.updateCar(car.ownername,car.ownerid,currdate,car.carnumber,car.carproccess,car.ownerPNum,car.id));
-    // if(Service.AddCar(ownername,ownerid,date,carnumber)){
-    //   console.log(isOpen);
-    //   refreshPage();
-    // }else{
-    //   togglePopup();
-    // }
+    setTimeout(() => refreshPage(),1000);
+
   };
   
   return(
@@ -111,12 +107,6 @@ export default function CarUpdate(id) {
             </select>
           </div>
           <button className='button' onClick={handleOnClick}>Save</button>
-          {/* {isOpen && <Popup
-            content={<>
-              <b>Error Message</b>
-              <p>One of the Text Areas is EMPTY or the car you are trying to save is already in the DataBase</p>
-            </>}
-            handleClose={togglePopup}/>} */}
         </div>)
         }
       }

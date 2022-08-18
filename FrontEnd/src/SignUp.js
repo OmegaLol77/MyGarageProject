@@ -43,7 +43,7 @@ export default function SignUp() {
         if(Password===PasswordConf && PhoneNum.length===10){
             if(ValidateEmail(Email)===true){
                 CustomerService.AddCoustmer(FirstName,LastName,Email,Password,PhoneNum)
-                window.location.replace("/");
+                setTimeout(() => window.location.replace("/"),1000);
             }
         }
         else if(CustomerService.CheckCustomer(PhoneNum)==false){

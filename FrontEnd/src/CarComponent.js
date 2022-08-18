@@ -1,8 +1,7 @@
 import Service from "./Service";
 import React, { useState } from 'react'
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect, useHistory} from 'react-router-dom';
 import { BsTrash ,BsFileEarmarkPlus} from "react-icons/bs";
-
 
 
 class CarComponent extends React.Component {
@@ -22,18 +21,12 @@ class CarComponent extends React.Component {
             this.setState({cars:response.data})
         })
     }
-    // componentDidMount1(){
-    //     Service.getAllCars().then((response)=>
-    //     {
-    //         this.setState({cars:response.data})
-    //     })
-    // }
     refreshPage() {
         window.location.reload(false);
       }
     deleteCar = (id) =>{
         Service.DeleteCar(id);
-        this.refreshPage();
+        setTimeout(() => this.refreshPage(),1000);
     }
     direct = (id,path) =>{
         window.location.replace(path+'?id='+id);

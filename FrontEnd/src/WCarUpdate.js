@@ -33,12 +33,6 @@ export default function WCarUpdate(id) {
 
   const current = new Date();
   const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [car,setCar]=useState({});
-
-  // const togglePopup = () => {
-  //   setIsOpen(!isOpen);
-  // }
 
   function refreshPage() {
     window.location.reload(false);
@@ -47,12 +41,7 @@ export default function WCarUpdate(id) {
   const handleOnClick = e => {
     e.preventDefault();
     console.log(Service.updateCar(car.ownername,car.ownerid,currdate,car.carnumber,car.carproccess,car.ownerPNum,car.id));
-    // if(Service.AddCar(ownername,ownerid,date,carnumber)){
-    //   console.log(isOpen);
-    //   refreshPage();
-    // }else{
-    //   togglePopup();
-    // }
+    setTimeout(() => this.refreshPage(),1000);
   };
   
   return(
@@ -110,12 +99,6 @@ export default function WCarUpdate(id) {
             </select>
           </div>
           <button className='button' onClick={handleOnClick}>Save</button>
-          {/* {isOpen && <Popup
-            content={<>
-              <b>Error Message</b>
-              <p>One of the Text Areas is EMPTY or the car you are trying to save is already in the DataBase</p>
-            </>}
-            handleClose={togglePopup}/>} */}
         </div>)
         }
       }

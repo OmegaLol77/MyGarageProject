@@ -49,7 +49,6 @@ class Service{
             this.state
         ).then((response)=>
         {
-            alert.log()
             return response.data;
         },(error)=>
             console.log(error));
@@ -77,6 +76,7 @@ class Service{
         axios.delete(REMOVECARS_REST_API_URL+`/${id}/deleteCar`)
         .then((response)=>{
             alert("Car Deleted Successfully");
+            console.log(response.data)
         },(error)=>
             console.log(error));
     }
