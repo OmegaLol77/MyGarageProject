@@ -21,7 +21,7 @@ class CarproccessComp extends React.Component {
     }
 
     direct = (carNum,descripton,date,approved) =>{
-        ReportService.updateReport(carNum,"dododo",date,approved)
+        ReportService.updateReport(carNum,descripton,date,approved)
         this.refreshPage();
     }
     refreshPage() {
