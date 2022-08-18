@@ -5,7 +5,7 @@ import WorkerService from './WorkerService';
 
 import "./index.css";
 import SideNavbar from './SideNavbar';
-
+import validator from 'validator'
 
 
 
@@ -19,6 +19,28 @@ export default function AddUser() {
     const [Worker,setWorker] = useState(false);
     const [Admin,setAdmin] = useState(false);
 
+    const [errorMessage, setErrorMessage] = useState('')
+ 
+    const validate = (value) => {
+        setPassword(value);
+        if (validator.isStrongPassword(value, {
+            minLength: 8, minLowercase: 1,
+            minUppercase: 1, minNumbers: 1, minSymbols: 1
+        })) {
+            setErrorMessage('Password Is Strong')
+        } else {
+            setErrorMessage('Password Is Not Strong')
+        }
+    }
+
+    function ValidateEmail(emails) {
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if (emails.match(validRegex)) {
+          return true;
+        } else {
+          return false;
+        }
+    }
     const handleWorkerChange=()=>{
         setWorker(current =>!current);
     }
@@ -28,27 +50,31 @@ export default function AddUser() {
     }
     const newUser=e=>{
         e.preventDefault();
-    if(Password===PasswordConf){
-        if(Worker==true&&Admin==true){
-            alert("Please Only Select One")
-           return;
+        if(Password===PasswordConf){
+            if(Worker==true&&Admin==true){
+                alert("Please Only Select One")
+            return;
+            }
+            if(Admin==true){
+                if(ValidateEmail(Email)===true){
+                    AdminService.AddAdmin(FirstName,LastName,Email,Password,PhoneNum);
+                }
+            }
+            else if(Worker==true){
+                if(ValidateEmail(Email)===true){
+                    WorkerService.AddWorker(FirstName,LastName,Email,Password,PhoneNum);
+                }
+            } 
         }
-        if(Admin==true){
-            AdminService.AddAdmin(FirstName,LastName,Email,Password,PhoneNum);
+        else if(AdminService.CheckAdmin(PhoneNum)==false || WorkerService.CheckWorker(PhoneNum)==false){
+            alert("Email already exists!")
         }
-        else if(Worker==true){
-            WorkerService.AddWorker(FirstName,LastName,Email,Password,PhoneNum);
-        } 
-    }
-    else if(AdminService.CheckAdmin(PhoneNum)==false || WorkerService.CheckWorker(PhoneNum)==false){
-        alert("Email already exists!")
-    }
-    if(Password!=PasswordConf){
-        alert("two passwords is not the same");
-    }
-    else{
-        alert("Email or Phone Number Already in the DB")
-    }
+        if(Password!=PasswordConf){
+            alert("two passwords is not the same");
+        }
+        else{
+            alert("Email or Phone Number Already in the DB")
+        }
     }
 
     return(
@@ -81,14 +107,19 @@ export default function AddUser() {
         <br></br><br></br>
         <a>Password:
             <br></br>
-            <input type="password" id="Password" placeholder="Your Password" value={Password} onChange={ (e) => setPassword(e.target.value)} > 
+            <input type="password" id="Password" placeholder="Your Password" value={Password} onChange={ (e) => validate(e.target.value)} > 
             </input>
         </a>
         <br></br>
+        {errorMessage === '' ? null :
+        <span style={{
+            fontWeight: 'bold',
+            color: 'red',
+        }}>{errorMessage}</span>}
         <br></br>
         <a>Retype-Password:
             <br></br>
-            <input type="password" id="Password" placeholder="Your Password" value={PasswordConf} onChange={ (e) => setPasswordConf(e.target.value)} > 
+            <input type="password" id="Password1" placeholder="Your Password" value={PasswordConf} onChange={ (e) => setPasswordConf(e.target.value)} > 
             </input>
         </a>
         <br></br>
