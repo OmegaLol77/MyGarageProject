@@ -40,7 +40,7 @@ export default function App() {
         <Navbar/>
         <div className="container">
           <Switch>
-          <Route exact path="/">
+            <Route exact path="/">
               <div className="card">
                 <Login/>
               </div>

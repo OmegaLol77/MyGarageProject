@@ -7,10 +7,17 @@
   color: #333;
 }
 p{
-  font-size: 1.15vw;
+  font-size: 1vw;
+}
+label{
+  border-style:groove;
+  margin: 0.2vh;
+  padding-right: 0.35vw;
+  /* border-bottom: 1.5px solid #333; */
+  font-size: 0.85vw;
 }
 a{
-  font-size: 1.15vw;
+  font-size: 1vw;
   font-weight: bold;
 }
 .Login{
@@ -38,7 +45,7 @@ a{
   overflow: hidden;
 }
 .button{
-  font-size: 1.15vw;
+  font-size: 0.95vw;
   width: 8vw;
   height: 3vh;
   font-weight: bold;
@@ -48,7 +55,7 @@ a{
 .middle{
   width: 8vw;
   height: 3vh;
-  font-size: 1.15vw;
+  font-size: 0.95vw;
   font-weight: bold;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.3);
   border-radius: 20px;
@@ -87,7 +94,7 @@ a{
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
-  font-size: 1.15vw;
+  font-size: 1vw;
   padding: 6px;
 }
 .navbar a:hover {
@@ -145,7 +152,7 @@ h2{
 .sidebar a {
   text-decoration: none;
   margin-top: 20px;
-  font-size: 1.15vw;
+  font-size: 1vw;
   font-weight: bold;
   padding: 5px;
 }
@@ -308,5 +315,11 @@ h2{
   .styled-table th,
   .styled-table td {
     padding: 0.95vw 0.3vw;
-}
+  }
+  label{
+    border-style:groove;
+    margin: 0.2vh;
+    /* border-bottom: 1.5px solid #333; */
+    font-size: 1.75vw;
+  }
 }

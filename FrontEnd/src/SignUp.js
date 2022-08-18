@@ -40,23 +40,24 @@ export default function SignUp() {
 
     const newCustomer=e=>{
         e.preventDefault();
-        if(Password===PasswordConf){
+        if(Password===PasswordConf && PhoneNum.length===10){
             if(ValidateEmail(Email)===true){
-                CustomerService.AddCoustmer(FirstName,LastName,Email,Password,PhoneNum) ;
+                CustomerService.AddCoustmer(FirstName,LastName,Email,Password,PhoneNum)
+                window.location.replace("/");
             }
         }
-        else if(CustomerService.CheckCustomer(Email)==false){
+        else if(CustomerService.CheckCustomer(PhoneNum)==false){
             alert("Email already exists!")
+        }
+        if(PhoneNum.length<10 || PhoneNum.length>10){
+            alert("There Is Something Wrong With The PhoneNumber!!" );
+
         }
         if(Password!=PasswordConf){
             alert("Passwords Does Not Match OR They Dont Meet The PARAMETERS!! " );
         }
-        else{
-            alert("Email Already in the DB")
-        }
     }
 
-    
     return(
         
         <form className="SignUp">
