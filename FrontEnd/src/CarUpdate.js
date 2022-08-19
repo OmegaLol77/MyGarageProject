@@ -33,12 +33,6 @@ export default function CarUpdate(id) {
 
   const current = new Date();
   const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [car,setCar]=useState({});
-
-  // const togglePopup = () => {
-  //   setIsOpen(!isOpen);
-  // }
 
   function refreshPage() {
     window.location.reload(false);

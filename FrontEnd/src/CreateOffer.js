@@ -14,17 +14,18 @@ const checker = async () => {
   let id = neurl.searchParams.get('id');
   carNum =id;
   //backend.mygarage.link:8443
-  return axios.get('https://backend.mygarage.link:8443'+`/${carNum}/getReport`).then((res) => {
-  if(res.status == 200){
-        Report = res.data;
-        console.log(Report.carNum);
+  return axios.get('https://backend.mygarage.link:8443/Report'+`/${carNum}/getReport`).then((res) => {
+    if(res.status == 200){
+      Report = res.data;
+      console.log(Report.carNum);
       return true;
     }
     if (res.status > 299){
       alert("This Car Doesnt have Report")
       return false;
-    }
-  })};
+      }
+  });
+}
   
  function saveOffer(Offer){
   var ownername;
@@ -32,7 +33,7 @@ const checker = async () => {
     const current = new Date();
     const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     var  car
-    return axios.get('https://backend.mygarage.link:8443'+`/${carNum}/findById`).then((res) => 
+    return axios.get('https://backend.mygarage.link:8443/Car'+`/${carNum}/findById`).then((res) => 
     { 
       car=res.data;
       ownername=car.ownername;
