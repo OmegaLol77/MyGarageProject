@@ -13,25 +13,35 @@ const checker = async () => {
   let neurl = new URL(url);
   let id = neurl.searchParams.get('id');
   carNum =id;
-  return axios.get('https://backend.mygarage.link:8443/Report'+`/${carNum}/getReport`).then((res) => {
+  //backend.mygarage.link:8443
+  return axios.get('https://backend.mygarage.link:8443'+`/${carNum}/getReport`).then((res) => {
   if(res.status == 200){
         Report = res.data;
+        console.log(Report.carNum);
       return true;
     }
     if (res.status > 299){
+      alert("This Car Doesnt have Report")
       return false;
     }
   })};
   
  function saveOffer(Offer){
+  var ownername;
+  var ownerid;
     const current = new Date();
     const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     var  car
-    Service.getCarByiId(carNum).then((response)=>
+    return axios.get('https://backend.mygarage.link:8443'+`/${carNum}/findById`).then((res) => 
     { 
-      car=response.data
-      OfferService.AddOffer(car.ownername,car.ownerid,carNum,Offer,currdate,0);
+      car=res.data;
+      ownername=car.ownername;
+      ownerid=car.ownerid;
+      console.log(Offer)
+      OfferService.AddOffer(ownername, ownerid,carNum,Offer,currdate,0);
+
     })
+
   };
 
   

@@ -47,7 +47,7 @@ public class CarBL {
 	}
 	
 	public Car getById(int id) {
-		return carRepo.findById(id).get();
+		return carRepo.findBycarnumber(id);
 	}
 	
 	public boolean addCar(Car car) {

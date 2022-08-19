@@ -1,5 +1,7 @@
 package Garage.MyGarage.controlers;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +26,16 @@ public class ReportController {
 	@Autowired
 	ReportBL reportBl;
 	
-	@PostMapping("addReport")
-	public boolean addReport(@RequestBody Report report) {
+	@PostMapping("/{carNum}/&{descripton}/addReport")
+	public boolean addReport(@PathVariable("carNum")int carNum,@PathVariable("descripton")String descripton) {
+	
+		 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		    Date date = new Date();  
+			Report x= new Report(carNum,descripton,date.toString(),0);
 		try {
-			System.out.println(report.getDescripton());
-			reportBl.addReport(report);
-			return true;
+		
+
+			return	reportBl.addReport(x);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -40,7 +46,6 @@ public class ReportController {
 	}
 	@GetMapping("/{carNum}/getReport")
 	public Report getReport(@PathVariable("carNum")int carNum) {
-		System.out.println("controller is being called  car num  "+carNum);
 		return reportBl.getReport(carNum);
 	}
 	

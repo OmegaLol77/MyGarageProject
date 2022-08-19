@@ -39,9 +39,10 @@ public class Report {
 	 */
 	public Report(int carNum,String descripton,String date,int approved) {
 		super();
-		setDate(date);
-		setDescription(descripton);
 		setCarNum(carNum);
+
+		setDate(date);
+		this.Descripton=descripton;
 		setApproved(approved);
 		}
 

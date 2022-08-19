@@ -72,4 +72,54 @@ public class Offer {
 		public int getOffer() {
 			return offer;
 		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + approved;
+			result = prime * result + carnumber;
+			result = prime * result + ((currDate == null) ? 0 : currDate.hashCode());
+			result = prime * result + offer;
+			result = prime * result + ownerid;
+			result = prime * result + ((ownername == null) ? 0 : ownername.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Offer other = (Offer) obj;
+			if (approved != other.approved)
+				return false;
+			if (carnumber != other.carnumber)
+				return false;
+			if (currDate == null) {
+				if (other.currDate != null)
+					return false;
+			} else if (!currDate.equals(other.currDate))
+				return false;
+			if (offer != other.offer)
+				return false;
+			if (ownerid != other.ownerid)
+				return false;
+			if (ownername == null) {
+				if (other.ownername != null)
+					return false;
+			} else if (!ownername.equals(other.ownername))
+				return false;
+			return true;
+		}
+
+		@Override
+		public String toString() {
+			return "Offer [carnumber=" + carnumber + ", ownername=" + ownername + ", ownerid=" + ownerid + ", offer="
+					+ offer + ", currDate=" + currDate + ", approved=" + approved + "]";
+		}
+		
 }

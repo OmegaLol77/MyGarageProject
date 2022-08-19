@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+//backend.mygarage.link:8443
 const CHECKEDCARS_REST_API_URL='https://backend.mygarage.link:8443/Offer/getAllCheckedCars';
 
 class OfferService{
@@ -29,9 +29,10 @@ class OfferService{
             date:date,
             approved:ap
         }
+        //backend.mygarage.link:8443
         axios.post('https://backend.mygarage.link:8443/Offer/addOffer',this.state)
         .then((response)=>{
-            alert("Offer Added Successfully")
+            console.log("offer being ccalled")
             return response.data;
         },(error)=>
             console.log(error));

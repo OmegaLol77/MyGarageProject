@@ -12,17 +12,9 @@ class ReportService{
     GetNotApproved(approved){
         return axios.get(NOTAPPROVED_REPORT_REST_API_URL+`/${approved}/getNotApproved`);
     } 
-
-    AddReport(CarNum,Description,Date,Approved){
-        this.state={
-            descripton:Description,
-            carNum:CarNum,
-            date:Date,
-            approved:Approved
-        }
-        axios.post(ADD_REPORT_REST_API_URL,
-            this.state)
-        .then((response)=>{
+   
+    AddReport(carNum,descripton){
+        axios.post(ADD_REPORT_REST_API_URL+`${carNum}/&${descripton}`+'/addReport').then((response)=>{
             alert("Report Added Successfully")
             return response.data;
         },(error)=>{

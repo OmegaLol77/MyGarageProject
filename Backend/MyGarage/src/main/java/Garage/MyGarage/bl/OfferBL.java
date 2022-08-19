@@ -55,9 +55,8 @@ public class OfferBL {
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
-		}
-	}
-	
+		}}
+		
 	public boolean deleteOffer(int carnum) {
 		try {
 			offerRepo.deleteById(carnum);
@@ -73,6 +72,16 @@ public class OfferBL {
 			offerRepo.save(offer);
 			return true;
 		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	public boolean offerExists(int carNum) {
+		try {
+			boolean x=offerRepo.existsById(carNum);
+			return x;
+			}
+		catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}

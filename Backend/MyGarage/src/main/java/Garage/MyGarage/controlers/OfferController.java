@@ -58,10 +58,11 @@ public class OfferController {
 	
 	@PostMapping("addOffer")
 	public boolean addOffer(@RequestBody Offer offer) {
+
 		try {
 			
-			OfferBL.addOffer(offer);
-			return true;
+			return OfferBL.addOffer(offer);
+			
 		}
 		catch (Exception e) {
 			return false;		} 
