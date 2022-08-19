@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React from "react";
 
-const ADD_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report/addReport';
+const ADD_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report/';
 const UPDATE_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report/updateReport';
 const NOTAPPROVED_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report';
 
