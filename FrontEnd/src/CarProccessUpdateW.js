@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Service from './Service';
-import Popup from './PopUp';
 
 
 
@@ -11,27 +10,8 @@ export default function CarProccessUpdateW() {
   const [carnumber,setcarnumber] = useState(0);
   const [date,setdate] = useState("");
   const [carproccess,setcarproccess] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  }
 
-  // handleCallback = (childData) =>{
-  //     this.setownername(childData.ownername);
-  //     this.setownerid(childData.ownerid);
-  //     this.setcarnumber(childData.carnumber);
-  //     this.setdate(childData.date);
-  //     this.setcarproccess(childData.carproccess);
-  // }
-  // const [car,setCar]=useState({});
-  // useEffect(()=>{
-  //   axios.get('http://localhost:8080/Car'+`/${id}/findById`)
-  //   .then((result)=>{
-  //       setCar(result.data.result);
-  //     }
-  //   )
-  // });
 
   function refreshPage() {
     window.location.reload(false);
@@ -39,12 +19,6 @@ export default function CarProccessUpdateW() {
   const handleOnClick = e => {
     e.preventDefault();
     console.log(Service.AddCar(ownername,ownerid,date,carnumber,carproccess));
-    // if(Service.AddCar(ownername,ownerid,date,carnumber)){
-    //   console.log(isOpen);
-    //   refreshPage();
-    // }else{
-    //   togglePopup();
-    // }
   };
   return (
     <div className='center'>
@@ -67,12 +41,6 @@ export default function CarProccessUpdateW() {
         </select>
       </div>
       <button className='button' onClick={handleOnClick}>Save</button>
-      {isOpen && <Popup
-        content={<>
-          <b>Error Message</b>
-          <p>One of the Text Areas is EMPTY or the car you are trying to save is already in the DataBase</p>
-        </>}
-        handleClose={togglePopup}/>}
     </div>
   )
 }

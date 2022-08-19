@@ -10,13 +10,6 @@ export default function WorkerCarReport() {
     const [date,setdate] = useState("");
     let history =useHistory();
 
-//     const deleteClick= e =>{
-// ReportService.DeleteReport(CarNum);
-//     }
-//     const updateClick =e=>{
-//         ReportService.updateReport(CarNum,description);
-//     }
-
     const current = new Date();
     const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
