@@ -19,8 +19,8 @@ class WApprovedCars extends React.Component {
             this.setState({report:response.data})
         })
     }
-    direct = (carNum,descripton,date,approved) =>{
-        ReportService.updateReport(carNum,descripton,date,approved)
+    direct = (carNum,descripton,date) =>{
+        ReportService.updateReport(carNum,descripton,date)
         setTimeout(() => this.refreshPage(),1000);
     }
     refreshPage() {
@@ -48,7 +48,7 @@ class WApprovedCars extends React.Component {
                                     <td>{report.carNum}</td>
                                     <td>{report.descripton}</td>
                                     <td>{report.date}</td>
-                                    <td><button className="middle" onClick={this.direct.bind(this,report.carNum,report.descripton,report.date,2)}><BsFillCheckCircleFill/></button></td>
+                                    <td><button className="middle" onClick={this.direct.bind(this,report.carNum,report.descripton,report.date)}><BsFillCheckCircleFill/></button></td>
                                 </tr>
                             )
                         }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import React from "react";
 
 const ADD_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report/';
-const UPDATE_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report/updateReport';
+const UPDATE_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report/';
 const NOTAPPROVED_REPORT_REST_API_URL='https://backend.mygarage.link:8443/Report';
 
 
@@ -30,14 +30,8 @@ class ReportService{
     }
 
 
-    updateReport(CarNum,Description,Date,Approved){
-        this.state={
-            descripton:Description,
-            carNum:CarNum,
-            date:Date,
-            approved:Approved
-        };
-        axios.post(UPDATE_REPORT_REST_API_URL,this.state)
+    updateReport(CarNum,Description,Date){
+        axios.post(UPDATE_REPORT_REST_API_URL`${CarNum}/&${Description}/&${Date}`+'/updateReport')
         .then((response)=>{
             alert("Report Update Successfully");
         },(error)=>{

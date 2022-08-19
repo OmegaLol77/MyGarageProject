@@ -28,22 +28,18 @@ public class ReportController {
 	
 	@PostMapping("/{carNum}/&{descripton}/addReport")
 	public boolean addReport(@PathVariable("carNum")int carNum,@PathVariable("descripton")String descripton) {
-	
-		 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
-		    Date date = new Date();  
-			Report x= new Report(carNum,descripton,date.toString(),0);
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+		Date date = new Date();
+		Report x = new Report(carNum,descripton,date.toString(),0);
 		try {
-		
-
 			return	reportBl.addReport(x);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
-			
-	
 	}
+	
 	@GetMapping("/{carNum}/getReport")
 	public Report getReport(@PathVariable("carNum")int carNum) {
 		return reportBl.getReport(carNum);
@@ -54,10 +50,11 @@ public class ReportController {
 		return reportBl.getNotApprovedReport(approved);
 	}
 	
-	@PostMapping("updateReport")
-	public boolean updateReport(@RequestBody Report report) {
-		if(!reportBl.getReport(report.getCarNum()).equals(null)) {
-			reportBl.updateReport(report);
+	@PostMapping("/{carNum}/&{descripton}/&{date}/updateReport")
+	public boolean updateReport(@PathVariable("carNum")int carNum,@PathVariable("descripton")String descripton,@PathVariable("descripton")String date) {
+		if(!reportBl.getReport(carNum).equals(null)) {
+			Report x = new Report(carNum,descripton,date,1);
+			reportBl.updateReport(x);
 		return true;
 		}
 		else {
