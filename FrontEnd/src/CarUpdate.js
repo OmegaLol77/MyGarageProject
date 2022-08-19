@@ -40,8 +40,16 @@ export default function CarUpdate(id) {
 
   const handleOnClick = e => {
     e.preventDefault();
-    console.log(Service.updateCar(car.ownername,car.ownerid,currdate,car.carnumber,car.carproccess,car.ownerPNum,car.id));
-    setTimeout(() => refreshPage(),1000);
+    if(PhoneNum.length===10){
+      if(carnumber.length>5 && carnumber.length<8){
+        Service.updateCar(car.ownername,car.ownerid,currdate,car.carnumber,car.carproccess,car.ownerPNum,car.id);
+        setTimeout(() => refreshPage(),1000);
+      }else{
+        alert("CarNumber Is Incorrect!!");
+      }
+    }else{
+      alert("Phone Number Is Incorrect!!");
+    }
 
   };
   

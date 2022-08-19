@@ -29,8 +29,7 @@ class OfferService{
             date:date,
             approved:ap
         }
-        //backend.mygarage.link:8443
-        axios.post('https://backend.mygarage.link:8443/Offer/addOffer',this.state)
+        axios.post('https://backend.mygarage.link:8443/Offer/addOffer/',this.state)
         .then((response)=>{
             console.log("offer being ccalled")
             return response.data;
@@ -38,16 +37,16 @@ class OfferService{
             console.log(error));
     }
 
-    UpdateOffer(on,oi,cn,cp,date,ap){
-        this.state = { 
+    UpdateOffer(on,oi,carnum,cp,date,ap){
+        this.state = {
             ownername:on,
             ownerid:oi,
-            carnumber:cn,
+            carnumber:carnum,
             offer:cp,
-            date:date,
+            currdate:date,
             approved:ap
         }
-        axios.post('https://backend.mygarage.link:8443/Offer/'+`${cn}/updateOffer`,this.state)
+        axios.post('https://backend.mygarage.link:8443/Offer'+`/${carnum}/updateOffer`,this.state)
         .then((response)=>{
             alert("Offer Updated Successfully")
             return response.data;

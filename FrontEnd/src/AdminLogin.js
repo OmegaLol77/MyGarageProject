@@ -50,13 +50,8 @@ export default function Login() {
         <label>  Worker<input type="checkbox" value={WorkerOrAdmin}  name=""  onChange={ handleChange}  /></label>
         <br></br>
         <button type="submit" onClick={ver} >Submit</button>
-
-
-
         </form>
 
-
-        
   )
   
 }

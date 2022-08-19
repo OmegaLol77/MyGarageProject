@@ -25,12 +25,12 @@ class CustomerCarOffer extends React.Component {
     }
 
     approve = (offer) =>{
-        OfferService.UpdateOffer(offer.ownername,offer.ownerid,offer.carnumber,offer.offer,offer.date,1);
-        this.refreshPage();
+        OfferService.AddOffer(offer.ownername,offer.ownerid,offer.carnumber,offer.offer,offer.date,1);
+        setTimeout(() => this.refreshPage(),1000);
     }
     decline = (offer) =>{
-        OfferService.UpdateOffer(offer.ownername,offer.ownerid,offer.carnumber,offer.offer,offer.date,2);
-        this.refreshPage();
+        OfferService.AddOffer(offer.ownername,offer.ownerid,offer.carnumber,offer.offer,offer.date,2);
+        setTimeout(() => this.refreshPage(),1000);
     }
     refreshPage() {
         window.location.reload(false);
@@ -57,7 +57,7 @@ class CustomerCarOffer extends React.Component {
                                 offer =>
                                 <tr className="active-row" key={offer.carnumber}>
                                     <td>{offer.carnumber}</td>
-                                    <td>{offer.currDate}</td>
+                                    <td>{offer.date}</td>
                                     <td>{offer.offer}</td>
                                     <td><button className="middle" onClick={this.approve.bind(this,offer)}><BsFillCheckCircleFill/></button></td>
                                     <td><button className="middle" onClick={this.decline.bind(this,offer)}><BsFillXCircleFill/></button></td>

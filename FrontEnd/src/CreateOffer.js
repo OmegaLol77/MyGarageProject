@@ -26,24 +26,25 @@ const checker = async () => {
       }
   });
 }
-  
- function saveOffer(Offer){
+function refreshPage() {
+  window.location.reload(false);
+}
+function saveOffer(Offer){
   var ownername;
   var ownerid;
-    const current = new Date();
-    const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-    var  car
-    return axios.get('https://backend.mygarage.link:8443/Car'+`/${carNum}/findById`).then((res) => 
-    { 
-      car=res.data;
-      ownername=car.ownername;
-      ownerid=car.ownerid;
-      console.log(Offer)
-      OfferService.AddOffer(ownername, ownerid,carNum,Offer,currdate,0);
-
-    })
-
-  };
+  const current = new Date();
+  const currdate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+  var  car
+  return axios.get('https://backend.mygarage.link:8443/Car'+`/${carNum}/findById`)
+  .then((res) => {
+    car=res.data;
+    ownername=car.ownername;
+    ownerid=car.ownerid;
+    console.log(Offer)
+    OfferService.AddOffer(ownername,ownerid,carNum,Offer,currdate,0);
+    setTimeout(() => refreshPage(),1000);
+  })
+};
 
   
 export default function CreateOffer(id) {
@@ -83,7 +84,7 @@ export default function CreateOffer(id) {
                   <td>{Report.descripton}</td>
                   <td>{Report.date}</td>
                   <td><input type="number" id='Offer'  value={Offer}  onChange={(e) => setOffer(e.target.value)}></input></td>
-                  <td><button className='middle' type="submit" onClick={saveOffer(Offer)} >Submit</button></td> 
+                  <td><button className='middle' type="submit" onClick={() =>saveOffer(Offer)} >Submit</button></td> 
                 </tr>}
               </tbody>
             </table>

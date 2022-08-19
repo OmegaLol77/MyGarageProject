@@ -42,7 +42,7 @@ class AdminNotApprovedOffers extends React.Component {
                                 offer =>
                                 <tr className="active-row" key={offer.carnumber}>
                                     <td>{offer.carnumber}</td>
-                                    <td>{offer.currDate}</td>
+                                    <td>{offer.date}</td>
                                     <td>{offer.offer}</td>
                                     <td><button className="middle" onClick={this.direct.bind(this,offer.carnumber,'/CreateOffer')}>Create An Offer</button></td>
                                 </tr>

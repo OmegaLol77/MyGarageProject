@@ -223,8 +223,6 @@ export default function App() {
               </div>
             </Route>
           
-
-
           </Switch>
         </div>
       </div>

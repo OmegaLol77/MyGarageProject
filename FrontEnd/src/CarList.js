@@ -8,7 +8,7 @@ import CustomrtSideNavbar from "./CustomerSideNavbar";
 export default function CarList() {
     return (
         <div>
-            <div className="container">
+            <div >
                 <CarComponent/>
                 </div></div>
     

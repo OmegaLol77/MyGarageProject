@@ -42,7 +42,8 @@ a{
   position: flex;
 }
 .content{
-  overflow: hidden;
+  height: 1000px;
+  width: 100%;
 }
 .button{
   font-size: 0.95vw;
@@ -117,6 +118,7 @@ h2{
   padding: 20px;
   border-radius: 25px;
   overflow: hidden;
+  overflow-y: scroll;
 }
 .list-preview {
   padding: 10px 16px;
@@ -329,6 +331,5 @@ h2{
     margin: 15px;
     padding: 20px;
     border-radius: 25px;
-    overflow: scroll;
   }
 }

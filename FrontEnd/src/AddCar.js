@@ -22,16 +22,21 @@ export default function AddCar() {
   const handleOnClick = e => {
     e.preventDefault();
     var phonlen = PhoneNum.toString().length;
+    var carlen = carnumber.toString().length;
     if(phonlen===10){
-      Service.AddCar(ownername,ownerid,currdate,carnumber,carproccess,PhoneNum);
-      setTimeout(() => refreshPage(),1000);
+      if(carlen>5 && carlen<8){
+        Service.AddCar(ownername,ownerid,currdate,carnumber,carproccess,PhoneNum);
+        setTimeout(() => refreshPage(),1000);
+      }else{
+        alert("CarNumber Is Incorrect!!");
+      }
     }else{
       alert("Phone Number Is Incorrect!!");
     }
     
   };
   return (
-    <div className='center'>
+    <div className='SignUp'>
       <h2>AddCar</h2>
       <div className='inputcontent'>
         <p>Owner Name:</p>
