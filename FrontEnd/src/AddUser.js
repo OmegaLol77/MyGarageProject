@@ -75,10 +75,10 @@ export default function AddUser() {
         else if(AdminService.CheckAdmin(PhoneNum)==false || WorkerService.CheckWorker(PhoneNum)==false){
             alert("Email already exists!")
         }
-        if(PhoneNum.length<10||PhoneNum.length>10){
+        else if(PhoneNum.length<10||PhoneNum.length>10){
             alert("Phone Number Is Incorrect!!");
         }
-        if(Password!=PasswordConf){
+        else if(Password!=PasswordConf){
             alert("Passwords Does Not Match");
         }
         else{
