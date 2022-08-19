@@ -10,8 +10,8 @@ export default function AdminSideNavbar() {
                 <Link to="/carlist">Car List</Link>
                 <Link to="/DeleteUser">Delete User</Link>
                 {/* <Link to="/carproccessupdate">Car Proccess Update</Link> */}
-                <Link to="/NotApprovedOffers">Not Approved Offers</Link>
-                <Link to="/notapproved">Not Approved Reports</Link>
+                <Link to="/NotApprovedOffers">Declined Offers Offers</Link>
+                {/* <Link to="/notapproved">Not Approved Reports</Link> */}
                 <Link to="/CheckedList">Cars In Need Of Offer List</Link>
                 {/* <Link to="/WriteCarReport">Write Report</Link> */}
             </div>

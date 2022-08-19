@@ -11,6 +11,10 @@ class ReportService{
 
     GetNotApproved(approved){
         return axios.get(NOTAPPROVED_REPORT_REST_API_URL+`/${approved}/getNotApproved`);
+    }
+
+    GetSpecificReport(CarNum){
+        return axios.get(NOTAPPROVED_REPORT_REST_API_URL+`/${CarNum}/getReport`);
     } 
    
     AddReport(carNum,descripton){

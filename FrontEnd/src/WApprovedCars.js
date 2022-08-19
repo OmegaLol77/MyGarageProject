@@ -1,26 +1,32 @@
 import Service from "./Service";
 import React from "react";
+import OfferService from "./OfferService";
 import ReportService from "./ReportService";
 import { Redirect, useHistory } from 'react-router-dom';
-import { BsTrash ,BsFillCheckCircleFill} from "react-icons/bs";
+import { BsCardText ,BsFillCheckCircleFill} from "react-icons/bs";
 
 class WApprovedCars extends React.Component {
 
     constructor(props){
         super(props)
         this.state = {
-            report:[]
+            Offer:[]
         }
     }
     
     componentDidMount(){
-        ReportService.GetNotApproved(1).then((response)=>
+        OfferService.getApprovedOffers(1).then((response)=>
         {
-            this.setState({report:response.data})
+            this.setState({Offer:response.data})
         })
     }
-    direct = (carNum,descripton,date) =>{
-        ReportService.updateReport(carNum,descripton,date)
+    Update = (ownername,ownerid,carnumber,offer,currdate,approved) =>{
+        OfferService.UpdateOffer(ownername,ownerid,carnumber,offer,currdate,approved)
+        setTimeout(() => this.refreshPage(),1000);
+    }
+    direct = (carnumber,path) =>{
+        // make a new page to the worker where he can get the discription of a car so he can start working on it
+        ReportService.GetSpecificReport(carnumber)
         setTimeout(() => this.refreshPage(),1000);
     }
     refreshPage() {
@@ -30,25 +36,27 @@ class WApprovedCars extends React.Component {
     render (){
         return(
             <div className="content">
-                <h2>Approved Cars List</h2>
+                <h2>Approved Cars To Start Working On List</h2>
                 <table className="styled-table" border="1">
                     <thead>
                         <tr>
+                            <td>Owner Name</td>
                             <td>Car Number</td>
-                            <td>Description</td>
                             <td>Date</td>
                             <td>Done The Job</td>
+                            <td>Get Car Report</td>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            this.state.report.map(
-                                report =>
-                                <tr className="active-row" key={report.carNum}>
-                                    <td>{report.carNum}</td>
-                                    <td>{report.descripton}</td>
-                                    <td>{report.date}</td>
-                                    <td><button className="middle" onClick={this.direct.bind(this,report.carNum,report.descripton,report.date)}><BsFillCheckCircleFill/></button></td>
+                            this.state.Offer.map(
+                                Offer =>
+                                <tr className="active-row" key={Offer.carnumber}>
+                                    <td>{Offer.ownername}</td>
+                                    <td>{Offer.carnumber}</td>
+                                    <td>{Offer.date}</td>
+                                    <td><button className="middle" onClick={this.Update.bind(this,Offer.ownername,Offer.ownerid,Offer.carnumber,Offer.offer,Offer.currdate,3)}><BsFillCheckCircleFill/></button></td>
+                                    <td><button className="middle" onClick={this.direct.bind(this,Offer.ownername,Offer.ownerid,Offer.carnumber,Offer.offer,Offer.currdate,3)}><BsCardText/></button></td>
                                 </tr>
                             )
                         }

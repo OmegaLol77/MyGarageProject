@@ -26,7 +26,7 @@ class AdminNotApprovedOffers extends React.Component {
     render (){
         return(
             <div className="content">
-                <h2>Not Approved Report List</h2>
+                <h2>Declined Offer List</h2>
                 <table className="styled-table" border="1">
                     <thead>
                         <tr>

@@ -124,14 +124,14 @@ export default function App() {
                 <CreateOffer />
               </div>
             </Route>
-            <Route path="/notapproved">
+            {/* <Route path="/notapproved">
               <div className='side-navbar'>
                 <AdminSideNavbar/>
               </div>
               <div className="card">
                 <CarProccess />
               </div>
-            </Route>
+            </Route> */}
             <Route path="/NotApprovedOffers">
               <div className='side-navbar'>
                 <AdminSideNavbar/>
