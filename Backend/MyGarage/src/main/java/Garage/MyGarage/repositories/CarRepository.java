@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import Garage.MyGarage.beans.Car;
 
@@ -22,19 +23,23 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
 	
 	
 //	Start Update Queries
-	@Modifying(clearAutomatically = true)
+	@Transactional
+	@Modifying
 	@Query(value = "UPDATE car SET carproccess = 'Pending Offer' where carnumber = ?1 ", nativeQuery = true)
 	void UpdatePendingOfferCarProcess(int carnum);
 	
-	@Modifying(clearAutomatically = true)
+	@Transactional
+	@Modifying
 	@Query(value = "UPDATE car SET carproccess = 'Approved' where carnumber = ?1 ", nativeQuery = true)
 	void UpdateCarProcessapproved(int carnum);
 	
-	@Modifying(clearAutomatically = true)
+	@Transactional
+	@Modifying
 	@Query(value = "UPDATE car SET carproccess = 'Car is Checked' where carnumber = ?1 ", nativeQuery = true)
 	void UpdateCarProcessdeclined(int carnum);
 	
-	@Modifying(clearAutomatically = true)
+	@Transactional
+	@Modifying
 	@Query(value = "UPDATE car SET carproccess = 'Car Repairing Done' where carnumber = ?1 ", nativeQuery = true)
 	void UpdateCarProcessDone(int carnum);
 	
