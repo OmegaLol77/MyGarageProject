@@ -21,7 +21,7 @@ class WApprovedCars extends React.Component {
         })
     }
     Update = (ownername,ownerid,carnumber,offer,currdate,approved) =>{
-        OfferService.UpdateOffer(ownername,ownerid,carnumber,offer,currdate,approved)
+        OfferService.AddOffer(ownername,ownerid,carnumber,offer,currdate,approved)
         setTimeout(() => this.refreshPage(),1000);
     }
     direct = (carnumber,path) =>{
