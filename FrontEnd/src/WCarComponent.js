@@ -62,13 +62,13 @@ class WCarComponent extends React.Component {
             })
         }
         if(this.state.carproccess=="Pending Offer"){
-            Service.getAllCarsHavePendingOffer .then((response)=>
+            Service.getAllCarsHavePendingOffer().then((response)=>
             {
                 this.setState({cars:response.data})
             })
         }
         if(this.state.carproccess=="Approved"){
-            Service.getAllApprovedCArs.then((response)=>
+            Service.getAllApprovedCArs().then((response)=>
             {
                 this.setState({cars:response.data})
             })

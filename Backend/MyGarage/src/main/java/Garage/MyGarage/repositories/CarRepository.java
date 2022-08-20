@@ -23,19 +23,19 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
 	
 //	Start Update Queries
 	@Modifying
-	@Query(value = "UPDATE car SET carproccess = 'Pending Offer' WHERE carnumber=?1;", nativeQuery = true)
+	@Query(value = "UPDATE car SET carproccess = 'Pending Offer' where carnumber = ?1 ", nativeQuery = true)
 	void UpdatePendingOfferCarProcess(int carnum);
 	
 	@Modifying
-	@Query(value = "UPDATE car SET carproccess = 'Approved' WHERE carnumber=?1;", nativeQuery = true)
+	@Query(value = "UPDATE car SET carproccess = 'Approved' where carnumber = ?1 ", nativeQuery = true)
 	void UpdateCarProcessapproved(int carnum);
 	
 	@Modifying
-	@Query(value = "UPDATE car SET carproccess = 'Car is Checked' WHERE carnumber=?1;", nativeQuery = true)
+	@Query(value = "UPDATE car SET carproccess = 'Car is Checked' where carnumber = ?1 ", nativeQuery = true)
 	void UpdateCarProcessdeclined(int carnum);
 	
 	@Modifying
-	@Query(value = "UPDATE car SET carproccess = 'Car Repairing Done' WHERE carnumber=?1;", nativeQuery = true)
+	@Query(value = "UPDATE car SET carproccess = 'Car Repairing Done' where carnumber = ?1 ", nativeQuery = true)
 	void UpdateCarProcessDone(int carnum);
 	
 	@Query(value = "SELECT * FROM car where carproccess like 'Pending Offer'", nativeQuery = true)
