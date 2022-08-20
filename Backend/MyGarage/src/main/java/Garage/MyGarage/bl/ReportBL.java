@@ -20,6 +20,11 @@ ReportRepository reportRepo;
 	
 	}
 	
+	public List<Report> getSpecificReport(int carNum) {
+		return reportRepo.findBycarNum(carNum);
+	
+	}
+	
 	public List<Report> getNotApprovedReport(int approved) {
 		return reportRepo.findByapproved(approved);
 	}

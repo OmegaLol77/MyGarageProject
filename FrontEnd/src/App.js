@@ -1,24 +1,17 @@
 import Navbar from './Navbar';
-import Home from './Home';
 import { BrowserRouter as Router, Route , Switch} from 'react-router-dom';
+import WSpecificCarReport from './WSpecificCarReport';
 import CarList from './CarList';
-import CarProccess from './CarProccess';
 import AddCar from './AddCar';
 import Login from './Login';
 import SignUp from './SignUp';
-import CarProccessUpdate from './CarProccessUpdate';
-import CarProccessUpdateW from './CarProccessUpdateW';
 import DeleteUser from './DeleteUser';
-import AdminLogin from './AdminLogin';
 import WorkerCarReport from './WorkerCarReport';
 import CarUpdate from './CarUpdate';
 import WorkerCarList from './WorkerCarList';
 import AdminCarList from './AdminCarList';
 import CustomerCarList from './CustomerCarList';
-
 import CheckedList from './CheckedList';
-
-
 import AdminSideNavbar from './AdminSideNavbar';
 import WorkerSideNavbar from './WorkerSideNavbar';
 import CustomerSideNavbar from './CustomerSideNavbar';
@@ -26,7 +19,6 @@ import MyCustomerCarList from './MyCustomerCarList'
 import WCarUpdate from './WCarUpdate';
 import WCarList from './WCarList';
 import AddUser from './AddUser';
-
 import CreateOffer from './CreateOffer'
 import WApprovedCars from './WApprovedCars';
 import CustomerCarOffer from './CustomerCarOffer';
@@ -191,6 +183,14 @@ export default function App() {
               </div>
               <div className="card">
                 <WApprovedCars />
+              </div>
+            </Route>
+            <Route path="/CarReport">
+              <div className='side-navbar'>
+                <WorkerSideNavbar/>
+              </div>
+              <div className="card">
+                <WSpecificCarReport />
               </div>
             </Route>
 

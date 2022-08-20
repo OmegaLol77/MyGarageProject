@@ -13,11 +13,9 @@ const checker = async () => {
   let neurl = new URL(url);
   let id = neurl.searchParams.get('id');
   carNum =id;
-  //backend.mygarage.link:8443
   return axios.get('https://backend.mygarage.link:8443/Report'+`/${carNum}/getReport`).then((res) => {
     if(res.status == 200){
       Report = res.data;
-      console.log(Report.carNum);
       return true;
     }
     if (res.status > 299){

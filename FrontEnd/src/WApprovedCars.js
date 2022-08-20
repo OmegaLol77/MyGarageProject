@@ -26,7 +26,7 @@ class WApprovedCars extends React.Component {
     }
     direct = (carnumber,path) =>{
         // make a new page to the worker where he can get the discription of a car so he can start working on it
-        ReportService.GetSpecificReport(carnumber)
+        window.location.replace(path+'?id='+carnumber);
         setTimeout(() => this.refreshPage(),1000);
     }
     refreshPage() {
@@ -56,7 +56,7 @@ class WApprovedCars extends React.Component {
                                     <td>{Offer.carnumber}</td>
                                     <td>{Offer.date}</td>
                                     <td><button className="middle" onClick={this.Update.bind(this,Offer.ownername,Offer.ownerid,Offer.carnumber,Offer.offer,Offer.currdate,3)}><BsFillCheckCircleFill/></button></td>
-                                    <td><button className="middle" onClick={this.direct.bind(this,Offer.carnumber,3)}><BsCardText/></button></td>
+                                    <td><button className="middle" onClick={this.direct.bind(this,Offer.carnumber,"/CarReport")}><BsCardText/></button></td>
                                 </tr>
                             )
                         }

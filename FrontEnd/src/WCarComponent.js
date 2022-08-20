@@ -103,7 +103,7 @@ class WCarComponent extends React.Component {
                                     <td>{cars.carnumber}</td>
                                     <td>{cars.date}</td>
                                     <td>{cars.carproccess}</td>
-                                    <td><button className="middle" onClick={this.direct.bind(this,cars.id,'/carupdatew')}><BsFileEarmarkPlus/></button></td>
+                                    <td><button className="middle" onClick={this.direct.bind(this,cars.carnumber,'/carupdatew')}><BsFileEarmarkPlus/></button></td>
                                 </tr>
                             )
                         }

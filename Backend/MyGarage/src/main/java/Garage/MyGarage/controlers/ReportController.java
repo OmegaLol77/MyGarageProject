@@ -45,6 +45,11 @@ public class ReportController {
 		return reportBl.getReport(carNum);
 	}
 	
+	@GetMapping("/{carNum}/getSpecificReport")
+	public List<Report> getSpecificReport(@PathVariable("carNum")int carNum) {
+		return reportBl.getSpecificReport(carNum);
+	}
+	
 	@GetMapping("/{approved}/getNotApproved")
 	public List<Report> getNotApproved(@PathVariable("approved")int approved) {
 		return reportBl.getNotApprovedReport(approved);

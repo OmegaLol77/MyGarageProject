@@ -14,7 +14,7 @@ class ReportService{
     }
 
     GetSpecificReport(CarNum){
-        return axios.get(NOTAPPROVED_REPORT_REST_API_URL+`/${CarNum}/getReport`);
+        return axios.get(NOTAPPROVED_REPORT_REST_API_URL+`/${CarNum}/getSpecificReport`);
     } 
    
     AddReport(carNum,descripton){

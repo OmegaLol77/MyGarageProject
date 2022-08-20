@@ -8,5 +8,6 @@ import Garage.MyGarage.beans.Report;
 public interface ReportRepository extends JpaRepository<Report, Integer> {
 	
 	public List<Report> findByapproved(int approved);
+	public List<Report> findBycarNum(int carNum);
 
 }

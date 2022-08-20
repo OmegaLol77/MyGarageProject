@@ -105,7 +105,7 @@ class CarComponent extends React.Component {
                                     <td>{cars.date}</td>
                                     <td>{cars.carproccess}</td>
                                     <td><button className="middle" onClick={this.deleteCar.bind(this, cars.id)}><BsTrash/></button></td>
-                                    <td><button className="middle" onClick={this.direct.bind(this,cars.id,'/carupdate')}><BsFileEarmarkPlus/></button></td>
+                                    <td><button className="middle" onClick={this.direct.bind(this,cars.carnumber,'/carupdate')}><BsFileEarmarkPlus/></button></td>
                                 </tr>
                             )
                         }

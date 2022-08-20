@@ -40,8 +40,10 @@ export default function CarUpdate(id) {
 
   const handleOnClick = e => {
     e.preventDefault();
-    if(PhoneNum.length===10){
-      if(carnumber.length>5 && carnumber.length<8){
+    var phonlen = car.ownerPNum.toString().length;
+    var carlen = car.carnumber.toString().length;
+    if(phonlen===10){
+      if(carlen>5 && carlen<8){
         Service.updateCar(car.ownername,car.ownerid,currdate,car.carnumber,car.carproccess,car.ownerPNum,car.id);
         setTimeout(() => refreshPage(),1000);
       }else{
@@ -50,7 +52,6 @@ export default function CarUpdate(id) {
     }else{
       alert("Phone Number Is Incorrect!!");
     }
-
   };
   
   return(
@@ -72,9 +73,7 @@ export default function CarUpdate(id) {
           setcarnumber(car.carnumber);
           setdate(car.date);
           setcarproccess(car.carproccess);
-          setPhoneNum(car.ownerPNum)
-          console.log(car.ownerid)
-          console.log(car.carnumber)
+          setPhoneNum(car.ownerPNum);
           return(
           <div className='center'>
           <h2>Car Update</h2>
@@ -88,7 +87,7 @@ export default function CarUpdate(id) {
           </div>
           <div className='inputcontent'>
             <p>Owner PhoneNum:</p>
-            <input type="text" id='ownerPNum' defaultValue={PhoneNum} onChange={(e) => setPhoneNum(e.target.value)}></input>
+            <input type="text" id='ownerPNum' defaultValue={PhoneNum} onChange={(e) => car.ownerPNum = e.target.value}></input>
           </div>
           <div className='inputcontent'>
             <p>Car Number:</p>
@@ -100,7 +99,7 @@ export default function CarUpdate(id) {
           </div>
           <div className='inputcontent'>
             <p>Car Proccess:</p>
-            <select type="SelectList" id='carproccess' defaultValue={carproccess} onChange={(e) => car.carproccess = e.target.value}>
+            <select type="SelectList" id='carproccess' defaultValue={car.carproccess} onChange={(e) => car.carproccess = e.target.value}>
               <option value="option 1">Please Choose</option>
               <option value="Car Have Pending Offer">Car Have Pending Offer</option>
               <option value="Car is Checked">Car is Checked</option>

@@ -21,6 +21,7 @@ export default function AddCar() {
   }
   const handleOnClick = e => {
     e.preventDefault();
+    console.log(PhoneNum)
     var phonlen = PhoneNum.toString().length;
     var carlen = carnumber.toString().length;
     if(phonlen===10){
