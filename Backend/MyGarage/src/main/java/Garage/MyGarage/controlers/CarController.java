@@ -29,6 +29,21 @@ public class CarController {
 		return carBL.getAllCars();
 	}
 	
+	@PostMapping("/{carnum}/UpdateCarDone")
+	public void UpdateCarDone(int carnum) {
+		carBL.UpdateCarDone(carnum);
+	}
+	
+	@GetMapping("getAllApprovedCars")
+	public List<Car>getAllApprovedCars(){
+		return carBL.getAllApprovedCars();
+	}
+	
+	@GetMapping("getAllPendingCars")
+	public List<Car>getAllPendingCars(){
+		return carBL.getAllPendingCars();
+	}
+	
 	@GetMapping("getAllCheckedCars")
 	public List<Car>getAllCheckedCars(){
 		return carBL.getAllCheckedCars();

@@ -61,6 +61,17 @@ class CarComponent extends React.Component {
                 this.setState({cars:response.data})
             })
         }
+         if(this.state.carproccess=="Pending Offer"){
+            Service.getAllCarsHavePendingOffer .then((response)=>
+            {
+                this.setState({cars:response.data})
+            })
+        }
+        if(this.state.carproccess=="Approved"){
+            Service.getAllApprovedCArs.then((response)=>
+            {
+                this.setState({cars:response.data})
+            })}
     }
 
     render (){
@@ -75,6 +86,8 @@ class CarComponent extends React.Component {
                         <option value="Car is Checked">Car is Checked</option>
                         <option value="Car Being Repaired">Car Being Repaired</option>
                         <option value="Car Repairing Done">Car Repairing Done</option>
+                        <option value="Pending Offer">Car Have Pending Offer</option>
+                        <option value="Approved">Approved</option>
                     </select>
                     <button className="button" onClick={this.handleFilter}>Filter</button>
                 </div>

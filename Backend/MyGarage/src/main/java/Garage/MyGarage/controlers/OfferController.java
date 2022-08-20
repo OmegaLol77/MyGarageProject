@@ -26,6 +26,15 @@ public class OfferController {
 	OfferBL OfferBL;
 	
 	
+	@PostMapping("/{carnum}/approveOffer")
+	public void approveOffer(@PathVariable("carnum") int carnum) {
+		OfferBL.approveOffer(carnum);
+	}
+	@PostMapping("/{carnum}/declineOffer")
+	public void declineOffer(@PathVariable("carnum") int carnum) {
+		OfferBL.declineOffer(carnum);
+	}
+	
 	@GetMapping("getAllCheckedCars")
 	public List<Car>getAllCheckedCars(){
 		return OfferBL.getAllCheckedCars();

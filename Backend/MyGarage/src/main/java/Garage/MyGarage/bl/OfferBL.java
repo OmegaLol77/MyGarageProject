@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import Garage.MyGarage.beans.Admin;
 import Garage.MyGarage.beans.Car;
@@ -20,6 +21,14 @@ public class OfferBL {
 	OfferRepository offerRepo;
 	@Autowired
 	CarRepository carRepo;
+	
+	public void approveOffer(int carnum) {
+		carRepo.UpdateCarProcessapproved(carnum);
+	}
+	public void declineOffer(int carnum) {
+		carRepo.UpdateCarProcessdeclined(carnum);
+	}
+	
 	
 	public List<Car> getAllCheckedCars(){
 		return carRepo.getAllCheckedCars();
@@ -51,6 +60,7 @@ public class OfferBL {
 	public boolean addOffer(Offer offer) {
 		try {
 			offerRepo.save(offer);
+			carRepo.UpdatePendingOfferCarProcess(offer.getCarnumber());
 			return true;
 		}catch(Exception e) {
 			e.printStackTrace();

@@ -25,6 +25,19 @@ public class CarBL {
 		return carRepo.findAll();
 	}
 	
+	public void UpdateCarDone(int carnum) {
+		carRepo.UpdateCarProcessDone(carnum);
+	}
+	
+	public List<Car> getAllApprovedCars(){
+		return carRepo.getAllApprovedCars();
+	}
+	
+	public List<Car> getAllPendingCars(){
+		return carRepo.getAllPendingCars();
+	}
+	
+	
 	public List<Car> getAllCheckedCars(){
 		return carRepo.getAllCheckedCars();
 	}

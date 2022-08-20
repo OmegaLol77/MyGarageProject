@@ -26,10 +26,12 @@ class CustomerCarOffer extends React.Component {
 
     approve = (offer) =>{
         OfferService.AddOffer(offer.ownername,offer.ownerid,offer.carnumber,offer.offer,offer.date,1);
+        OfferService.approveOffer(offer.carnumber);
         setTimeout(() => this.refreshPage(),1000);
     }
     decline = (offer) =>{
         OfferService.AddOffer(offer.ownername,offer.ownerid,offer.carnumber,offer.offer,offer.date,2);
+        OfferService.declineOffer(offer.carnumber);
         setTimeout(() => this.refreshPage(),1000);
     }
     refreshPage() {

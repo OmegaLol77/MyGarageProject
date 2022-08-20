@@ -8,6 +8,9 @@ const UPDATECARS_REST_API_URL = 'https://backend.mygarage.link:8443/Car';
 const CHECKEDCARS_REST_API_URL='https://backend.mygarage.link:8443/Car/getAllCheckedCars';
 const REPAIRINGCARS_REST_API_URL='https://backend.mygarage.link:8443/Car/getAllBeingRepairedCars';
 const REPAIREDCARS_REST_API_URL='https://backend.mygarage.link:8443/Car/getAllRepairedCars';
+const UPDATECARDONE_REST_API_URL='https://backend.mygarage.link:8443/Car';
+const ApprovedCARS_REST_API_URL='https://backend.mygarage.link:8443/Car/getAllApprovedCars';
+const PendingCARS_REST_API_URL='https://backend.mygarage.link:8443/Car/getAllPendingCars';
 
 
 
@@ -30,6 +33,12 @@ class Service{
     getAllBeingRepairedCars(){
         return axios.get(REPAIRINGCARS_REST_API_URL);
     }
+    getAllApprovedCArs(){
+        return axios.get(ApprovedCARS_REST_API_URL);
+    }
+    getAllCarsHavePendingOffer(){
+        return axios.get(PendingCARS_REST_API_URL);
+    }
 
     getAllRepairedCars(){
         return axios.get(REPAIREDCARS_REST_API_URL);
@@ -51,6 +60,9 @@ class Service{
             return response.data;
         },(error)=>
             console.log(error));
+    }
+    updateCarProcessDone(carnum){
+        axios.post(UPDATECARDONE_REST_API_URL+`/${carnum}/UpdateCarDone`)
     }
 
     updateCar(on,oi,d,cn,cp,pn,id){
