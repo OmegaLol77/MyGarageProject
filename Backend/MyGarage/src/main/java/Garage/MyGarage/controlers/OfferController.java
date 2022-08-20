@@ -67,16 +67,12 @@ public class OfferController {
 	
 	@PostMapping("addOffer")
 	public boolean addOffer(@RequestBody Offer offer) {
-
 		try {
-			
 			return OfferBL.addOffer(offer);
-			
 		}
 		catch (Exception e) {
 			return false;		} 
-			
-		
+
 	}
 	@DeleteMapping("/{carnum}/deleteOffer")
 	public boolean deleteAdmin(@PathVariable("carnumber") Integer carnum) {

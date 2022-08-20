@@ -40,7 +40,7 @@ function saveOffer(Offer){
     ownerid=car.ownerid;
     console.log(Offer)
     OfferService.AddOffer(ownername,ownerid,carNum,Offer,currdate,0);
-    setTimeout(() => refreshPage(),1000);
+    // setTimeout(() => refreshPage(),1000);
   })
 };
 

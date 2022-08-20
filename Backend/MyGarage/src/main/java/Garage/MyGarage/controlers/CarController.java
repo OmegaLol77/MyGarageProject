@@ -30,7 +30,7 @@ public class CarController {
 	}
 	
 	@PostMapping("/{carnum}/UpdateCarDone")
-	public void UpdateCarDone(int carnum) {
+	public void UpdateCarDone(@PathVariable("carnum") int carnum) {
 		carBL.UpdateCarDone(carnum);
 	}
 	
