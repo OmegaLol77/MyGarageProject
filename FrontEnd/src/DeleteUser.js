@@ -17,16 +17,22 @@ export default function DeleteUser(){
         e.preventDefault();
         console.log(usertype)
         if(usertype === 'Admin'){
-          AdminService.DeleteAdmin(userid);
-          setTimeout(() => refreshPage(),1000);
+          if(userid==="0520010010"){
+            alert("This User Cant Be Deleted")
+          }else{
+            AdminService.DeleteAdmin(userid);
+            setTimeout(() => refreshPage(),1000);
+          }
         }
-        if(usertype === 'Worker'){
+        else if(usertype === 'Worker'){
           WorkerService.DeleteWorker(userid);
           setTimeout(() => refreshPage(),1000);
         }
-        if(usertype === 'Customer'){
+        else if(usertype === 'Customer'){
           CustomerService.DeleteCustomer(userid);
           setTimeout(() => refreshPage(),1000);
+        }else{
+          alert("Please Select User Type!!")
         }
 
       };

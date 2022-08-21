@@ -21,11 +21,15 @@ class AdminService{
             })
     }
     DeleteAdmin(phoneNum){
-        axios.delete(ADMIN_REST_API_URL+'/'+`${phoneNum}/deleteAdmin`)
-        .then((response)=>{
-            alert.log("Admin Deleted Successfully");
-        },(error)=>
-            console.log(error));
+        if(phoneNum==="0520010010"){
+            alert("This User Cannot Be Deleted!!")
+        }else{
+            axios.delete(ADMIN_REST_API_URL+'/'+`${phoneNum}/deleteAdmin`)
+            .then((response)=>{
+                alert.log("Admin Deleted Successfully");
+            },(error)=>
+                console.log(error));
+        }
     }
 
     AddAdmin(FirstName,LastName,Email,Password,phoneNum){

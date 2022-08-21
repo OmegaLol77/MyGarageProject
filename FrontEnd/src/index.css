@@ -332,4 +332,7 @@ h2{
     padding: 20px;
     border-radius: 25px;
   }
+  input{
+    width: 15vw;
+  }
 }
