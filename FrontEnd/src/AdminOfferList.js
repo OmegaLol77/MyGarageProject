@@ -24,7 +24,7 @@ class AdminOfferList extends React.Component {
         this.setState({carnumber: event.target.value});
     }
 
-    handleFilter(carnum){
+    handleFilter(){
         if(this.state.carnumber===""){
             OfferService.getApprovedOffers(3).then((response)=>
             {

@@ -56,7 +56,7 @@ class WApprovedCars extends React.Component {
                                     <td>{Offer.ownername}</td>
                                     <td>{Offer.carnumber}</td>
                                     <td>{Offer.date}</td>
-                                    <td><button className="middle" onClick={this.Update.bind(this,Offer.ownername,Offer.ownerid,Offer.carnumber,Offer.offer,Offer.currdate,3)}><BsFillCheckCircleFill/></button></td>
+                                    <td><button className="middle" onClick={this.Update.bind(this,Offer.ownername,Offer.ownerid,Offer.carnumber,Offer.offer,Offer.date,3)}><BsFillCheckCircleFill/></button></td>
                                     <td><button className="middle" onClick={this.direct.bind(this,Offer.carnumber,"/CarReport")}><BsCardText/></button></td>
                                 </tr>
                             )
