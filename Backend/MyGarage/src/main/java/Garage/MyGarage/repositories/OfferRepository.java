@@ -7,10 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 
 import Garage.MyGarage.beans.Car;
 import Garage.MyGarage.beans.Offer;
+import Garage.MyGarage.beans.Report;
 
 public interface OfferRepository extends JpaRepository<Offer, Integer>{
 	
 	public List<Offer> findBycarnumber(int carnumber);
+	
+	@Query(value = "SELECT * FROM offer where carnumber = ?1 AND approved =?2 ", nativeQuery = true)
+	List<Offer> findFinishedOffers(int carnumber,int approved);
 	
 	@Query(value = "SELECT * FROM offer where carnumber = ?1 AND approved =?2 ", nativeQuery = true)
 	List<Offer> findMyOffers(int carnumber,int approved);

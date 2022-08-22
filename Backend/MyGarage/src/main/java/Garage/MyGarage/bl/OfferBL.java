@@ -38,6 +38,10 @@ public class OfferBL {
 		return offerRepo.findMyOffers(carnumber,approved);
 	}
 	
+	public List<Offer> findFinishedOffers(int carnumber,int approved){
+		return offerRepo.findFinishedOffers(carnumber,approved);
+	}
+	
 	public List<Offer> findApprovedOffers(int approved){
 		return offerRepo.findApprovedOffers(approved);
 	}

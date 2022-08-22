@@ -43,7 +43,7 @@ export default function CarUpdate(id) {
     var phonlen = car.ownerPNum.toString().length;
     var carlen = car.carnumber.toString().length;
     if(phonlen===10){
-      if(carlen>5 && carlen<8){
+      if(carlen>6 && carlen<9){
         Service.updateCar(car.ownername,car.ownerid,currdate,car.carnumber,car.carproccess,car.ownerPNum,car.id);
         setTimeout(() => refreshPage(),1000);
       }else{

@@ -25,7 +25,7 @@ export default function AddCar() {
     var phonlen = PhoneNum.toString().length;
     var carlen = carnumber.toString().length;
     if(phonlen===10){
-      if(carlen>5 && carlen<8){
+      if(carlen>6 && carlen<9){
         Service.AddCar(ownername,ownerid,currdate,carnumber,carproccess,PhoneNum);
         setTimeout(() => refreshPage(),1000);
       }else{

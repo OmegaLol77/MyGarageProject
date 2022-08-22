@@ -23,6 +23,7 @@ import CreateOffer from './CreateOffer'
 import WApprovedCars from './WApprovedCars';
 import CustomerCarOffer from './CustomerCarOffer';
 import AdminNotApprovedOffers from './AdminNotApprovedOffers';
+import AdminOfferList from './AdminOfferList';
 
 export default function App() {
 
@@ -132,7 +133,14 @@ export default function App() {
                 <AdminNotApprovedOffers />
               </div>
             </Route>
-
+            <Route path="/AdminOfferList">
+              <div className='side-navbar'>
+                <AdminSideNavbar/>
+              </div>
+              <div className="card">
+                <AdminOfferList/>
+              </div>
+            </Route>
 
 
 

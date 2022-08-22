@@ -45,6 +45,11 @@ public class OfferController {
 		return OfferBL.findMyOffers(carnumber,0);
 	}
 	
+	@GetMapping("/{carnumber}/findFinishedOffers")
+	public List<Offer>findFinishedOffers(@PathVariable("carnumber") Integer carnumber){
+		return OfferBL.findFinishedOffers(carnumber,3);
+	}
+	
 	@GetMapping("/{approved}/getApprovedOffers")
 	public List<Offer>findApprovedOffers(@PathVariable("approved") Integer approved){
 		return OfferBL.findApprovedOffers(approved);

@@ -7,9 +7,15 @@ class OfferService{
     getAllCheckedCars(){
         return axios.get(CHECKEDCARS_REST_API_URL);
     }
+
+    findFinishedOffers(carnum){
+        return axios.get('https://backend.mygarage.link:8443/Offer/'+`${carnum}/findFinishedOffers`);
+    }
+
     approveOffer(carnum){
         return axios.post('https://backend.mygarage.link:8443/Offer/'+`${carnum}/approveOffer`);
     }
+
     declineOffer(carnum){
         return axios.post('https://backend.mygarage.link:8443/Offer/'+`${carnum}/declineOffer`);
     }
