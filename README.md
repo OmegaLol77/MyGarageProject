@@ -5,5 +5,3 @@ The information will be accessible from anywhere while maintaining a connection 
 The customer option to pause, cancel or re do the prosses if needed and more….
 The project is being written on React Js, Spring Boot and MySQL.
 
-Link to the website:
-mygarage.link
